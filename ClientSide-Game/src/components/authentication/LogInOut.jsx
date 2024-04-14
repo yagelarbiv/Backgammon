@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavBar = () => {
+const LogInOut = () => {
   return (
     <nav>
       <ul>
@@ -23,4 +23,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default LogInOut;

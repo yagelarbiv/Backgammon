@@ -1,9 +1,20 @@
-// App.js
 import React from "react";
-import DataDisplay from "./components/chat/DataDisplay";
+import "./App.css";
+import ChatApp from "./components/chat/ChatApp";
+import NavBar from "./components/Game/NavBar";
+
 
 function App() {
-  return <DataDisplay />;
+  return(
+  <>
+    
+    {/* <div className="App">
+      <AuthPage/>
+    </div> */}
+    <NavBar/>
+     <ChatApp/>
+  </>
+  )
 }
 
 export default App;

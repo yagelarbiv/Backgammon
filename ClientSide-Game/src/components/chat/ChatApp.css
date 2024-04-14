@@ -1,0 +1,117 @@
+/* ChatApp.css */
+
+.chat-app {
+    display: flex;
+    height: 94vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    overflow: auto;
+}
+
+.chat-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #34495e;
+    color: white;
+}
+
+.chat-header {
+    padding: 10px;
+    background-color: #2980b9;
+    text-align: center;
+    font-size: 24px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.message-list {
+    flex: 1;
+    overflow: auto;
+    padding: 10px;
+}
+
+.message-input {
+    display: flex;
+    padding: 10px;
+    background-color: #2c3e50;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.message-input button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.message {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    display: inline-block;
+    max-width: 70%;
+}
+
+.sender {
+    background-color: #c0392b;
+    align-self: flex-end;
+    color: white;
+}
+
+.recipient {
+    background-color: #8e44ad;
+    align-self: flex-start;
+    color: white;
+}
+
+.message-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.message-sender {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.message-timestamp {
+    font-size: 0.8em;
+    color: #bdc3c7;
+}
+
+.message-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-item{
+    display: flex;
+    justify-content: center;
+    border: #bbb 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.chats-header{
+    margin-bottom: 20px;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
