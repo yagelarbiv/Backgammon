@@ -5,6 +5,7 @@ using AuthenticationServer.Models.Entities;
 using AuthenticationServer.Services.Hash;
 using AuthenticationServer.Services.TokenGenerator.AccesToken;
 using AuthenticationServer.Services.TokenGenerator.RefreshToken;
+using Microsoft.AspNetCore.Identity;
 
 namespace AuthenticationServer.Services.Service
 {
@@ -29,6 +30,8 @@ namespace AuthenticationServer.Services.Service
                 throw new InvalidOperationException("Invalid password");
             string AccessToken = tokenGenerator.GenerateAccessToken(user);
             string RefreshYoken = refreshTokenGenerator.GenerateRefreshToken();
+            user.RefreshToken = RefreshYoken;
+            await tokenRepository.Update(user);
             return [AccessToken, RefreshYoken];
         }
 
@@ -64,15 +67,15 @@ namespace AuthenticationServer.Services.Service
 
         public async Task<string[]> ReturnTokens(AppUser user)
         {
-            string RefreshYoken = refreshTokenGenerator.GenerateRefreshToken();
             var User = new AppUser
             {
                 UserName = user.UserName,
                 PasswordHash = user.PasswordHash,
-                RefreshToken = RefreshYoken
+                RefreshToken = user.RefreshToken
             };
             string AccessToken = tokenGenerator.GenerateAccessToken(user);
-            return [AccessToken, RefreshYoken];
+            await tokenRepository.Update(User);
+            return [AccessToken, user.RefreshToken];
         }
     }
 }

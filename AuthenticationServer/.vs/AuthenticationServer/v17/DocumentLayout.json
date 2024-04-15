@@ -1,30 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\asp\\authenticationserver\\authenticationserver.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AuthenticationServer.Services\\Service\\AuthenticationService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\asp\\authenticationserver\\authenticationserver.services\\service\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\service\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\asp\\authenticationserver\\authenticationserver.data\\repositories\\refreshtoken\\inmemoryrefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|solutionrelative:authenticationserver.data\\repositories\\refreshtoken\\inmemoryrefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\asp\\authenticationserver\\authenticationserver.api\\models\\requests\\refreshrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\models\\requests\\refreshrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\asp\\authenticationserver\\authenticationserver.services\\service\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\service\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\asp\\authenticationserver\\authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AuthenticationServer.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,34 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
-              "RelativeToolTip": "AuthenticationServer.Api\\Program.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAApwCAAAABHAAAA",
+              "DocumentIndex": 0,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "RelativeToolTip": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAgwEQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T08:27:26.554Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-04-14T13:48:29.79Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAowDwAAABTAAAA",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
+              "RelativeDocumentMoniker": "AuthenticationServer.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
+              "RelativeToolTip": "AuthenticationServer.Api\\Program.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAMwBQAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T07:17:43.217Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-04-07T08:27:26.554Z",
               "EditorCaption": ""
             },
             {
@@ -83,58 +65,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InMemoryRefreshTokenRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "RelativeToolTip": "AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T13:12:17.661Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "RelativeToolTip": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAgwEAAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T13:48:29.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RefreshRequest.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Api\\Models\\Requests\\RefreshRequest.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Api\\Models\\Requests\\RefreshRequest.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Api\\Models\\Requests\\RefreshRequest.cs",
-              "RelativeToolTip": "AuthenticationServer.Api\\Models\\Requests\\RefreshRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T13:54:42.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IAuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Asp\\AuthenticationServer\\AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
-              "RelativeToolTip": "AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T13:53:36.291Z",
-              "EditorCaption": ""
             }
           ]
         }

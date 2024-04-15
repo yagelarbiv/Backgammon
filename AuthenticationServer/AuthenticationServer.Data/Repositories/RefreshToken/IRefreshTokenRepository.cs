@@ -11,5 +11,6 @@ namespace AuthenticationServer.Data.Repositories.RefreshToken
     {
         Task<AppUser> GetByToken(string token);
         Task Create(AppUser user);
+        Task Update(AppUser user);
     }
 }

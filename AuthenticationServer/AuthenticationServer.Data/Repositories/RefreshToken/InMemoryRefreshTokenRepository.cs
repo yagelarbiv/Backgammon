@@ -21,5 +21,13 @@ namespace AuthenticationServer.Data.Repositories.RefreshToken
             var user = await context.AppUsers.SingleOrDefaultAsync(u => u.RefreshToken == token);
             return user ?? throw new EntityNotFoundException("user not found");
         }
+
+        public async Task Update(AppUser user)
+        {
+            if (user == null)
+                throw new EntityNotFoundException("user not found");
+            context.Update<AppUser>(user);
+            await context.SaveChangesAsync();
+        }
     }
 }

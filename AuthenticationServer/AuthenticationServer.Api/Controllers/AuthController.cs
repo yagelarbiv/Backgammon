@@ -10,7 +10,9 @@ namespace AuthenticationServer.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController(IAuthenticationService service, IAppUserRepository repository, RefreshTokenValidators validators) : ControllerBase
+    public class AuthController(IAuthenticationService service, 
+        IAppUserRepository repository, 
+        RefreshTokenValidators validators) : ControllerBase
     {
         [HttpPost]
         [Route("register")]
