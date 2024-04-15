@@ -12,8 +12,8 @@ namespace AuthenticationServer.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController(IAuthenticationService service, 
-        IAppUserRepository repository, 
+    public class AuthController(IAuthenticationService service,
+        IAppUserRepository repository,
         RefreshTokenValidators validators) : ControllerBase
     {
         [HttpPost("register")]
@@ -32,7 +32,7 @@ namespace AuthenticationServer.Api.Controllers
                     AccessToken = tokens[0],
                     RefreshToken = tokens[1]
                 });
-            }    
+            }
             catch (Exception ex)
             {
                 return Problem(ex.Message);
@@ -70,12 +70,12 @@ namespace AuthenticationServer.Api.Controllers
             var RefreshToken = await service.Refresh(request.RefreshToken);
             if (RefreshToken == null)
                 return BadRequest(new ErrorResponse("Invalid refresh token"));
-           var tokens = await service.ReturnTokens(RefreshToken);
-           return Ok(new AuthenticatedUserResponse
-           {
-               AccessToken = tokens[0],
-               RefreshToken = tokens[1]
-           });
+            var tokens = await service.ReturnTokens(RefreshToken);
+            return Ok(new AuthenticatedUserResponse
+            {
+                AccessToken = tokens[0],
+                RefreshToken = tokens[1]
+            });
         }
 
         [Authorize]

@@ -12,7 +12,7 @@ namespace AuthenticationServer.Services.TokenGenerator.AccesToken
     {
         public string GenerateAccessToken(AppUser user)
         {
-            var claims = new Claim[] { new("Id", user.Id.ToString()) };
+            var claims = new Claim[] { new("Id", user.Id.ToString()), new(ClaimTypes.Name, user.UserName) };
             SigningCredentials credentials = GenerateCredentials(Configuration.AccessTokenSecret);
             var utcExpirationTime = DateTime.UtcNow.AddMinutes(Configuration.AccessTokenExpirationMinutes);
 
