@@ -4,7 +4,9 @@ using AuthenticationServer.Data.Repositories.Users;
 using AuthenticationServer.Models.Entities;
 using AuthenticationServer.Services.Service;
 using AuthenticationServer.Services.TokenGenerator.TokenValidators;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace AuthenticationServer.Api.Controllers
 {
@@ -14,8 +16,7 @@ namespace AuthenticationServer.Api.Controllers
         IAppUserRepository repository, 
         RefreshTokenValidators validators) : ControllerBase
     {
-        [HttpPost]
-        [Route("register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
             if (!ModelState.IsValid)
@@ -38,8 +39,7 @@ namespace AuthenticationServer.Api.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("login")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             if (!ModelState.IsValid)
@@ -78,6 +78,19 @@ namespace AuthenticationServer.Api.Controllers
            });
         }
 
+        [Authorize]
+        [HttpDelete("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            string rawUserId = HttpContext.User.FindFirstValue("id");
+            if (!Guid.TryParse(rawUserId, out var UserId))
+            {
+                return Unauthorized();
+            }
+            else
+                await service.Logout(UserId);
+            return Ok();
+        }
         private IActionResult BadRequestModelState()
         {
             IEnumerable<string> errorMessages = ModelState.Values.SelectMany(v => v.Errors.Select(b => b.ErrorMessage));

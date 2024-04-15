@@ -7,7 +7,10 @@ using AuthenticationServer.Services.Service;
 using AuthenticationServer.Services.TokenGenerator.AccesToken;
 using AuthenticationServer.Services.TokenGenerator.RefreshToken;
 using AuthenticationServer.Services.TokenGenerator.TokenValidators;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace AuthenticationServer.Api;
 
@@ -22,7 +25,7 @@ public class Program
         builder.Services.AddTransient<IAppUserRepository, AppUserRepository>();
 
         var authenticationConfiguratio = new AuthenticationConfiguration();
-        builder.Configuration.Bind("Authentication", authenticationConfiguratio);   
+        builder.Configuration.Bind("Authentication", authenticationConfiguratio);
         builder.Services.AddSingleton(authenticationConfiguratio);
         builder.Services.AddSingleton<RefreshTokenValidators>();
 
@@ -31,6 +34,21 @@ public class Program
         builder.Services.AddTransient<IPasswordHasher, BcryptPasswordhasher>();
         builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
         builder.Services.AddTransient<IRefreshTokenRepository, InMemoryRefreshTokenRepository>();
+
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(option =>
+        {
+            option.TokenValidationParameters = new TokenValidationParameters
+            {
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authenticationConfiguratio.AccessTokenSecret)),
+                ValidIssuer = authenticationConfiguratio.Issuer,
+                ValidAudience = authenticationConfiguratio.Audience,
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ClockSkew = TimeSpan.Zero
+            };
+        });
 
         builder.Services.AddControllers();
 
@@ -46,7 +64,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
+        app.UseAuthentication();
         app.UseAuthorization();
 
 

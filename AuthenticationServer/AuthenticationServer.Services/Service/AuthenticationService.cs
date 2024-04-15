@@ -65,13 +65,21 @@ namespace AuthenticationServer.Services.Service
             return await tokenRepository.GetByToken(refreshToken);
         }
 
+        public async Task Logout(Guid Id)
+        {
+            var user = await repository.GetByUserId(Id);
+            user.RefreshToken = null;
+            await tokenRepository.Update(user);
+        }
+
         public async Task<string[]> ReturnTokens(AppUser user)
         {
+            string RefreshToken = refreshTokenGenerator.GenerateRefreshToken();
             var User = new AppUser
             {
                 UserName = user.UserName,
                 PasswordHash = user.PasswordHash,
-                RefreshToken = user.RefreshToken
+                RefreshToken = RefreshToken
             };
             string AccessToken = tokenGenerator.GenerateAccessToken(user);
             await tokenRepository.Update(User);

@@ -28,6 +28,12 @@ namespace AuthenticationServer.Data.Repositories.Users
             return user ?? throw new EntityNotFoundException("user not found");
         }
 
+        public async Task<AppUser> GetByUserId(Guid Id)
+        {
+            var user = await context.AppUsers.SingleOrDefaultAsync(u => u.Id == Id);
+            return user ?? throw new EntityNotFoundException("user not found");
+        }
+
         public async Task<bool> UserExists(string userName)
         {
             return await context.AppUsers.AnyAsync(u => u.UserName == userName);
