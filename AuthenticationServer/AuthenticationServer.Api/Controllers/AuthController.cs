@@ -13,7 +13,6 @@ namespace AuthenticationServer.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController(IAuthenticationService service,
-        IAppUserRepository repository,
         RefreshTokenValidators validators) : ControllerBase
     {
         [HttpPost("register")]
@@ -82,7 +81,7 @@ namespace AuthenticationServer.Api.Controllers
         [HttpDelete("logout")]
         public async Task<IActionResult> Logout()
         {
-            string rawUserId = HttpContext.User.FindFirstValue("id");
+            string? rawUserId = HttpContext.User.FindFirstValue("id");
             if (!Guid.TryParse(rawUserId, out var UserId))
             {
                 return Unauthorized();
