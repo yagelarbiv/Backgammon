@@ -8,9 +8,9 @@ const LogIn = () => {
     <>
       <div>
         <h1>Log In</h1>
-        <form>
+        <form method="POST">
           <label htmlFor="username">UserName</label>
-          <input id="username" type="text" />
+          <input name="username" id="username" type="text" value={name} />
           <label htmlFor="password">Password</label>
           <input id="password" type="password" />
           <button type="submit">Log In</button>

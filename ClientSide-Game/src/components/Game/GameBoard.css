@@ -1,0 +1,76 @@
+/* GameBoard.css */
+.game-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #deb887; /* A light brown background, typically seen in backgammon boards */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* For absolute positioning of the dice */
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
+    position: relative;
+    border: #000 3px solid;
+  }
+  
+  .point {
+    width: 50px;
+    height: 200px;
+    background: linear-gradient(to bottom, #fff 50%, #000 50%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%); /* Triangle pointing downwards */
+    position: relative;
+  }
+  
+  .point:nth-child( n + 13 ) {
+
+    clip-path: polygon(0 100%, 100% 100%, 50% 0); /* Triangle pointing upwards */
+  }
+  .point:nth-child( odd ) {
+    background: linear-gradient(to bottom, #000 50%, #fff 50%);
+  }
+  .checker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px; /* Adjust as necessary based on the stack of checkers */
+    left: 5px;
+  }
+  
+  .checker.red {
+    background: #d63031;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .checker.yellow {
+    background: #f1c40f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dice {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .die {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #000;
+    border-radius: 4px;
+  }
+  
