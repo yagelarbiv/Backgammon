@@ -2,6 +2,7 @@ using AuthenticationServer.Data;
 using AuthenticationServer.Data.Repositories.RefreshToken;
 using AuthenticationServer.Data.Repositories.Users;
 using AuthenticationServer.Models;
+using AuthenticationServer.Models.Entities;
 using AuthenticationServer.Services.Hash;
 using AuthenticationServer.Services.Service;
 using AuthenticationServer.Services.TokenGenerator.AccesToken;
@@ -51,6 +52,8 @@ public class Program
         });
 
         builder.Services.AddControllers();
+
+        builder.Services.AddIdentityCore<AppUser>();
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();

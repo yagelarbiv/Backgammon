@@ -5,6 +5,7 @@ using AuthenticationServer.Models.Entities;
 using AuthenticationServer.Services.Service;
 using AuthenticationServer.Services.TokenGenerator.TokenValidators;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 

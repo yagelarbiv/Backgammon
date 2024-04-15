@@ -43,9 +43,9 @@ namespace AuthenticationServer.Services.Service
             if (await repository.UserExists(username))
                 throw new InvalidOperationException("UserName Unavailable");
             string RefreshYoken = refreshTokenGenerator.GenerateRefreshToken();
-            var user = new AppUser 
-            { 
-                UserName = username, 
+            var user = new AppUser
+            {
+                UserName = username,
                 PasswordHash = hasher.Hash(password),
                 RefreshToken = RefreshYoken
             };

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AuthenticationServer.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4dfca0aad145df48948f45e7a38bf65cbd7778ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9dcbfce57bb187946f5f83d33e064dac9038a736")]
 [assembly: System.Reflection.AssemblyProductAttribute("AuthenticationServer.UnitTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AuthenticationServer.UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
