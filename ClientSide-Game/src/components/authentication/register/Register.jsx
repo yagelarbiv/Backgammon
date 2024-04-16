@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 const Register = () => {
@@ -38,6 +38,7 @@ const Register = () => {
   return (
     <>
       <h1>Register</h1>
+      <p>if you are already registered go to the <Link to="/login">LogIn</Link> Page</p>
       <form onSubmit={submit}>
         <label htmlFor="username">UserName</label>
         <input

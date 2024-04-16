@@ -9,7 +9,7 @@ function ChatApp() {
     //const [currentMessage, setCurrentMessage] = useState("");
     const [messages, setMessages] = useState([]);
     const [socket, setSocket] = useState(null);
-    const [name, setName] = useState(localStorage.getItem("User").username);
+    const [name, setName] = useState('');
     const [currentMessage, setCurrentMessage] = useState("");
 
 

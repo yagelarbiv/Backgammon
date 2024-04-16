@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const [userName, setName] = useState("");
@@ -33,6 +33,7 @@ const LogIn = () => {
       <>
         <div>
           <h1>Log In</h1>
+          <p>if you are already registered go to the <Link to="/register">SignUp</Link> Page</p>
           <form method="POST">
             <label htmlFor="username">UserName</label>
             <input name="username" id="username" type="text" onChange={(e) => setName(e.target.value)} />
