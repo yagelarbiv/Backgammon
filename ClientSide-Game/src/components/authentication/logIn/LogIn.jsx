@@ -18,11 +18,11 @@ const LogIn = () => {
         Password: password,
       })
       .then(function (response) {
-        localStorage.setItem("User", {
+        localStorage.setItem("User", JSON.stringify({
           username: jwtDecode(response.data.accessToken)["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
-          AccessToken: response.data.AccessToken,
-          RefreshToken: response.data.RefreshToken
-        });
+          AccessToken: response.data.accessToken,
+          RefreshToken: response.data.refreshToken
+        }));
         navigate("/");
       })
     } catch (err) {
@@ -38,7 +38,7 @@ const LogIn = () => {
             <input name="username" id="username" type="text" onChange={(e) => setName(e.target.value)} />
             <label htmlFor="password">Password</label>
             <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
-            <button type="submit" onClick={submit}>Log In</button>
+            <button disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
           </form>
         </div>
       </>

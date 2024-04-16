@@ -82,13 +82,13 @@ namespace AuthenticationServer.Api.Controllers
         [HttpDelete("logout")]
         public async Task<IActionResult> Logout()
         {
-            string? rawUserId = HttpContext.User.FindFirstValue("id");
-            if (!Guid.TryParse(rawUserId, out var UserId))
+            string? rawUsername = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+            if (rawUsername == null && rawUsername == "")
             {
                 return Unauthorized();
             }
             else
-                await service.Logout(UserId);
+                await service.Logout(rawUsername);
             return Ok();
         }
         private IActionResult BadRequestModelState()

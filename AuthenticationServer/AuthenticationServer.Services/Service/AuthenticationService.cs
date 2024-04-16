@@ -65,9 +65,9 @@ namespace AuthenticationServer.Services.Service
             return await tokenRepository.GetByToken(refreshToken);
         }
 
-        public async Task Logout(Guid Id)
+        public async Task Logout(string name)
         {
-            var user = await repository.GetByUserId(Id);
+            var user = await repository.GetByUserName(name);
             user.RefreshToken = null;
             await tokenRepository.Update(user);
         }

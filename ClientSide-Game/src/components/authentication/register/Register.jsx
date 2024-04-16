@@ -10,7 +10,7 @@ const Register = () => {
   const navigate = useNavigate();
   async function submit(e) {
     e.preventDefault();
-    console.log(name, password);
+    console.log(userName, password);
     try {
       await axios.post("https://localhost:6001/api/auth/register", {
         UserName: userName,
@@ -18,11 +18,13 @@ const Register = () => {
         ConfirmPassword: confirmPassword
       })
       .then(function (response) {
-        localStorage.setItem("User", {
+        console.log(response.data.accessToken);
+        localStorage.setItem("User", JSON.stringify({
           username: jwtDecode(response.data.accessToken)["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
-          AccessToken: response.data.AccessToken,
-          RefreshToken: response.data.RefreshToken
-        });
+          AccessToken: response.data.accessToken,
+          RefreshToken: response.data.refreshToken
+        }));
+        console.log(JSON.parse(localStorage.getItem("User")));
         navigate("/");
       })
       .catch(function (error) {
@@ -55,7 +57,7 @@ const Register = () => {
           type="password"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type="submit" onClick={submit}>Sign Up</button>
+        <button disabled={password.localeCompare(confirmPassword)} type="submit" onClick={submit}>Sign Up</button>
       </form>
     </>
   );

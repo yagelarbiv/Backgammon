@@ -8,5 +8,5 @@ public interface IAuthenticationService
     Task<string[]> Register(string username, string password);
     Task<AppUser> Refresh(string refreshToken);
     Task<string[]> ReturnTokens(AppUser user);
-    Task Logout(Guid Id);
+    Task Logout(string name);
 }

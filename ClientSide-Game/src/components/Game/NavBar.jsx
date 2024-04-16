@@ -1,4 +1,3 @@
-import React from 'react'
 
 function NavBar() {
     
@@ -34,7 +33,7 @@ function NavBar() {
     ></script>
     <script
     src="https://cdn.socket.io/4.6.0/socket.io.min.js"
-     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossOrigin="anonymous">
     </script>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
