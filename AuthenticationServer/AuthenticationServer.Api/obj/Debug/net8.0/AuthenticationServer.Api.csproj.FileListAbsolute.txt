@@ -431,3 +431,9 @@ C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationSe
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\obj\Debug\net8.0\AuthenticationServer.Api.pdb
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\obj\Debug\net8.0\AuthenticationServer.Api.genruntimeconfig.cache
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\obj\Debug\net8.0\ref\AuthenticationServer.Api.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Web.Cors.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Net.Http.Formatting.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Web.Http.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Web.Http.Cors.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

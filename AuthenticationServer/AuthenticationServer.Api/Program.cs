@@ -35,6 +35,7 @@ public class Program
         builder.Services.AddTransient<IPasswordHasher, BcryptPasswordhasher>();
         builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
         builder.Services.AddTransient<IRefreshTokenRepository, InMemoryRefreshTokenRepository>();
+        
 
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(option =>
@@ -53,10 +54,12 @@ public class Program
 
         builder.Services.AddControllers();
 
-        builder.Services.AddIdentityCore<AppUser>();
-
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddCors(option => option.AddPolicy("AllowCors", builder =>
+        {
+            builder.WithOrigins("http://localhost:5173").AllowAnyHeader().AllowAnyMethod();
+        }));
 
         var app = builder.Build();
 
@@ -67,10 +70,11 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-        app.UseAuthentication();
+
         app.UseAuthorization();
 
-
+        app.UseCors("AllowCors");
+        
         app.MapControllers();
 
         app.Run();
