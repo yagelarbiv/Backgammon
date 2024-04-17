@@ -1,42 +1,42 @@
-import React from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
 const Register = () => {
+  const authUrl = import.meta.env.VITE_APP_AUTH_URL;
+
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  const submit = async (e) => {
+  async function submit(e) {
     e.preventDefault();
-    // const formData = new FormData(e.currentTarget);
-    // const user = Object.fromEntries(formData);
+    console.log(userName, password);
     try {
-      const data = await axios.post(
-        "/api/auth/register",
-        {
-          userName: userName,
-          password: password,
-          confirmPassword: confirmPassword,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          responseType: "text",
-        }
-      );
-      navigate("/");
-
-      console.log(data);
-      const token = data.data;
-      console.log(token);
-      return token;
+      await axios.post(authUrl+"/register", {
+        UserName: userName,
+        Password: password,
+        ConfirmPassword: confirmPassword
+      })
+      .then(function (response) {
+        console.log(response.data.accessToken);
+        localStorage.setItem("User", JSON.stringify({
+          username: jwtDecode(response.data.accessToken)["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
+          AccessToken: response.data.accessToken,
+          RefreshToken: response.data.refreshToken
+        }));
+        console.log(JSON.parse(localStorage.getItem("User")));
+        navigate("/");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
     }
-  };
+    
+  }
   return (
     <>
       <h1>Register</h1>
@@ -59,7 +59,7 @@ const Register = () => {
           type="password"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type="submit">Sign Up</button>
+        <button disabled={password.localeCompare(confirmPassword)} type="submit" onClick={submit}>Sign Up</button>
       </form>
     </>
   );

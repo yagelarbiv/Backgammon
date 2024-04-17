@@ -1,4 +1,5 @@
 import React from 'react';
+import useUserStore from '../../../storage/userStore';
 
 function ChatMessage({ message }) {
     const name = message.split(':')[0]
@@ -6,10 +7,10 @@ function ChatMessage({ message }) {
     const timestamp = Date.now()
     const date = new Date(timestamp)
     const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
-
+    const user = useUserStore(state => state.user);
     
     return (
-        <div className={`message ${name === "Elior" ? "sender" : "recipient"}`}>
+        <div className={`message ${name === user.username ? "sender" : "recipient"}`}>
             
             <div className="message-info">
                 <span className="message-sender">{name}</span>

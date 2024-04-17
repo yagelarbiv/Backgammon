@@ -4,7 +4,11 @@ import { Server } from "socket.io";
 import cors from "cors";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET","POST"],
+  credentials: true
+}));
 
 const server = http.createServer(app);
 
@@ -16,7 +20,11 @@ const io = new Server(server, {
       "http://localhost:5173",
     ],
     methods: ["GET", "POST"],
+    credentials: true
   },
+});
+app.get('/test-cors', (req, res) => {
+  res.json({ message: 'CORS is configured correctly!' });
 });
 
 io.on("connection", (socket) => {

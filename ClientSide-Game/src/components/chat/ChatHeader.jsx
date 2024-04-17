@@ -1,9 +1,12 @@
 import React from 'react';
+import useUserStore from '../../../storage/userStore';
 
 function ChatHeader() {
+    const user = useUserStore(state => state.user);
+
     return (
         <header className="chat-header">
-            Elior & Yagel
+            {user.username} & Yagel
         </header>
     );
 }

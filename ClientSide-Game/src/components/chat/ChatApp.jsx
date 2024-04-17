@@ -3,23 +3,33 @@ import io from "socket.io-client";
 import './ChatApp.css';
 import ChatList from './ChatList';
 import ChatWindow from './ChatWindow';
+import useUserStore from '../../../storage/userStore';
+
 
 function ChatApp() {
-    
-    //const [currentMessage, setCurrentMessage] = useState("");
+    const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
+    const user = useUserStore(state => state.user);
+    console.log(user)
+
+    const [currentChatId, setCurrentChatId] = useState(null)
     const [messages, setMessages] = useState([]);
     const [socket, setSocket] = useState(null);
     const [name, setName] = useState("");
     const [currentMessage, setCurrentMessage] = useState("");
     
-
+    
     useEffect(() => {
-        const newSocket = io("http://localhost:5000");
+        const newSocket = io(chatUrl, { withCredentials: true });
         setSocket(newSocket);
         return () => newSocket && newSocket.close();
     }, []);
+
     useEffect(() => {
         if (!socket) return;
+
+        setName(user.username)
+        socket.emit("set_name", user.username)
+        
         const messageHandler = (msg) => {
             setMessages((prevMessages) => [...prevMessages, msg]);
         };
@@ -38,14 +48,15 @@ function ChatApp() {
     }, [socket]);
             
     const handleSendMessage = () => {
-        if (socket && name) {
+        if (socket && currentMessage.trim() !== '') {
           socket.emit("message", `${name}: ${currentMessage}`);
           setCurrentMessage("");
         } else {
-          alert("Please enter your name before sending a message!");
+          alert("Please enter content before sending a message!");
         }
     };
-    const handleDisconnect = () => {        // this function does not work.
+
+    const handleDisconnect = () => {                                                        // this function does not work.
         const newMessage = {
             sender: name, // This should be replaced with the current user's name
             content: message,
@@ -59,34 +70,17 @@ function ChatApp() {
           alert("Disconnected from server");
         }
     };
-    const handleSetName = () => {
-        if (socket && name) {
-          socket.emit("set_name", name);
-        } else {
-          alert("Please enter your name before setting it!");
-        }
-    };
+
     return (
         <>
         
         <div className="chat-app">
             <aside className="sidebar">
-                <ChatList />
+                <ChatList messages={messages} currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage}/>
             </aside>
             <ChatWindow messages={messages} currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage} />
         </div>
-
         <button onClick={handleDisconnect}>Disconnect</button>
-        <div>
-            <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name..."
-            />
-            <button onClick={handleSetName}>Set Name</button>
-        </div>
-
         </>
     );
 }
