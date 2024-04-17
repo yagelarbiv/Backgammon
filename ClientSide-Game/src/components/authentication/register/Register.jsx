@@ -2,9 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import useUserStore from "../../../../storage/userStore";
+
 
 const Register = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
+  const setUser = useUserStore(state => state.setUser)
+
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +30,7 @@ const Register = () => {
           AccessToken: response.data.accessToken,
           RefreshToken: response.data.refreshToken
         }));
-        console.log(JSON.parse(localStorage.getItem("User")));
+
         navigate("/");
       })
       .catch(function (error) {

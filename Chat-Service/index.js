@@ -23,9 +23,6 @@ const io = new Server(server, {
     credentials: true
   },
 });
-app.get('/test-cors', (req, res) => {
-  res.json({ message: 'CORS is configured correctly!' });
-});
 
 io.on("connection", (socket) => {
   console.log("New user connected");

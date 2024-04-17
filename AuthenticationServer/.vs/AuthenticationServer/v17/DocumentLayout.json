@@ -71,8 +71,7 @@
               "ViewState": "AQIAABEAAAAAAAAAAAAAAE8AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-07T08:27:26.554Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -101,8 +100,7 @@
               "RelativeToolTip": "AuthenticationServer.Data\\AuthenticationDbContext.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAAowAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T09:33:02.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-17T09:33:02.848Z"
             },
             {
               "$type": "Document",
@@ -174,8 +172,7 @@
               "RelativeToolTip": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAFwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T12:56:18.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T12:56:18.32Z"
             },
             {
               "$type": "Document",
@@ -187,8 +184,7 @@
               "RelativeToolTip": "AuthenticationServer.Models\\Entities\\AppUser.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T11:51:19.991Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T11:51:19.991Z"
             },
             {
               "$type": "Document",
@@ -200,8 +196,7 @@
               "RelativeToolTip": "AuthenticationServer.Api\\AuthenticationServer.Api.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-04-16T11:42:08.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T11:42:08.228Z"
             },
             {
               "$type": "Document",
@@ -213,8 +208,7 @@
               "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-16T11:23:29.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T11:23:29.971Z"
             }
           ]
         }

@@ -12,7 +12,7 @@ function App() {
       <AuthPage/>
     </div> */}
     <NavBar/>
-    {/* <GameBoard/> */}
+     <GameBoard/> 
      <ChatApp/>
   </>
   )
