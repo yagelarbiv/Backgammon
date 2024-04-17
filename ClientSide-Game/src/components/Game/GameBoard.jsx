@@ -1,4 +1,3 @@
-import React from 'react';
 import Board from './Board';
 import Dice from './Dice';
 import './GameBoard.css'; // Make sure to create corresponding CSS for styling

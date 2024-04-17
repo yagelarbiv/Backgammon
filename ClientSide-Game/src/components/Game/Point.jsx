@@ -1,6 +1,5 @@
-import React from 'react';
 import Checker from './Checker';
-
+import propTypes from 'prop-types';
 function Point({ pointNumber }) {
     // Logic to determine how many checkers are at this point
     return (
@@ -10,6 +9,9 @@ function Point({ pointNumber }) {
             {/* Repeat Checker component for each checker on this point */}
         </div>
     );
+}
+Point.propTypes = {
+    pointNumber: propTypes.number
 }
 
 export default Point;

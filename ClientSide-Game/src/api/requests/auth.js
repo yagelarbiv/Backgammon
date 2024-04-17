@@ -1,28 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
-const authUrl = import.meta.env.VITE_APP_AUTH_URL;
-
-export const Login = async (e, userName, password) => {
-  e.preventDefault();
-  const navigate = useNavigate();
-    try {
-      await axios.post(authUrl+"/login", {
-        UserName: userName,
-        Password: password,
-      })
-      .then(function (response) {
-        localStorage.setItem("User", {
-          username: jwtDecode(response.data.accessToken)["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
-          AccessToken: response.data.AccessToken,
-          RefreshToken: response.data.RefreshToken
-        });
-        navigate("/");
-      })
-    } catch (err) {
-      console.log(err);
-    }
-}
+const authUrl = import.meta.env.VITE_APP_AUTH_URL
 
 export const LogOut = async (e) => {
   e.preventDefault();

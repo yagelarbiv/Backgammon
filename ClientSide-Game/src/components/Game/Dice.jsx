@@ -1,4 +1,4 @@
-import React from 'react';
+import propTypes from 'prop-types';
 
 function Dice({ roll }) {
     // roll would be an array with two values, for example: [2, 5]
@@ -8,4 +8,8 @@ function Dice({ roll }) {
         </div>
     );
 }
+Dice.propTypes = {
+    roll: propTypes.array.isRequired
+}
+
 export default Dice;

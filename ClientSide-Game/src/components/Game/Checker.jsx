@@ -1,4 +1,3 @@
-import React from 'react';
 
 function Checker() {
     // Add props and logic for checker color and possibly for selecting/moving them
