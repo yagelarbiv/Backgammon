@@ -43,15 +43,26 @@ namespace AuthenticationServer.Api.Controllers
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             if (!ModelState.IsValid)
-                return BadRequestModelState();
+                return BadRequest(ModelState);
             try
             {
                 var tokens = await service.Login(request.UserName, request.Password);
-                return Ok(new AuthenticatedUserResponse
+
+                Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
                 {
-                    AccessToken = tokens[0],
-                    RefreshToken = tokens[1]
+                    HttpOnly = true, // to prevent access from client-side scripts
+                    Secure = true,   // to ensure cookie is sent over HTTPS only
+                    SameSite = SameSiteMode.Strict // to prevent CSRF
                 });
+
+                Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.Strict
+                });
+                
+                return Ok(new { Message = "Tokens are stored in cookies." });
             }
             catch (Exception ex)
             {

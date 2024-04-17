@@ -6,7 +6,7 @@ function ChatHeader() {
 
     return (
         <header className="chat-header">
-            {user.username} & Yagel
+            {user.userName}'s Global chat
         </header>
     );
 }

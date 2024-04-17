@@ -9,7 +9,14 @@ import useUserStore from '../../../storage/userStore';
 function ChatApp() {
     const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
     const user = useUserStore(state => state.user);
-    console.log(user)
+
+    const Allusers = [                                           //temp user list...
+        { id: 1, name: 'John Doe' },
+        { id: 2, name: 'Jane Smith' },
+        { id: 3, name: 'Bob Johnson' },
+        { id: 4, name: 'Alice Brown' },
+        { id: 5, name: 'Mike Davis' },
+    ];
 
     const [currentChatId, setCurrentChatId] = useState(null)
     const [messages, setMessages] = useState([]);
@@ -27,8 +34,8 @@ function ChatApp() {
     useEffect(() => {
         if (!socket) return;
 
-        setName(user.username)
-        socket.emit("set_name", user.username)
+        setName(user.userName)
+        socket.emit("set_name", user.userName)
         
         const messageHandler = (msg) => {
             setMessages((prevMessages) => [...prevMessages, msg]);
@@ -76,7 +83,7 @@ function ChatApp() {
         
         <div className="chat-app">
             <aside className="sidebar">
-                <ChatList messages={messages} currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage}/>
+                <ChatList AllUsers={Allusers} currentChatId={currentChatId} setCurrentChatId={setCurrentChatId}/>   
             </aside>
             <ChatWindow messages={messages} currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage} />
         </div>
