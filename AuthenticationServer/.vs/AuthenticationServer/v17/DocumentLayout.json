@@ -61,6 +61,10 @@
           "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1a46fd64-28d5-434c-8eb3-17a02d419b53}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Program.cs",
@@ -74,10 +78,6 @@
               "IsPinned": true
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1a46fd64-28d5-434c-8eb3-17a02d419b53}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "launchSettings.json",
@@ -87,8 +87,7 @@
               "RelativeToolTip": "AuthenticationServer.Api\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-17T09:33:35.518Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-17T09:33:35.518Z"
             },
             {
               "$type": "Document",
@@ -149,8 +148,7 @@
               "RelativeToolTip": "AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:01:53.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T13:01:53.464Z"
             },
             {
               "$type": "Document",
@@ -174,8 +172,7 @@
               "RelativeToolTip": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAgwD8AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T12:56:18.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T12:56:18.32Z"
             },
             {
               "$type": "Document",
@@ -187,8 +184,7 @@
               "RelativeToolTip": "AuthenticationServer.Models\\Entities\\AppUser.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T11:51:19.991Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T11:51:19.991Z"
             },
             {
               "$type": "Document",
@@ -200,8 +196,7 @@
               "RelativeToolTip": "AuthenticationServer.Api\\AuthenticationServer.Api.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-04-16T11:42:08.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T11:42:08.228Z"
             },
             {
               "$type": "Document",
@@ -213,8 +208,7 @@
               "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-16T11:23:29.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T11:23:29.971Z"
             }
           ]
         }

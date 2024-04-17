@@ -1,11 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
-import sql from 'mssql';
+import env from 'dotenv';
+import ClientSocketIO from 'socket.io-client';
+
+env.config();
 
 const app = express();
 const PORT = process.env.PORT || 5777;
+const socketClient = ClientSocketIO('http://localhost:5000');
+const onlineUsers = [{}];
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -13,41 +17,62 @@ app.use(cors({
     credentials: true
 }));
 
-
 app.use(bodyParser.json());
 
-// SQL Server connection configuration
-const config = {
-  server: process.env.DB_SERVER || "DESKTOP-KGPO5UJ", 
-  database: process.env.DB_NAME || "AuthenticationServer",
-//   user: "DESKTOP-KGPO5UJ/David",
-  options: {
-    trustedConnection: true
-  }
-};
+socketClient.on("connect", () => {
+    console.log(`Connected to socket.io server as client with id ${socketClient.id}`);
+    // Assuming we have a way to get the username (perhaps from a login event)
+    // Let's say the username is stored in a variable called `username`
+    const username = socketClient.id; // Replace this with actual logic to get the username
+    onlineUsers[username] = true; // Set the user's status to online
+    
+});
 
-// Async function to connect to the database
-const connectToDatabase = async () => {
-  try {
-    console.log(config);
-    await sql.connect(config);
-    console.log("Connected to SQL Server successfully!");
-  } catch (err) {
-    console.error('Failed to connect to SQL Server:', err);
-    process.exit(1); // Exit the process with an error code
-  }
-};
+socketClient.on("disconnect", () => {
+    console.log(`User disconnected with id ${socketClient.id}`);
+    // Assuming we can still access the username when the user disconnects
+    const username = "some_username"; // Replace this with actual logic to get the username
+    onlineUsers[username] = false; // Set the user's status to offline
+});
 
-// Connect to the database
-connectToDatabase();
+
+socketClient.on('login', (username) => {
+    onlineUsers[username] = true;
+    io.emit("online_status", onlineUsers); // Emit the status to all users
+});
+
+socketClient.on('disconnect', () => {
+    // Find the username associated with this socket
+    const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
+    if (username) {
+        onlineUsers[username] = false;
+        io.emit("online_status", onlineUsers); // Emit the status to all users
+    }
+});
+
+
+// Function to get the online status of users
+const getOnlineStatus = () => {
+  // Return the dictionary of online users
+  return onlineUsers;
+}
+
+setInterval(() => {
+  const onlineStatus = getOnlineStatus();
+  console.log(onlineStatus);   
+  socketClient.emit("online_status", onlineStatus);
+},2000)
+
 
 // API route to get online status of users
 app.get('/api/users/online-status', async (req, res) => {
   try {
-    const result = await sql.query(`SELECT Id, UserName FROM [dbo].[AppUsers]`);
-    res.json(result.recordset);
-  } catch (err) {
-    console.error('Error querying database:', err);
+      // Call the function to get the online status of users
+    const onlineStatus = await getOnlineStatus();
+    res.json(onlineStatus);
+    } catch (err) {
+      // Log and return the error
+    console.error('Error fetching data: ', err);
     res.status(500).send(err.message);
   }
 });
