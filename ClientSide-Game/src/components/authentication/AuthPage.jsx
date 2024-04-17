@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import NavBar from "./NavBar";
+import { useEffect } from "react";
 import axios from "axios";
 
 const AuthPage = () => {
@@ -10,7 +9,6 @@ const AuthPage = () => {
     <>
       <h1>Hello User!</h1>
       <h3>Please Log In Or Sign Up</h3>
-      <LogInOut />
     </>
   );
 };
