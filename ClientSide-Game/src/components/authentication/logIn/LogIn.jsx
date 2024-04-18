@@ -24,26 +24,25 @@ const LogIn = () => {
 
       //Routing to the main page.
       navigate("/");
-      
+
     } catch (err) {
       console.log(err);
     }
   }
-    return (
-      <>
-        <div className='body'>
-          <h1>Log In</h1>
-          <form method="POST" className="loginForm">
-            <label htmlFor="username">UserName</label>
-            <input name="username" id="username" type="text" onChange={(e) => setName(e.target.value)} />
-            <label htmlFor="password">Password</label>
-            <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
-            <button disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
-          </form>
-        </div>
-      </>
-    );
-
+  return (
+    <>
+      <div className='body'>
+        <h1>Log In</h1>
+        <form method="POST" className="loginForm">
+          <label htmlFor="username">UserName</label>
+          <input name="username" id="username" type="text" onChange={(e) => setName(e.target.value)} />
+          <label htmlFor="password">Password</label>
+          <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
+          <button disabled={!password || !userName} type="submit" onClick={submit}>Log In</button>
+        </form>
+      </div>
+    </>
+  );
 }
 
 export default LogIn;
