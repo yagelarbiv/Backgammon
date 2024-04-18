@@ -6,8 +6,7 @@ import useUserStore from "../../../../storage/userStore";
 
 const Register = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
-  const setUser = useUserStore(state => state.setUser);
-
+  const setuser = useUserStore(state => state.setuser);
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -17,12 +16,13 @@ const Register = () => {
     e.preventDefault();
     console.log(userName, password);
     try {
-      await axios.post(authUrl+"/register", {
+      const response = await axios.post(authUrl+"/register", {
         UserName: userName,
         Password: password,
         ConfirmPassword: confirmPassword
       })
-      setUser(userName);
+      console.log(response);
+      setuser(userName);
       navigate("/");
     } catch (err) {
       console.log(err);

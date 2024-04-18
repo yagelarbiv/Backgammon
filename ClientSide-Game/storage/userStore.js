@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware'
 const useUserStore = create(persist((set) => ({
 
   user: null, // Initial user state
-  setUser: (userData) => set({ user: userData }), // Function to set user data
+  setuser: (userData) => set({ user: userData }), // Function to set user data
 
 }),{
 name: 'userStorage', // unique name for localStorage key

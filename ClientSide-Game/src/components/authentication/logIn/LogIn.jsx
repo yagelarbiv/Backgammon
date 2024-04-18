@@ -8,7 +8,7 @@ const LogIn = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
   const [userName, setName] = useState("");
   const [password, setPassword] = useState("");
-  const setUser = useUserStore(state => state.setUser);
+  const setuser = useUserStore(state => state.setuser);
   const navigate = useNavigate();
 
   async function submit(e) {
@@ -18,10 +18,9 @@ const LogIn = () => {
         UserName: userName,
         Password: password,
       });
-      const data = response.data;
-      console.log(data);
+      console.log(response);
       // Saving in zustand to get it in the chat and in the game.
-      setUser({ userName });
+      setuser({ userName });
 
       //Routing to the main page.
       navigate("/");

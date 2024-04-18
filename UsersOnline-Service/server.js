@@ -3,14 +3,18 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import env from 'dotenv';
 import ClientSocketIO from 'socket.io-client';
+import axios from 'axios';
+import cookiesMiddleware from 'universal-cookie-express';
+import https from 'https';
 
 env.config();
 
 const app = express();
 const PORT = process.env.PORT || 5777;
 const socketClient = ClientSocketIO('https://localhost:6001/api/auth');
-const onlineUsers = [{}];
-
+let onlineUsers = {};
+let AllUsers = [];
+let AccessToken = '';
 app.use(cors({
     origin: "https://localhost:6001/api/auth",
     methods: ["GET","POST"],
@@ -18,6 +22,24 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json());
+
+app.use(cookiesMiddleware()).use(function (req, res) {
+  // get the user cookies using universal-cookie
+  AccessToken = req.universalCookies.get('AccessToken');
+});
+
+axios.get('https://localhost:6001/api/auth/AllUsers', {
+    headers: {
+        'Authorization': `Bearer ${AccessToken}` 
+    },
+    withCredentials: true,
+    httpsAgent: new https.Agent({ rejectUnauthorized: false }) // Disable SSL verification
+  }).then(response => {
+    console.log(response.data);
+    AllUsers = response.data;
+  }).catch(error => {
+    console.error(error);
+  });
 
 socketClient.on("connect", () => {
     console.log(`Connected to socket.io server as client with id ${socketClient.id}`);
