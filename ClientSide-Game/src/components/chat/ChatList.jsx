@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+impo
 
-// Props should be destructured inside the function parameters.
-function ChatList({ AllUsers, currentChatId, setCurrentChatId }) {
+
+function ChatList({ currentChatId, setCurrentChatId }) {
+    const [AllUsers, setAllUsers] = useState([]);
+    const allUsers = async () =>{
+       const AllUsers = await axios.get(import.meta.env.VITE_APP_ONLINE_URL)
+       console.log(AllUsers.data)
+       setAllUsers(AllUsers.data)
+    }
+    useEffect(() => {
+        allUsers();
+    }, []);
     return (
         <>
             <h2 className="chats-header">Chats</h2>

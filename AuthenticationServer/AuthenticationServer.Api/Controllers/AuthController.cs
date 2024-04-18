@@ -7,7 +7,10 @@ using AuthenticationServer.Services.TokenGenerator.TokenValidators;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Sockets;
 using System.Security.Claims;
+using SocketIO.Core;
+using SocketIOClient;
 
 namespace AuthenticationServer.Api.Controllers
 {
@@ -38,7 +41,21 @@ namespace AuthenticationServer.Api.Controllers
                 return Problem(ex.Message);
             }
         }
-
+        [HttpPost("allUsers")]
+        public async Task<IActionResult> AllUsers()
+        {
+            if (!ModelState.IsValid)
+                return BadRequestModelState();
+            try
+            {
+                var users = await service.AllUsersNames();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
+        }
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -61,7 +78,7 @@ namespace AuthenticationServer.Api.Controllers
                     Secure = true,
                     SameSite = SameSiteMode.Strict
                 });
-                
+
                 return Ok(new { Message = "Tokens are stored in cookies." });
             }
             catch (Exception ex)

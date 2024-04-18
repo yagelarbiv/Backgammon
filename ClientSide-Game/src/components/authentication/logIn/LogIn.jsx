@@ -32,7 +32,7 @@ const LogIn = () => {
   }
     return (
       <>
-        <div>
+        <div className="login-app">
           <h1>Log In</h1>
           <form method="POST" className="loginForm">
             <label htmlFor="username">UserName</label>

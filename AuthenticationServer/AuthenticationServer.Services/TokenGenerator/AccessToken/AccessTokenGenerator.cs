@@ -15,8 +15,6 @@ namespace AuthenticationServer.Services.TokenGenerator.AccesToken
             var claims = new Claim[] { new("Id", user.Id.ToString()), new(ClaimTypes.Name, user.UserName) };
             SigningCredentials credentials = GenerateCredentials(Configuration.AccessTokenSecret);
 
-            Console.WriteLine("############# The Access token is - " + Configuration.AccessTokenSecret);
-
             var utcExpirationTime = DateTime.UtcNow.AddMinutes(Configuration.AccessTokenExpirationMinutes);
 
             JwtSecurityToken token = new(

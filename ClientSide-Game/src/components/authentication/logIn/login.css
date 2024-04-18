@@ -1,5 +1,5 @@
 /* Base styles */
-body {
+.login-app {
     background-color: #0f0f23; /* Deep space blue background */
     color: #ffffff; /* White text for contrast */
     font-family: 'Arial', sans-serif; /* Modern, sans-serif font */
