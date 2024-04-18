@@ -9,94 +9,87 @@ import https from 'https';
 
 env.config();
 
-
-
 const app = express();
 const PORT = process.env.PORT || 5777;
-const socketClient = ClientSocketIO('https://localhost:6001/api/auth');
+const socketClient = ClientSocketIO('https://localhost:5000');
 const onlineUsers = {};
 let AllUsers = [];
 let AccessToken;
 
 app.use(cors({
   origin: "http://localhost:5173",
-  methods: ["GET","POST"],
+  methods: ["GET", "POST"],
   credentials: true
 }));
 
 app.use(cookiesMiddleware()).use(function (req, res) {
-  // get the user cookies using universal-cookie
   AccessToken = req.universalCookies.get('AccessToken');
 });
 
 axios.get('https://localhost:6001/api/auth/AllUsers', {
-    headers: {
-        'Authorization': `Bearer ${AccessToken}` 
-    },
-    withCredentials: true,
-    httpsAgent: new https.Agent({ rejectUnauthorized: false }) // Disable SSL verification
-  }).then(response => {
-    console.log(response.data);
-    AllUsers = response.data;
-  }).catch(error => {
-    console.error(error);
+  headers: {
+    'Authorization': `Bearer ${AccessToken}` 
+  },
+  withCredentials: true,
+  httpsAgent: new https.Agent({ rejectUnauthorized: false })
+}).then(response => {
+  const dataFromServer = response.data.map(user => ({ name: user, online: false }));
+  dataFromServer.forEach(user => {
+    const existingUser = AllUsers.find(exitingUser => exitingUser.name === user.name);
+    if (existingUser) {
+      user.online = existingUser.online; // or some other logic to update the existing user
+    }else{
+      user.online = false ;
+    }
   });
+  AllUsers = dataFromServer;
+}).catch(error => {
+  console.error(error);
+});
 
 app.use(bodyParser.json());
 
 socketClient.on("connect", () => {
-    console.log(`Connected to socket.io server as client with id ${socketClient.id}`);
-    // Assuming we have a way to get the username (perhaps from a login event)
-    // Let's say the username is stored in a variable called `username`
-    const username = socketClient.id; // Replace this with actual logic to get the username
-    onlineUsers[username] = true; // Set the user's status to online
-});
+  // const userIndex = AllUsers.findIndex(user => user.name === username);
+  // if (userIndex !== -1) {
+  //   AllUsers[userIndex].online = true;
 
+  io.emit("online_status", AllUsers); // Emit the updated user list
+
+});
 
 socketClient.on("disconnect", () => {
-    console.log(`User disconnected with id ${socketClient.id}`);
-    // Assuming we can still access the username when the user disconnects
-    const username = socketClient.id; // Replace this with actual logic to get the username
-    onlineUsers[username] = false; // Set the user's status to offline
+  console.log(`User disconnected with id ${socketClient.id}`);
 });
 
-
 socketClient.on('login', (username) => {
-    onlineUsers[username] = true;
-    io.emit("online_status", onlineUsers); // Emit the status to all users
+  const userIndex = AllUsers.findIndex(user => user.name === username);
+  if (userIndex !== -1) {
+    AllUsers[userIndex].online = true;
+    io.emit("online_status", AllUsers); // Emit the updated user list
+  }
 });
 
 socketClient.on('disconnect', () => {
-    // Find the username associated with this socket
-    const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
-    if (username) {
-        onlineUsers[username] = false;
-        io.emit("online_status", onlineUsers); // Emit the status to all users
+  const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
+  if (username) {
+    const userIndex = AllUsers.findIndex(user => user.name === username);
+    if (userIndex !== -1) {
+      AllUsers[userIndex].online = false;
+      io.emit("online_status", AllUsers); // Emit the updated user list
     }
+  }
 });
 
-
-// Function to get the online status of users
 const getOnlineStatus = () => {
-  // Return the dictionary of online users
-  return onlineUsers;
+  return AllUsers;
 }
 
-// setInterval(() => {
-//   const onlineStatus = getOnlineStatus();
-//   console.log(onlineStatus);   
-//   socketClient.emit("online_status", onlineStatus);
-// },2000)
-
-
-// API route to get online status of users
 app.get('/api/users/online-status', async (req, res) => {
   try {
-      // Call the function to get the online status of users
     const onlineStatus = await getOnlineStatus();
     res.json(onlineStatus);
-    } catch (err) {
-      // Log and return the error
+  } catch (err) {
     console.error('Error fetching data: ', err);
     res.status(500).send(err.message);
   }
@@ -105,3 +98,5 @@ app.get('/api/users/online-status', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+

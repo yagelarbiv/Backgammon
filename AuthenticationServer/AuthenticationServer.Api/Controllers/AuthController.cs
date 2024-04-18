@@ -41,7 +41,7 @@ namespace AuthenticationServer.Api.Controllers
                 return Problem(ex.Message);
             }
         }
-        [HttpPost("allUsers")]
+        [HttpGet("allUsers")]
         public async Task<IActionResult> AllUsers()
         {
             if (!ModelState.IsValid)
