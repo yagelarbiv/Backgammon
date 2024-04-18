@@ -1,6 +1,5 @@
-import React from 'react';
+import propTypes from 'prop-types';
 
-// Props should be destructured inside the function parameters.
 function ChatList({ AllUsers, currentChatId, setCurrentChatId }) {
     return (
         <>
@@ -19,5 +18,11 @@ function ChatList({ AllUsers, currentChatId, setCurrentChatId }) {
         </>
     );
 }
+
+ChatList.propTypes = {
+    AllUsers: propTypes.array.isRequired,
+    currentChatId: propTypes.number.isRequired,
+    setCurrentChatId: propTypes.func.isRequired
+};
 
 export default ChatList;

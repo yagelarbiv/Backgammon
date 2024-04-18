@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../../../../storage/userStore";
 //import './login.css' ;
@@ -19,7 +18,8 @@ const LogIn = () => {
         UserName: userName,
         Password: password,
       });
-
+      const data = response.data;
+      console.log(data);
       // Saving in zustand to get it in the chat and in the game.
       setUser({ userName });
 

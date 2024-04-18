@@ -11,7 +11,7 @@ const LogInOut = () => {
   async function submit(e) {
     e.preventDefault();
     try {
-      await axios.delete(authUrl+"/logout", {
+      await axios.post(authUrl+"/logout", {
         headers: {
           'Authorization': 'Bearer ' + user.refreshedToken  //localStorage.getItem("User").RefreshToken
         }
