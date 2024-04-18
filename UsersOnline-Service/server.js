@@ -9,17 +9,36 @@ import https from 'https';
 
 env.config();
 
+
+
 const app = express();
 const PORT = process.env.PORT || 5777;
-const socketClient = ClientSocketIO('https://localhost:6001/api/auth');
-let onlineUsers = {};
-let AllUsers = [];
-let AccessToken = '';
+const socketClient = ClientSocketIO('http://localhost:5000');
+const onlineUsers = [{}];
+
 app.use(cors({
-    origin: "https://localhost:6001/api/auth",
+    origin: "http://localhost:5173",
     methods: ["GET","POST"],
     credentials: true
 }));
+
+app.use(cookiesMiddleware()).use(function (req, res) {
+  // get the user cookies using universal-cookie
+  AccessToken = req.universalCookies.get('AccessToken');
+});
+
+axios.get('https://localhost:6001/api/auth/AllUsers', {
+    headers: {
+        'Authorization': `Bearer ${AccessToken}` 
+    },
+    withCredentials: true,
+    httpsAgent: new https.Agent({ rejectUnauthorized: false }) // Disable SSL verification
+  }).then(response => {
+    console.log(response.data);
+    AllUsers = response.data;
+  }).catch(error => {
+    console.error(error);
+  });
 
 app.use(bodyParser.json());
 
@@ -47,13 +66,13 @@ socketClient.on("connect", () => {
     // Let's say the username is stored in a variable called `username`
     const username = socketClient.id; // Replace this with actual logic to get the username
     onlineUsers[username] = true; // Set the user's status to online
-    
 });
+
 
 socketClient.on("disconnect", () => {
     console.log(`User disconnected with id ${socketClient.id}`);
     // Assuming we can still access the username when the user disconnects
-    const username = "some_username"; // Replace this with actual logic to get the username
+    const username = socketClient.id; // Replace this with actual logic to get the username
     onlineUsers[username] = false; // Set the user's status to offline
 });
 
@@ -79,11 +98,11 @@ const getOnlineStatus = () => {
   return onlineUsers;
 }
 
-setInterval(() => {
-  const onlineStatus = getOnlineStatus();
-  console.log(onlineStatus);   
-  socketClient.emit("online_status", onlineStatus);
-},2000)
+// setInterval(() => {
+//   const onlineStatus = getOnlineStatus();
+//   console.log(onlineStatus);   
+//   socketClient.emit("online_status", onlineStatus);
+// },2000)
 
 
 // API route to get online status of users

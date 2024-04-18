@@ -1,5 +1,6 @@
-import propTypes from 'prop-types';
+import React from 'react';
 
+// Props should be destructured inside the function parameters.
 function ChatList({ AllUsers, currentChatId, setCurrentChatId }) {
     return (
         <>

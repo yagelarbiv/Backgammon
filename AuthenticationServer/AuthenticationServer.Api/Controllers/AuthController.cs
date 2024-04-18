@@ -3,9 +3,14 @@ using AuthenticationServer.Api.Models.Responses;
 using AuthenticationServer.Services.TokenGenerator.TokenValidators;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
 using SocketIOClient;
+=======
+>>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
 using System.Net.Sockets;
 using System.Security.Claims;
+using SocketIO.Core;
+using SocketIOClient;
 
 namespace AuthenticationServer.Api.Controllers
 {
@@ -34,7 +39,21 @@ namespace AuthenticationServer.Api.Controllers
                 return Problem(ex.Message);
             }
         }
-
+        [HttpPost("allUsers")]
+        public async Task<IActionResult> AllUsers()
+        {
+            if (!ModelState.IsValid)
+                return BadRequestModelState();
+            try
+            {
+                var users = await service.AllUsersNames();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
+        }
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -45,6 +64,23 @@ namespace AuthenticationServer.Api.Controllers
                 var tokens = await service.Login(request.UserName, request.Password);
                 SaveTokenToCookies(tokens);
 
+<<<<<<< HEAD
+=======
+                Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
+                {
+                    HttpOnly = true, // to prevent access from client-side scripts
+                    Secure = true,   // to ensure cookie is sent over HTTPS only
+                    SameSite = SameSiteMode.Strict // to prevent CSRF
+                });
+
+                Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.Strict
+                });
+
+>>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
                 return Ok(new { Message = "Tokens are stored in cookies." });
             }
             catch (Exception ex)

@@ -593,10 +593,6 @@ C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Humanizer.dll
-C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Web.Cors.dll
-C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Net.Http.Formatting.dll
-C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Web.Http.dll
-C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Web.Http.Cors.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -622,8 +618,6 @@ C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Mono.TextTemplating.dll
-C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -733,6 +727,7 @@ C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\obj\Debug\net8.0\AuthenticationServer.Api.pdb
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\obj\Debug\net8.0\AuthenticationServer.Api.genruntimeconfig.cache
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\obj\Debug\net8.0\ref\AuthenticationServer.Api.dll
+<<<<<<< HEAD
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\appsettings.json
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\AuthenticationServer.Api.exe
@@ -882,3 +877,9 @@ C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Bac
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIO.Serializer.Core.dll
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIO.Serializer.SystemTextJson.dll
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIOClient.dll
+=======
+C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIO.Core.dll
+C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIO.Serializer.Core.dll
+C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIO.Serializer.SystemTextJson.dll
+C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIOClient.dll
+>>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
