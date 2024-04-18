@@ -8,11 +8,11 @@ env.config();
 
 const app = express();
 const PORT = process.env.PORT || 5777;
-const socketClient = ClientSocketIO('http://localhost:5000');
+const socketClient = ClientSocketIO('https://localhost:6001/api/auth');
 const onlineUsers = [{}];
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://localhost:6001/api/auth",
     methods: ["GET","POST"],
     credentials: true
 }));

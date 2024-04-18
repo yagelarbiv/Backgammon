@@ -1,4 +1,3 @@
-
 import useUserStore from '../../../storage/userStore';
 
 function ChatHeader() {

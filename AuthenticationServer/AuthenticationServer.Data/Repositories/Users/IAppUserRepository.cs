@@ -1,4 +1,5 @@
 ﻿using AuthenticationServer.Models.Entities;
+using System.Collections.Generic;
 
 namespace AuthenticationServer.Data.Repositories.Users
 {
@@ -8,5 +9,6 @@ namespace AuthenticationServer.Data.Repositories.Users
         Task Add(AppUser User);
         Task<bool> UserExists(string userName);
         Task<AppUser> GetByUserId(Guid Id);
+        Task<List<string>> GetAllUserNames();
     }
 }

@@ -2,13 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../../../../storage/userStore";
-//import './login.css' ;
+// import './login.css' ;
 
 const LogIn = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
   const [userName, setName] = useState("");
   const [password, setPassword] = useState("");
-  const setUser = useUserStore(state => state.setUser)
+  const setUser = useUserStore(state => state.setUser);
   const navigate = useNavigate();
 
   async function submit(e) {
@@ -32,7 +32,7 @@ const LogIn = () => {
   }
     return (
       <>
-        <div>
+        <div className='body'>
           <h1>Log In</h1>
           <form method="POST" className="loginForm">
             <label htmlFor="username">UserName</label>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import useUserStore from "../../../../storage/userStore";
+import useUserStore from "../../../../storage/userStore";
 
 
 const Register = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
-  // const setUser = useUserStore(state => state.setUser);
+  const setUser = useUserStore(state => state.setUser);
 
 
   const [userName, setUserName] = useState("");
@@ -22,19 +22,8 @@ const Register = () => {
         Password: password,
         ConfirmPassword: confirmPassword
       })
-      .then(function (response) {
-        console.log(response.data.accessToken);
-        localStorage.setItem("User", JSON.stringify({
-          username: userName,
-          AccessToken: response.data.accessToken,
-          RefreshToken: response.data.refreshToken
-        }));
-
-        navigate("/");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      setUser(userName);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
