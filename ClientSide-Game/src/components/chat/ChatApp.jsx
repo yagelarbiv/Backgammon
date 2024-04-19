@@ -25,7 +25,6 @@ function ChatApp() {
     const [currentMessage, setCurrentMessage] = useState("");
     
     
->>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
     useEffect(() => {
         const newSocket = io(chatUrl, { withCredentials: true });
         setSocket(newSocket);
@@ -59,17 +58,13 @@ function ChatApp() {
         if (socket && currentMessage.trim() !== '') {
           socket.emit("message", `${name}: ${currentMessage}`);
           setCurrentMessage("");
->>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
-        } else {
-            alert("Please enter content before sending a message!");
-        }
+        } 
     };
 
     const handleDisconnect = () => {                                                        // this function does not work.
         const newMessage = {
             sender: name, // This should be replaced with the current user's name
             content: message,
->>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
             timestamp: new Date().toLocaleString()
         };
         setMessages([...messages, newMessage]);
@@ -83,7 +78,6 @@ function ChatApp() {
 
     return (
         <>
-<<<<<<< HEAD
 
             <div className="chat-app">
                 <aside className="sidebar">
@@ -92,16 +86,7 @@ function ChatApp() {
                 <ChatWindow messages={messages} currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage} />
             </div>
             <button onClick={handleDisconnect}>Disconnect</button>
-=======
-        
-        <div className="chat-app">
-            <aside className="sidebar">
-                <ChatList AllUsers={Allusers} currentChatId={currentChatId} setCurrentChatId={setCurrentChatId}/>   
-            </aside>
-            <ChatWindow messages={messages} currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage} />
-        </div>
-        <button onClick={handleDisconnect}>Disconnect</button>
->>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
+
         </>
     );
 }

@@ -12,12 +12,6 @@ function ChatWindow({ messages, currentMessage, setCurrentMessage, handleSendMes
         </section>
     );
 }
-ChatWindow.propTypes = {
-    name: propTypes.string.isRequired,
-    messages: propTypes.array.isRequired,
-    currentMessage: propTypes.string.isRequired,
-    setCurrentMessage: propTypes.func.isRequired,
-    handleSendMessage: propTypes.func.isRequired
-}
+
 
 export default ChatWindow;

@@ -43,6 +43,7 @@ axios.get('https://localhost:6001/api/auth/AllUsers', {
     }
   });
   AllUsers = dataFromServer;
+  console.log(AllUsers);
 }).catch(error => {
   console.error(error);
 });

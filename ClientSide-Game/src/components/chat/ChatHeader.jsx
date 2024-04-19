@@ -5,8 +5,7 @@ function ChatHeader() {
     console.log(user);
     return (
         <header className="chat-header">
-            {user.userName} 
-            {/* 's Global chat */}
+            {user.userName}'s Global chat 
         </header>
     );
 }

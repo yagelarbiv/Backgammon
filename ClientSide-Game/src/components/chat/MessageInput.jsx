@@ -20,10 +20,4 @@ function MessageInput({ currentMessage, setCurrentMessage, handleSendMessage }) 
     );
 }
 
-MessageInput.propTypes = {
-    currentMessage: propTypes.string.isRequired,
-    setCurrentMessage: propTypes.func.isRequired,
-    handleSendMessage: propTypes.func.isRequired,
-}
-
 export default MessageInput;

@@ -24,10 +24,5 @@ function ChatList({ currentChatId, setCurrentChatId }) {
     );
 }
 
-ChatList.propTypes = {
-    AllUsers: propTypes.array.isRequired,
-    currentChatId: propTypes.number.isRequired,
-    setCurrentChatId: propTypes.func.isRequired
-};
 
 export default ChatList;

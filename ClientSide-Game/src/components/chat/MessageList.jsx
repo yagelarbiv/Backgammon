@@ -12,9 +12,5 @@ function MessageList({ messages }) {
     );
 }
 
-MessageList.propTypes = {
-    messages: propTypes.array.isRequired
-
-}
 
 export default MessageList;
