@@ -1,4 +1,4 @@
-import React from 'react';
+import propTypes from 'prop-types';
 
 function MessageInput({ currentMessage, setCurrentMessage, handleSendMessage }) {
     const handleKeyPress = (e) => {
@@ -18,6 +18,12 @@ function MessageInput({ currentMessage, setCurrentMessage, handleSendMessage }) 
             <button onClick={handleSendMessage}>Send</button>
         </div>
     );
+}
+
+MessageInput.propTypes = {
+    currentMessage: propTypes.string.isRequired,
+    setCurrentMessage: propTypes.func.isRequired,
+    handleSendMessage: propTypes.func.isRequired,
 }
 
 export default MessageInput;

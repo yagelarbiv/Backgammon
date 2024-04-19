@@ -1,4 +1,4 @@
-import React from 'react';
+import propTypes from 'prop-types';
 import ChatMessage from './ChatMessage';
 
 function MessageList({ messages }) {
@@ -10,6 +10,11 @@ function MessageList({ messages }) {
             ))}
         </div>
     );
+}
+
+MessageList.propTypes = {
+    messages: propTypes.array.isRequired
+
 }
 
 export default MessageList;

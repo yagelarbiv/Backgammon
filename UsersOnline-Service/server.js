@@ -17,9 +17,9 @@ let AllUsers = [];
 let AccessToken;
 
 app.use(cors({
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST"],
-  credentials: true
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+    credentials: true
 }));
 
 app.use(cookiesMiddleware()).use(function (req, res) {
@@ -48,6 +48,8 @@ axios.get('https://localhost:6001/api/auth/AllUsers', {
 });
 
 app.use(bodyParser.json());
+
+// The cookies middleware is already used above, so you don't need to duplicate it here.
 
 socketClient.on("connect", () => {
   // const userIndex = AllUsers.findIndex(user => user.name === username);
@@ -96,7 +98,7 @@ app.get('/api/users/online-status', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
 
 

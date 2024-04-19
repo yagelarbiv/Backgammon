@@ -34,14 +34,14 @@ namespace AuthenticationServer.Data.Repositories.Users
             return user ?? throw new EntityNotFoundException("user not found");
         }
 
-        public async Task<bool> UserExists(string userName)
-        {
-            return await context.AppUsers.AnyAsync(u => u.UserName == userName);
-        }
-
         public async Task<List<string>> GetAllUserNames()
         {
             return await context.AppUsers.Select(u => u.UserName).ToListAsync();
+        }
+
+        public async Task<bool> UserExists(string userName)
+        {
+            return await context.AppUsers.AnyAsync(u => u.UserName == userName);
         }
     }
 }

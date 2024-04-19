@@ -76,6 +76,12 @@ namespace AuthenticationServer.Services.Service
             await tokenRepository.Update(user);
         }
 
+        public async Task<List<string>> GetAllUsers()
+        {
+            var Users = await repository.GetAllUserNames();
+            return Users;
+        }
+
         public async Task<string[]> ReturnTokens(AppUser user)
         {
             string RefreshToken = refreshTokenGenerator.GenerateRefreshToken();

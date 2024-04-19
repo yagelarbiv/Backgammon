@@ -1,4 +1,5 @@
 ﻿using AuthenticationServer.Models.Entities;
+using System.Collections.Generic;
 
 namespace AuthenticationServer.Data.Repositories.Users
 {

@@ -7,5 +7,6 @@ public interface IAuthenticationService
     Task<AppUser> Refresh(string refreshToken);
     Task<string[]> ReturnTokens(AppUser user);
     Task Logout(string name);
-    Task<List<string>> AllUsersNames();
+    Task<List<string>> GetAllUsers();
+
 }

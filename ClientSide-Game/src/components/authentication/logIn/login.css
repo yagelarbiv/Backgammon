@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+/*Base styles */
+.body {
+=======
 /* Base styles */
 .login-app {
+>>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
     background-color: #0f0f23; /* Deep space blue background */
     color: #ffffff; /* White text for contrast */
     font-family: 'Arial', sans-serif; /* Modern, sans-serif font */

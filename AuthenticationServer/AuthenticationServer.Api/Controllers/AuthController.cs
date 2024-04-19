@@ -1,16 +1,9 @@
 ﻿using AuthenticationServer.Api.Models.Requests;
 using AuthenticationServer.Api.Models.Responses;
-using AuthenticationServer.Data.Repositories.Users;
-using AuthenticationServer.Models.Entities;
-using AuthenticationServer.Services.Service;
 using AuthenticationServer.Services.TokenGenerator.TokenValidators;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Sockets;
-using System.Security.Claims;
-using SocketIO.Core;
-using SocketIOClient;
+
 
 namespace AuthenticationServer.Api.Controllers
 {
@@ -22,6 +15,7 @@ namespace AuthenticationServer.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
+
             if (!ModelState.IsValid)
                 return BadRequestModelState();
             if (!request.ConfirmPassword.Equals(request.Password))
@@ -30,32 +24,29 @@ namespace AuthenticationServer.Api.Controllers
             try
             {
                 var tokens = await service.Register(request.UserName, request.Password);
-                return Ok(new AuthenticatedUserResponse
-                {
-                    AccessToken = tokens[0],
-                    RefreshToken = tokens[1]
-                });
+                SaveTokenToCookies(tokens);
+                return Ok(new { Message = "Tokens are stored in cookies." });
             }
             catch (Exception ex)
             {
                 return Problem(ex.Message);
             }
         }
-        [HttpGet("allUsers")]
-        public async Task<IActionResult> AllUsers()
-        {
-            if (!ModelState.IsValid)
-                return BadRequestModelState();
-            try
-            {
-                var users = await service.AllUsersNames();
-                return Ok(users);
-            }
-            catch (Exception ex)
-            {
-                return Problem(ex.Message);
-            }
-        }
+        //[HttpGet("allUsers")]
+        //public async Task<IActionResult> AllUsers()
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequestModelState();
+        //    try
+        //    {
+        //        var users = await service.AllUsersNames();
+        //        return Ok(users);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Problem(ex.Message);
+        //    }
+        //}
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -64,6 +55,7 @@ namespace AuthenticationServer.Api.Controllers
             try
             {
                 var tokens = await service.Login(request.UserName, request.Password);
+                SaveTokenToCookies(tokens);
 
                 Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
                 {
@@ -78,7 +70,6 @@ namespace AuthenticationServer.Api.Controllers
                     Secure = true,
                     SameSite = SameSiteMode.Strict
                 });
-
                 return Ok(new { Message = "Tokens are stored in cookies." });
             }
             catch (Exception ex)
@@ -99,30 +90,59 @@ namespace AuthenticationServer.Api.Controllers
             if (RefreshToken == null)
                 return BadRequest(new ErrorResponse("Invalid refresh token"));
             var tokens = await service.ReturnTokens(RefreshToken);
-            return Ok(new AuthenticatedUserResponse
-            {
-                AccessToken = tokens[0],
-                RefreshToken = tokens[1]
-            });
+            SaveTokenToCookies(tokens);
+            return Ok(new { Message = "Tokens are stored in cookies." });
         }
 
-        [Authorize]
-        [HttpDelete("logout")]
-        public async Task<IActionResult> Logout()
+        //[Authorize]
+        //[HttpPost("logout")]
+        //public async Task<IActionResult> Logout()
+        //{
+        //    string? rawUsername = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+        //    if (rawUsername == null && rawUsername == "")
+        //    {
+        //        return Unauthorized();
+        //    }
+        //    else
+        //        await service.Logout(rawUsername);
+        //    return Ok();
+        //}
+
+        [HttpGet("AllUsers")]
+        public async Task<IActionResult> GetAllUsers()
         {
-            string? rawUsername = HttpContext.User.FindFirstValue(ClaimTypes.Name);
-            if (rawUsername == null && rawUsername == "")
+            if (!ModelState.IsValid)
+                return BadRequestModelState();
+            try
             {
-                return Unauthorized();
+                var Users = await service.GetAllUsers();
+                return Ok(Users);
             }
-            else
-                await service.Logout(rawUsername);
-            return Ok();
+            catch(Exception ex) 
+            {
+                return Problem(ex.Message);
+            }
         }
         private IActionResult BadRequestModelState()
         {
             IEnumerable<string> errorMessages = ModelState.Values.SelectMany(v => v.Errors.Select(b => b.ErrorMessage));
             return BadRequest(new ErrorResponse(errorMessages));
+        }
+        private void SaveTokenToCookies(string[] tokens)
+        {
+            Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
+            {
+                HttpOnly = true, // to prevent access from client-side scripts
+                Secure = true,   // to ensure cookie is sent over HTTPS only
+                SameSite = SameSiteMode.Strict // to prevent CSRF
+            });
+
+            Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict
+            });
         }
     }
 }
