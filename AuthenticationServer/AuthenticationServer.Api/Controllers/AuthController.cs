@@ -91,10 +91,18 @@ namespace AuthenticationServer.Api.Controllers
                 await service.Logout(rawUsername);
             return Ok();
         }
+
         private IActionResult BadRequestModelState()
         {
             IEnumerable<string> errorMessages = ModelState.Values.SelectMany(v => v.Errors.Select(b => b.ErrorMessage));
             return BadRequest(new ErrorResponse(errorMessages));
+        }
+
+        [HttpGet("all-users")]
+        public async Task<List<string>> GetAllUsernames()
+        {
+            var usernames = await service.GetAllUsernames();
+            return usernames;
         }
     }
 }

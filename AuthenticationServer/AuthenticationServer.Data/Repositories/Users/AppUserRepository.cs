@@ -38,5 +38,13 @@ namespace AuthenticationServer.Data.Repositories.Users
         {
             return await context.AppUsers.AnyAsync(u => u.UserName == userName);
         }
+
+        public async Task<List<string>> GetAllUserNames()
+        {
+            var usernames = await context.AppUsers
+                .Select(u => u.UserName)
+                .ToListAsync();
+            return usernames;
+        }
     }
 }
