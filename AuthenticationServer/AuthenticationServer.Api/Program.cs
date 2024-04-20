@@ -35,6 +35,7 @@ public class Program
         builder.Services.AddTransient<IPasswordHasher, BcryptPasswordhasher>();
         builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
         builder.Services.AddTransient<IRefreshTokenRepository, InMemoryRefreshTokenRepository>();
+<<<<<<< HEAD
         
 
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -51,6 +52,24 @@ public class Program
                 ClockSkew = TimeSpan.Zero
             };
         });
+=======
+
+
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(option =>
+            {
+                option.TokenValidationParameters = new TokenValidationParameters
+                {
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authenticationConfiguratio.AccessTokenSecret)),
+                    ValidIssuer = authenticationConfiguratio.Issuer,
+                    ValidAudience = authenticationConfiguratio.Audience,
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 
         builder.Services.AddControllers();
 
@@ -74,9 +93,17 @@ public class Program
         app.UseAuthorization();
 
         app.UseCors("AllowCors");
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         app.MapControllers();
 
         app.Run();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31

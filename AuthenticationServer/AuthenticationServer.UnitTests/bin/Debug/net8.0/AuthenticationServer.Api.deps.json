@@ -12,6 +12,10 @@
           "AuthenticationServer.Models": "1.0.0",
           "AuthenticationServer.Services": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.3",
+<<<<<<< HEAD
+=======
+          "SocketIOClient": "3.1.1",
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -577,6 +581,11 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.NETCore.Targets/1.1.0": {},
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "Microsoft.OpenApi/1.2.3": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
@@ -620,6 +629,54 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+      "SocketIO.Core/3.1.1": {
+        "runtime": {
+          "lib/netstandard2.0/SocketIO.Core.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "SocketIO.Serializer.Core/3.1.1": {
+        "dependencies": {
+          "SocketIO.Core": "3.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SocketIO.Serializer.Core.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "SocketIO.Serializer.SystemTextJson/3.1.1": {
+        "dependencies": {
+          "SocketIO.Core": "3.1.1",
+          "SocketIO.Serializer.Core": "3.1.1",
+          "System.Text.Json": "8.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SocketIO.Serializer.SystemTextJson.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "SocketIOClient/3.1.1": {
+        "dependencies": {
+          "SocketIO.Serializer.Core": "3.1.1",
+          "SocketIO.Serializer.SystemTextJson": "3.1.1",
+          "System.Collections": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SocketIOClient.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "Swashbuckle.AspNetCore/6.4.0": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
@@ -666,6 +723,16 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+      "System.Collections/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Collections.Immutable/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -812,6 +879,15 @@
           "System.Collections.Immutable": "6.0.0"
         }
       },
+<<<<<<< HEAD
+=======
+      "System.Runtime/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
+        }
+      },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Runtime.Caching/6.0.0": {
         "dependencies": {
           "System.Configuration.ConfigurationManager": "6.0.1"
@@ -1203,6 +1279,23 @@
       "path": "microsoft.identitymodel.tokens/7.1.2",
       "hashPath": "microsoft.identitymodel.tokens.7.1.2.nupkg.sha512"
     },
+<<<<<<< HEAD
+=======
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Targets/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+      "path": "microsoft.netcore.targets/1.1.0",
+      "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "Microsoft.OpenApi/1.2.3": {
       "type": "package",
       "serviceable": true,
@@ -1231,6 +1324,37 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+<<<<<<< HEAD
+=======
+    "SocketIO.Core/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L5GSyODDjlub5YdDxfsRtA9uxBNw1Hs/egEMhdOGFyD0c63VmvWQ1A4Gfc4GYKYInz1muP4C8QNblXErnUYDqA==",
+      "path": "socketio.core/3.1.1",
+      "hashPath": "socketio.core.3.1.1.nupkg.sha512"
+    },
+    "SocketIO.Serializer.Core/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aFanlt2GOGEy7GTGLyh8f8SwhtmQwoPOHTAYCQ0brjg05Nb3F38sk4hYogpII5imyZ7w0spqwNHwpl7FZ49HOA==",
+      "path": "socketio.serializer.core/3.1.1",
+      "hashPath": "socketio.serializer.core.3.1.1.nupkg.sha512"
+    },
+    "SocketIO.Serializer.SystemTextJson/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1PKQ+hOAJ4l3ZXlrVgiB3uNY3kLhjzYjnxk/97V6npJrNmhq09Di2EQSpGweQMu6KPbOxjZ7eYVARkGTWIUsjg==",
+      "path": "socketio.serializer.systemtextjson/3.1.1",
+      "hashPath": "socketio.serializer.systemtextjson.3.1.1.nupkg.sha512"
+    },
+    "SocketIOClient/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g8Lauia1Cj5DBXeC9j6vDSJeQEboGmXsnduW06VOBMe+UgqCrenxszYXJg19rAjwO10XRWQorOuU1XNMfYo8Xg==",
+      "path": "socketioclient/3.1.1",
+      "hashPath": "socketioclient.3.1.1.nupkg.sha512"
+    },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",
       "serviceable": true,
@@ -1266,6 +1390,16 @@
       "path": "system.codedom/4.4.0",
       "hashPath": "system.codedom.4.4.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+=======
+    "System.Collections/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
+      "path": "system.collections/4.3.0",
+      "hashPath": "system.collections.4.3.0.nupkg.sha512"
+    },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "System.Collections.Immutable/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1392,6 +1526,16 @@
       "path": "system.reflection.metadata/6.0.1",
       "hashPath": "system.reflection.metadata.6.0.1.nupkg.sha512"
     },
+<<<<<<< HEAD
+=======
+    "System.Runtime/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+      "path": "system.runtime/4.3.0",
+      "hashPath": "system.runtime.4.3.0.nupkg.sha512"
+    },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "System.Runtime.Caching/6.0.0": {
       "type": "package",
       "serviceable": true,

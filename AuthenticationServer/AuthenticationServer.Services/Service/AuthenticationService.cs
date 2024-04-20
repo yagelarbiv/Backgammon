@@ -16,6 +16,13 @@ namespace AuthenticationServer.Services.Service
     IAccessTokenGenerator tokenGenerator,
     IRefreshTokenGenerator refreshTokenGenerator) : IAuthenticationService
     {
+<<<<<<< HEAD
+=======
+        public async Task<List<string>> AllUsersNames()
+        {
+            return await repository.GetAllUserNames();
+        } 
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<string[]> Login(string username, string password)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(username);
@@ -72,6 +79,15 @@ namespace AuthenticationServer.Services.Service
             await tokenRepository.Update(user);
         }
 
+<<<<<<< HEAD
+=======
+        public async Task<List<string>> GetAllUsers()
+        {
+            var Users = await repository.GetAllUserNames();
+            return Users;
+        }
+
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<string[]> ReturnTokens(AppUser user)
         {
             string RefreshToken = refreshTokenGenerator.GenerateRefreshToken();

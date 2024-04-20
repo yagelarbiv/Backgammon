@@ -1,4 +1,5 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
@@ -6,20 +7,40 @@ import axios from "axios";
 const authUrl = import.meta.env.VITE_APP_AUTH_URL;
 
 const Register = () => {
+=======
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import useUserStore from "../../../../storage/userStore";
+
+
+const Register = () => {
+  const authUrl = import.meta.env.VITE_APP_AUTH_URL;
+  const setuser = useUserStore(state => state.setuser);
+
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
+<<<<<<< HEAD
   
   async function Registration (e){
     e.preventDefault();
     console.log(userName, password);
     try {
       await axios.post(authUrl+"/register", {
+=======
+  async function submit(e) {
+    e.preventDefault();
+    console.log(userName, password);
+    try {
+      const response = await axios.post(authUrl+"/register", {
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         UserName: userName,
         Password: password,
         ConfirmPassword: confirmPassword
       })
+<<<<<<< HEAD
       .then(function (response) {
         console.log(response.data.accessToken);
         localStorage.setItem("User", JSON.stringify({
@@ -43,6 +64,20 @@ const Register = () => {
       <h1>Register</h1>
       <p>if you are already registered go to the <Link to="/login">LogIn</Link> Page</p>
       <form onSubmit={(e) => Registration(e)}>
+=======
+      console.log(response);
+      setuser(userName);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+    
+  }
+  return (
+    <>
+      <h1>Register</h1>
+      <form onSubmit={submit}>
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         <label htmlFor="username">UserName</label>
         <input
           id="username"
@@ -61,7 +96,11 @@ const Register = () => {
           type="password"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
+<<<<<<< HEAD
         <button disabled={password.localeCompare(confirmPassword)} type="submit">Sign Up</button>
+=======
+        <button disabled={password.localeCompare(confirmPassword)} type="submit" onClick={submit}>Sign Up</button>
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       </form>
     </>
   );

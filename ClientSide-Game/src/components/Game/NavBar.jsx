@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import React from 'react'
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 
 function NavBar() {
     
@@ -33,7 +37,11 @@ function NavBar() {
     ></script>
     <script
     src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+<<<<<<< HEAD
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+=======
+     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       crossOrigin="anonymous">
     </script>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

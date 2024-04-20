@@ -4,12 +4,18 @@ import App from "./App.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LogIn from "./components/authentication/logIn/LogIn.jsx";
 import Register from "./components/authentication/register/Register.jsx";
+<<<<<<< HEAD
 import axios from "axios";
 import axios2 from "axios";
 import LogInOut from "./components/authentication/LogInOut.jsx";
 
 axios.defaults.baseURL = "https://localhost:7208/";
 axios2.defaults.baseURL = "http://localhost:5000"; // Configure the base URL for the second axios instance
+=======
+import LogInOut from "./components/authentication/LogInOut.jsx";
+
+
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 
 
 const router = createBrowserRouter([

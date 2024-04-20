@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import propTypes from 'prop-types';
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 import ChatMessage from './ChatMessage';
 
 function MessageList({ messages }) {
@@ -12,4 +16,8 @@ function MessageList({ messages }) {
     );
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 export default MessageList;

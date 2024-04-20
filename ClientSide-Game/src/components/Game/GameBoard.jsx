@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import React from 'react';
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 import Board from './Board';
 import Dice from './Dice';
 import './GameBoard.css'; // Make sure to create corresponding CSS for styling

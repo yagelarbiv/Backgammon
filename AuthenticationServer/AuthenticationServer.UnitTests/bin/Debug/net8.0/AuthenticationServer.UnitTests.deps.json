@@ -27,8 +27,13 @@
           "System.Diagnostics.DiagnosticSource": "6.0.1",
           "System.Memory.Data": "1.0.2",
           "System.Numerics.Vectors": "4.5.0",
+<<<<<<< HEAD
           "System.Text.Encodings.Web": "6.0.0",
           "System.Text.Json": "4.7.2",
+=======
+          "System.Text.Encodings.Web": "7.0.0",
+          "System.Text.Json": "7.0.3",
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "System.Threading.Tasks.Extensions": "4.5.4"
         },
         "runtime": {
@@ -45,7 +50,11 @@
           "Microsoft.Identity.Client.Extensions.Msal": "4.56.0",
           "System.Memory": "4.5.4",
           "System.Security.Cryptography.ProtectedData": "6.0.0",
+<<<<<<< HEAD
           "System.Text.Json": "4.7.2",
+=======
+          "System.Text.Json": "7.0.3",
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "System.Threading.Tasks.Extensions": "4.5.4"
         },
         "runtime": {
@@ -105,7 +114,11 @@
           "System.Security.Cryptography.Cng": "5.0.0",
           "System.Security.Principal.Windows": "5.0.0",
           "System.Text.Encoding.CodePages": "6.0.0",
+<<<<<<< HEAD
           "System.Text.Encodings.Web": "6.0.0"
+=======
+          "System.Text.Encodings.Web": "7.0.0"
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         },
         "runtime": {
           "lib/net6.0/Microsoft.Data.SqlClient.dll": {
@@ -739,6 +752,54 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+<<<<<<< HEAD
+=======
+      "SocketIO.Core/3.1.1": {
+        "runtime": {
+          "lib/netstandard2.0/SocketIO.Core.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "SocketIO.Serializer.Core/3.1.1": {
+        "dependencies": {
+          "SocketIO.Core": "3.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SocketIO.Serializer.Core.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "SocketIO.Serializer.SystemTextJson/3.1.1": {
+        "dependencies": {
+          "SocketIO.Core": "3.1.1",
+          "SocketIO.Serializer.Core": "3.1.1",
+          "System.Text.Json": "7.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SocketIO.Serializer.SystemTextJson.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "SocketIOClient/3.1.1": {
+        "dependencies": {
+          "SocketIO.Serializer.Core": "3.1.1",
+          "SocketIO.Serializer.SystemTextJson": "3.1.1",
+          "System.Collections": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SocketIOClient.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "Swashbuckle.AspNetCore/6.4.0": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
@@ -1019,8 +1080,13 @@
       "System.Memory/4.5.4": {},
       "System.Memory.Data/1.0.2": {
         "dependencies": {
+<<<<<<< HEAD
           "System.Text.Encodings.Web": "6.0.0",
           "System.Text.Json": "4.7.2"
+=======
+          "System.Text.Encodings.Web": "7.0.0",
+          "System.Text.Json": "7.0.3"
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         },
         "runtime": {
           "lib/netstandard2.0/System.Memory.Data.dll": {
@@ -1383,12 +1449,21 @@
           "System.Text.Encoding": "4.3.0"
         }
       },
+<<<<<<< HEAD
       "System.Text.Encodings.Web/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
       "System.Text.Json/4.7.2": {},
+=======
+      "System.Text.Encodings.Web/7.0.0": {},
+      "System.Text.Json/7.0.3": {
+        "dependencies": {
+          "System.Text.Encodings.Web": "7.0.0"
+        }
+      },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1532,6 +1607,10 @@
           "AuthenticationServer.Data": "1.0.0",
           "AuthenticationServer.Models": "1.0.0",
           "AuthenticationServer.Services": "1.0.0",
+<<<<<<< HEAD
+=======
+          "SocketIOClient": "3.1.1",
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -1996,6 +2075,37 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+=======
+    "SocketIO.Core/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L5GSyODDjlub5YdDxfsRtA9uxBNw1Hs/egEMhdOGFyD0c63VmvWQ1A4Gfc4GYKYInz1muP4C8QNblXErnUYDqA==",
+      "path": "socketio.core/3.1.1",
+      "hashPath": "socketio.core.3.1.1.nupkg.sha512"
+    },
+    "SocketIO.Serializer.Core/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aFanlt2GOGEy7GTGLyh8f8SwhtmQwoPOHTAYCQ0brjg05Nb3F38sk4hYogpII5imyZ7w0spqwNHwpl7FZ49HOA==",
+      "path": "socketio.serializer.core/3.1.1",
+      "hashPath": "socketio.serializer.core.3.1.1.nupkg.sha512"
+    },
+    "SocketIO.Serializer.SystemTextJson/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1PKQ+hOAJ4l3ZXlrVgiB3uNY3kLhjzYjnxk/97V6npJrNmhq09Di2EQSpGweQMu6KPbOxjZ7eYVARkGTWIUsjg==",
+      "path": "socketio.serializer.systemtextjson/3.1.1",
+      "hashPath": "socketio.serializer.systemtextjson.3.1.1.nupkg.sha512"
+    },
+    "SocketIOClient/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g8Lauia1Cj5DBXeC9j6vDSJeQEboGmXsnduW06VOBMe+UgqCrenxszYXJg19rAjwO10XRWQorOuU1XNMfYo8Xg==",
+      "path": "socketioclient/3.1.1",
+      "hashPath": "socketioclient.3.1.1.nupkg.sha512"
+    },
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",
       "serviceable": true,
@@ -2458,6 +2568,7 @@
       "path": "system.text.encoding.extensions/4.3.0",
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
     },
+<<<<<<< HEAD
     "System.Text.Encodings.Web/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2471,6 +2582,21 @@
       "sha512": "sha512-TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
       "path": "system.text.json/4.7.2",
       "hashPath": "system.text.json.4.7.2.nupkg.sha512"
+=======
+    "System.Text.Encodings.Web/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OP6umVGxc0Z0MvZQBVigj4/U31Pw72ITihDWP9WiWDm+q5aoe0GaJivsfYGq53o6dxH7DcXWiCTl7+0o2CGdmg==",
+      "path": "system.text.encodings.web/7.0.0",
+      "hashPath": "system.text.encodings.web.7.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/7.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AyjhwXN1zTFeIibHimfJn6eAsZ7rTBib79JQpzg8WAuR/HKDu9JGNHTuu3nbbXQ/bgI+U4z6HtZmCHNXB1QXrQ==",
+      "path": "system.text.json/7.0.3",
+      "hashPath": "system.text.json.7.0.3.nupkg.sha512"
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     },
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
