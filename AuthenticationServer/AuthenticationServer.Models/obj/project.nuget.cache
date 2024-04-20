@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x3Z9AiORfHRH/wqHPQNSIaGaJ1w8HEMVgQMEFVvGyRLMP6kFCIf5JBz4PZfvN3ABD2vlzy/ZpopNPouNeDSFYA==",
+  "dgSpecHash": "Q8l+ybbccUCTEpf9np9Yje5vsahp14CeN35l7NNDakq9q3n3Z/dcW+Awa1lGRHvEpC1iEQjkWcy3NB+qhTHgSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
+  "projectFilePath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.3\\microsoft.entityframeworkcore.8.0.3.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.3\\microsoft.entityframeworkcore.abstractions.8.0.3.nupkg.sha512",

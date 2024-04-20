@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hrrK7keT9aQuO/MV/E2e+i8rYXwTvweMcGZOmBy/Z5y1uBLvP8BjQQ9pMHs7oSstNlN8WSbm3sWQzCytz/6e+A==",
+  "dgSpecHash": "w1DGurkEb/e8LaAcX3ISmvsqyfngBYsD91/p/UUEFfvzQmT+1Pwc5FjNQbSJAud+u1TuZuxUjQ7YxXxHc0p5kQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.UnitTests\\AuthenticationServer.UnitTests.csproj",
+  "projectFilePath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.UnitTests\\AuthenticationServer.UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\David\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
