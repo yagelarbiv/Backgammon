@@ -3,23 +3,39 @@ import io from "socket.io-client";
 import './ChatApp.css';
 import ChatList from './ChatList';
 import ChatWindow from './ChatWindow';
+import useUserStore from '../../../storage/userStore';
 
 function ChatApp() {
+    const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
+    const user = useUserStore(state => state.user);
 
-    //const [currentMessage, setCurrentMessage] = useState("");
+    const Allusers = [                                           //temp user list...
+        { id: 1, name: 'John Doe' },
+        { id: 2, name: 'Jane Smith' },
+        { id: 3, name: 'Bob Johnson' },
+        { id: 4, name: 'Alice Brown' },
+        { id: 5, name: 'Mike Davis' },
+    ];
+
+    const [currentChatId, setCurrentChatId] = useState(null)
     const [messages, setMessages] = useState([]);
     const [socket, setSocket] = useState(null);
-    const [name, setName] = useState('');
+    const [name, setName] = useState("");
     const [currentMessage, setCurrentMessage] = useState("");
-
-
+    
+    
     useEffect(() => {
-        const newSocket = io("http://localhost:5000");
+        const newSocket = io(chatUrl, { withCredentials: true });
         setSocket(newSocket);
         return () => newSocket && newSocket.close();
     }, []);
+
     useEffect(() => {
         if (!socket) return;
+
+        setName(user.userName)
+        socket.emit("set_name", user.userName)
+        
         const messageHandler = (msg) => {
             setMessages((prevMessages) => [...prevMessages, msg]);
         };
@@ -58,7 +74,7 @@ function ChatApp() {
             socket.disconnect();
             alert("Disconnected from server");
         }
-    };
+    };AD
     const handleSetName = () => {
         if (socket && name) {
             socket.emit("set_name", name);
@@ -86,9 +102,9 @@ function ChatApp() {
                 />
                 <button onClick={handleSetName}>Set Name</button>
             </div>
-
         </>
     );
 }
-
+    
 export default ChatApp;
+

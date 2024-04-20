@@ -2,8 +2,6 @@ import React from 'react';
 import ChatWindow from './ChatWindow';
 
 function ChatList(name ,messages, currentMessage, setCurrentMessage, handleSendMessage) {
-
-
     return (
         <>
             <h2 className="chats-header">Chats</h2>
