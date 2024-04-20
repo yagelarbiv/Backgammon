@@ -1,14 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
 import useUserStore from "../../../../storage/userStore";
 
 
 const Register = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
-  const setUser = useUserStore(state => state.setUser)
-
+  const setuser = useUserStore(state => state.setuser);
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -18,24 +16,14 @@ const Register = () => {
     e.preventDefault();
     console.log(userName, password);
     try {
-      await axios.post(authUrl+"/register", {
+      const response = await axios.post(authUrl+"/register", {
         UserName: userName,
         Password: password,
         ConfirmPassword: confirmPassword
       })
-      .then(function (response) {
-        console.log(response.data.accessToken);
-        localStorage.setItem("User", JSON.stringify({
-          username: jwtDecode(response.data.accessToken)["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
-          AccessToken: response.data.accessToken,
-          RefreshToken: response.data.refreshToken
-        }));
-
-        navigate("/");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      console.log(response);
+      setuser(userName);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }

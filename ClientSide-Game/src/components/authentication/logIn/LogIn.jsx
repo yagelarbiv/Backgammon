@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
-import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../../../../storage/userStore";
+// import './login.css' ;
 
 const LogIn = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
   const [userName, setName] = useState("");
   const [password, setPassword] = useState("");
-  const setUser = useUserStore(state => state.setUser)
+  const setuser = useUserStore(state => state.setuser);
   const navigate = useNavigate();
 
   async function submit(e) {
@@ -18,16 +18,13 @@ const LogIn = () => {
         UserName: userName,
         Password: password,
       });
-      const accessToken = response.data.accessToken;
-      const refreshedToken = response.data.refreshToken
-      const username = jwtDecode(accessToken)["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"]
-
+      console.log(response);
       // Saving in zustand to get it in the chat and in the game.
-      setUser({ username, accessToken , refreshedToken });
+      setuser({ userName });
 
       //Routing to the main page.
       navigate("/");
-      
+
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +33,7 @@ const LogIn = () => {
       <>
         <div>
           <h1>Log In</h1>
-          <form method="POST">
+          <form method="POST" className="loginForm">
             <label htmlFor="username">UserName</label>
             <input name="username" id="username" type="text" onChange={(e) => setName(e.target.value)} />
             <label htmlFor="password">Password</label>

@@ -44,6 +44,14 @@ io.on("connection", (socket) => {
     io.emit("message-broadcast", msg);
   });
 
+//   socket.on("message", (message) => {
+//     console.log("message received:", message);
+//     // You'll need to find the recipient's socket and emit the message to that socket.
+//     // This is a simplified example. You'll need to maintain a map of user IDs to socket IDs.
+//     const recipientSocket = findRecipientSocket(message.recipientId);
+//     recipientSocket.emit("message", message);
+// });
+
   // Handle addition of items
   socket.on("addItems", (data) => {
     console.log("Items received:", data);
@@ -75,5 +83,4 @@ io.on("connection", (socket) => {
 
 server.listen(5000, () => {
   console.log("Server is running on port 5000");
-  console.log("Press Ctrl+C to stop server");
 });

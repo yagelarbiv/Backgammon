@@ -1,4 +1,4 @@
-import React from 'react';
+import propTypes from 'prop-types';
 
 function MessageInput({ currentMessage, setCurrentMessage, handleSendMessage }) {
     const handleKeyPress = (e) => {

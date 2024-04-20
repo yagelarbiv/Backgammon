@@ -3,6 +3,7 @@ import "./App.css";
 import ChatApp from "./components/chat/ChatApp";
 import NavBar from "./components/Game/NavBar";
 import GameBoard from "./components/Game/GameBoard";
+import UsersOnline from "./onlineUsers/OnlineUsers";
 
 function App() {
   return(
@@ -12,7 +13,7 @@ function App() {
       <AuthPage/>
     </div> */}
     <NavBar/>
-     <GameBoard/> 
+     {/* <GameBoard/>  */}
      <ChatApp/>
   </>
   )

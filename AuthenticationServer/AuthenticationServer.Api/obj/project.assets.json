@@ -4517,11 +4517,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.csproj",
+      "projectUniqueName": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.csproj",
       "projectName": "AuthenticationServer.Api",
-      "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.csproj",
+      "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.csproj",
       "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\obj\\",
+      "outputPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4538,14 +4538,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
-              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
+            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
+              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
             },
-            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
-              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
+              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
             },
-            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {
-              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj"
+            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {
+              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\FinalBackGammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj"
             }
           }
         }
