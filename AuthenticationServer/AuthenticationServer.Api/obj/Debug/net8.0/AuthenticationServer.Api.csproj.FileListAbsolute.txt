@@ -432,6 +432,7 @@ C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationSe
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\obj\Debug\net8.0\AuthenticationServer.Api.genruntimeconfig.cache
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\obj\Debug\net8.0\ref\AuthenticationServer.Api.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Web.Cors.dll
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Net.Http.Formatting.dll
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\System.Web.Http.dll
@@ -439,6 +440,8 @@ C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationSe
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\appsettings.json
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\AuthenticationServer.Api.exe
@@ -891,4 +894,7 @@ C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIO.Serializer.SystemTextJson.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\bin\Debug\net8.0\SocketIOClient.dll
 >>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31

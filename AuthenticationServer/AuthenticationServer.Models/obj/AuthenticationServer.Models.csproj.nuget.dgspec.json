@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {}
   },
   "projects": {
@@ -21,6 +22,8 @@
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {}
   },
   "projects": {
@@ -35,6 +38,9 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

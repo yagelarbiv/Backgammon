@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import propTypes from 'prop-types';
-=======
-import React from 'react';
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+/* eslint-disable react/prop-types */
 
 function Dice({ roll }) {
     // roll would be an array with two values, for example: [2, 5]
@@ -12,11 +8,5 @@ function Dice({ roll }) {
         </div>
     );
 }
-<<<<<<< HEAD
-Dice.propTypes = {
-    roll: propTypes.array.isRequired
-}
 
-=======
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 export default Dice;

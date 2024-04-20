@@ -313,8 +313,11 @@ C:\Users\User\Desktop\Studies\Programming\Projects\Asp\AuthenticationServer\Auth
 C:\Users\User\Desktop\Studies\Programming\Projects\Asp\AuthenticationServer\AuthenticationServer.UnitTests\obj\Debug\net8.0\AuthenticationServer.UnitTests.genruntimeconfig.cache
 C:\Users\User\Desktop\Studies\Programming\Projects\Asp\AuthenticationServer\AuthenticationServer.UnitTests\obj\Debug\net8.0\ref\AuthenticationServer.UnitTests.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.UnitTests\bin\Debug\net8.0\CoverletSourceRootsMapping_AuthenticationServer.UnitTests
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.UnitTests\bin\Debug\net8.0\testhost.dll
 C:\Users\User\Desktop\Studies\Programming\Projects\JavaScript-Amazon-Project\Backgammon\AuthenticationServer\AuthenticationServer.UnitTests\bin\Debug\net8.0\AuthenticationServer.Api.deps.json
@@ -641,4 +644,7 @@ C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.UnitTests\bin\Debug\net8.0\SocketIO.Serializer.SystemTextJson.dll
 C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.UnitTests\bin\Debug\net8.0\SocketIOClient.dll
 >>>>>>> b868975a51bdb5ccda79e6735f0e8e7d1e92e74c
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31

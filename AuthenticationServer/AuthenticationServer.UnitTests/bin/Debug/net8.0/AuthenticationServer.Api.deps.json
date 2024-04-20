@@ -13,6 +13,10 @@
           "AuthenticationServer.Services": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.3",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+          "SocketIOClient": "3.1.1",
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
           "SocketIOClient": "3.1.1",
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
@@ -582,6 +586,11 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.NETCore.Targets/1.1.0": {},
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
@@ -630,7 +639,10 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "SocketIO.Core/3.1.1": {
         "runtime": {
           "lib/netstandard2.0/SocketIO.Core.dll": {
@@ -676,6 +688,9 @@
           }
         }
       },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "Swashbuckle.AspNetCore/6.4.0": {
         "dependencies": {
@@ -724,7 +739,10 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -732,6 +750,9 @@
           "System.Runtime": "4.3.0"
         }
       },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Collections.Immutable/6.0.0": {
         "dependencies": {
@@ -880,13 +901,19 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Runtime/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0"
         }
       },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Runtime.Caching/6.0.0": {
         "dependencies": {
@@ -1280,7 +1307,10 @@
       "hashPath": "microsoft.identitymodel.tokens.7.1.2.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -1295,6 +1325,9 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "Microsoft.OpenApi/1.2.3": {
       "type": "package",
@@ -1325,7 +1358,10 @@
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "SocketIO.Core/3.1.1": {
       "type": "package",
       "serviceable": true,
@@ -1354,6 +1390,9 @@
       "path": "socketioclient/3.1.1",
       "hashPath": "socketioclient.3.1.1.nupkg.sha512"
     },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",
@@ -1391,7 +1430,10 @@
       "hashPath": "system.codedom.4.4.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "System.Collections/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1399,6 +1441,9 @@
       "path": "system.collections/4.3.0",
       "hashPath": "system.collections.4.3.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "System.Collections.Immutable/6.0.0": {
       "type": "package",
@@ -1527,7 +1572,10 @@
       "hashPath": "system.reflection.metadata.6.0.1.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "System.Runtime/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1535,6 +1583,9 @@
       "path": "system.runtime/4.3.0",
       "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "System.Runtime.Caching/6.0.0": {
       "type": "package",

@@ -28,8 +28,13 @@
           "System.Memory.Data": "1.0.2",
           "System.Numerics.Vectors": "4.5.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "System.Text.Encodings.Web": "6.0.0",
           "System.Text.Json": "4.7.2",
+=======
+          "System.Text.Encodings.Web": "7.0.0",
+          "System.Text.Json": "7.0.3",
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
           "System.Text.Encodings.Web": "7.0.0",
           "System.Text.Json": "7.0.3",
@@ -51,7 +56,11 @@
           "System.Memory": "4.5.4",
           "System.Security.Cryptography.ProtectedData": "6.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "System.Text.Json": "4.7.2",
+=======
+          "System.Text.Json": "7.0.3",
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
           "System.Text.Json": "7.0.3",
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
@@ -115,7 +124,11 @@
           "System.Security.Principal.Windows": "5.0.0",
           "System.Text.Encoding.CodePages": "6.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "System.Text.Encodings.Web": "6.0.0"
+=======
+          "System.Text.Encodings.Web": "7.0.0"
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
           "System.Text.Encodings.Web": "7.0.0"
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
@@ -753,7 +766,10 @@
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "SocketIO.Core/3.1.1": {
         "runtime": {
           "lib/netstandard2.0/SocketIO.Core.dll": {
@@ -799,6 +815,9 @@
           }
         }
       },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "Swashbuckle.AspNetCore/6.4.0": {
         "dependencies": {
@@ -1081,8 +1100,13 @@
       "System.Memory.Data/1.0.2": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "System.Text.Encodings.Web": "6.0.0",
           "System.Text.Json": "4.7.2"
+=======
+          "System.Text.Encodings.Web": "7.0.0",
+          "System.Text.Json": "7.0.3"
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
           "System.Text.Encodings.Web": "7.0.0",
           "System.Text.Json": "7.0.3"
@@ -1450,6 +1474,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "System.Text.Encodings.Web/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -1457,12 +1482,17 @@
       },
       "System.Text.Json/4.7.2": {},
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Text.Encodings.Web/7.0.0": {},
       "System.Text.Json/7.0.3": {
         "dependencies": {
           "System.Text.Encodings.Web": "7.0.0"
         }
       },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
@@ -1608,6 +1638,10 @@
           "AuthenticationServer.Models": "1.0.0",
           "AuthenticationServer.Services": "1.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+          "SocketIOClient": "3.1.1",
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
           "SocketIOClient": "3.1.1",
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
@@ -2076,7 +2110,10 @@
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "SocketIO.Core/3.1.1": {
       "type": "package",
       "serviceable": true,
@@ -2105,6 +2142,9 @@
       "path": "socketioclient/3.1.1",
       "hashPath": "socketioclient.3.1.1.nupkg.sha512"
     },
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",
@@ -2569,6 +2609,7 @@
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "System.Text.Encodings.Web/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2583,6 +2624,8 @@
       "path": "system.text.json/4.7.2",
       "hashPath": "system.text.json.4.7.2.nupkg.sha512"
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "System.Text.Encodings.Web/7.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2596,6 +2639,9 @@
       "sha512": "sha512-AyjhwXN1zTFeIibHimfJn6eAsZ7rTBib79JQpzg8WAuR/HKDu9JGNHTuu3nbbXQ/bgI+U4z6HtZmCHNXB1QXrQ==",
       "path": "system.text.json/7.0.3",
       "hashPath": "system.text.json.7.0.3.nupkg.sha512"
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     },
     "System.Text.RegularExpressions/4.3.0": {

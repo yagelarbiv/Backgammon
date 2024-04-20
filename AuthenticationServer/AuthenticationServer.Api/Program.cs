@@ -36,6 +36,7 @@ public class Program
         builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
         builder.Services.AddTransient<IRefreshTokenRepository, InMemoryRefreshTokenRepository>();
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -53,6 +54,8 @@ public class Program
             };
         });
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 
 
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -69,6 +72,9 @@ public class Program
                     ClockSkew = TimeSpan.Zero
                 };
             });
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 
         builder.Services.AddControllers();
@@ -94,7 +100,11 @@ public class Program
 
         app.UseCors("AllowCors");
 <<<<<<< HEAD
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
 
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
@@ -103,7 +113,11 @@ public class Program
         app.Run();
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
 }
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31

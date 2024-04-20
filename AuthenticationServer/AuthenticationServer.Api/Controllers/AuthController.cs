@@ -1,6 +1,7 @@
 ﻿using AuthenticationServer.Api.Models.Requests;
 using AuthenticationServer.Api.Models.Responses;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using AuthenticationServer.Data.Repositories.Users;
 using AuthenticationServer.Models.Entities;
 using AuthenticationServer.Services.Service;
@@ -10,10 +11,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 using AuthenticationServer.Services.TokenGenerator.TokenValidators;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 
 namespace AuthenticationServer.Api.Controllers
@@ -27,6 +33,10 @@ namespace AuthenticationServer.Api.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
 
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
@@ -39,11 +49,16 @@ namespace AuthenticationServer.Api.Controllers
             {
                 var tokens = await service.Register(request.UserName, request.Password);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 return Ok(new AuthenticatedUserResponse
                 {
                     AccessToken = tokens[0],
                     RefreshToken = tokens[1]
                 });
+=======
+                SaveTokenToCookies(tokens);
+                return Ok(new { Message = "Tokens are stored in cookies." });
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
                 SaveTokenToCookies(tokens);
                 return Ok(new { Message = "Tokens are stored in cookies." });
@@ -55,8 +70,11 @@ namespace AuthenticationServer.Api.Controllers
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         //[HttpGet("allUsers")]
         //public async Task<IActionResult> AllUsers()
         //{
@@ -72,11 +90,15 @@ namespace AuthenticationServer.Api.Controllers
         //        return Problem(ex.Message);
         //    }
         //}
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             if (!ModelState.IsValid)
+<<<<<<< HEAD
 <<<<<<< HEAD
                 return BadRequestModelState();
             try
@@ -88,6 +110,8 @@ namespace AuthenticationServer.Api.Controllers
                     RefreshToken = tokens[1]
                 });
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
                 return BadRequest(ModelState);
             try
             {
@@ -108,6 +132,9 @@ namespace AuthenticationServer.Api.Controllers
                     SameSite = SameSiteMode.Strict
                 });
                 return Ok(new { Message = "Tokens are stored in cookies." });
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
             }
             catch (Exception ex)
@@ -129,6 +156,7 @@ namespace AuthenticationServer.Api.Controllers
                 return BadRequest(new ErrorResponse("Invalid refresh token"));
             var tokens = await service.ReturnTokens(RefreshToken);
 <<<<<<< HEAD
+<<<<<<< HEAD
             return Ok(new AuthenticatedUserResponse
             {
                 AccessToken = tokens[0],
@@ -149,6 +177,8 @@ namespace AuthenticationServer.Api.Controllers
                 await service.Logout(rawUsername);
             return Ok();
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
             SaveTokenToCookies(tokens);
             return Ok(new { Message = "Tokens are stored in cookies." });
         }
@@ -181,6 +211,9 @@ namespace AuthenticationServer.Api.Controllers
             {
                 return Problem(ex.Message);
             }
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         }
         private IActionResult BadRequestModelState()
@@ -189,7 +222,10 @@ namespace AuthenticationServer.Api.Controllers
             return BadRequest(new ErrorResponse(errorMessages));
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         private void SaveTokenToCookies(string[] tokens)
         {
             Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
@@ -206,6 +242,9 @@ namespace AuthenticationServer.Api.Controllers
                 SameSite = SameSiteMode.Strict
             });
         }
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     }
 }

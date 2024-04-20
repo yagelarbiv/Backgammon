@@ -17,11 +17,17 @@ namespace AuthenticationServer.Services.Service
     IRefreshTokenGenerator refreshTokenGenerator) : IAuthenticationService
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<List<string>> AllUsersNames()
         {
             return await repository.GetAllUserNames();
         } 
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<string[]> Login(string username, string password)
         {
@@ -80,13 +86,19 @@ namespace AuthenticationServer.Services.Service
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<List<string>> GetAllUsers()
         {
             var Users = await repository.GetAllUserNames();
             return Users;
         }
 
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<string[]> ReturnTokens(AppUser user)
         {

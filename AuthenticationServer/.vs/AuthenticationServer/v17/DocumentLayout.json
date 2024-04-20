@@ -1,6 +1,7 @@
 {
   "Version": 1,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\",
   "Documents": [
     {
@@ -15,6 +16,8 @@
       "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\finalproject\\authenticationserver\\authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
   "WorkspaceRootPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\",
   "Documents": [
     {
@@ -63,6 +66,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\backgammon\\authenticationserver\\authenticationserver.services\\tokengenerator\\accesstoken\\iaccesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\tokengenerator\\accesstoken\\iaccesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     }
   ],
@@ -73,6 +79,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
 <<<<<<< HEAD
           "SelectedChildIndex": 7,
           "Children": [
@@ -121,6 +128,8 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-17T08:49:30.518Z",
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -135,12 +144,16 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-07T08:27:26.554Z",
               "IsPinned": true,
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
 <<<<<<< HEAD
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Api\\Properties\\launchSettings.json",
@@ -152,6 +165,8 @@
               "WhenOpened": "2024-04-17T11:02:18.923Z",
               "EditorCaption": ""
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -285,6 +300,9 @@
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T11:51:19.991Z"
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
             }
           ]

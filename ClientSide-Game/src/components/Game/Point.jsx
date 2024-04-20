@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import Checker from './Checker';
-import propTypes from 'prop-types';
-=======
-import React from 'react';
+/* eslint-disable react/prop-types */
 import Checker from './Checker';
 
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 function Point({ pointNumber }) {
     // Logic to determine how many checkers are at this point
     return (
@@ -16,11 +11,5 @@ function Point({ pointNumber }) {
         </div>
     );
 }
-<<<<<<< HEAD
-Point.propTypes = {
-    pointNumber: propTypes.number
-}
-=======
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 
 export default Point;

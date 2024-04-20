@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-import React from 'react';
 
-function ChatHeader() {
-    return (
-        <header className="chat-header">
-            Elior & Yagel
-=======
 import useUserStore from '../../../storage/userStore';
 
 function ChatHeader() {
@@ -13,8 +6,7 @@ function ChatHeader() {
     console.log(user);
     return (
         <header className="chat-header">
-            {user.userName}'s Global chat 
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+            {user.userName}&apos;s Global chat
         </header>
     );
 }

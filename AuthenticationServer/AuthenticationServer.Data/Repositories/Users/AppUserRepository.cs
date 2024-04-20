@@ -35,12 +35,18 @@ namespace AuthenticationServer.Data.Repositories.Users
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<List<string>> GetAllUserNames()
         {
             return await context.AppUsers.Select(u => u.UserName).ToListAsync();
         }
 
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<bool> UserExists(string userName)
         {

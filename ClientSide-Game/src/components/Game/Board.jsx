@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-import React from 'react';
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 import Point from './Point';
 
 function Board() {

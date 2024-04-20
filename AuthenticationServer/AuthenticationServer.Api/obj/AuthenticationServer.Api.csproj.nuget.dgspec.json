@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.csproj": {}
   },
   "projects": {
@@ -21,6 +22,8 @@
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.csproj": {}
   },
   "projects": {
@@ -35,6 +38,9 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +56,7 @@
             "targetAlias": "net8.0",
             "projectReferences": {
 <<<<<<< HEAD
+<<<<<<< HEAD
               "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
                 "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
               },
@@ -59,6 +66,8 @@
               "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {
                 "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj"
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
               "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
                 "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
               },
@@ -67,6 +76,9 @@
               },
               "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {
                 "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj"
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
               }
             }
@@ -88,10 +100,13 @@
           "targetAlias": "net8.0",
           "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
             "Microsoft.AspNet.WebApi.Cors": {
               "target": "Package",
               "version": "[5.3.0, )"
             },
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
             "Microsoft.EntityFrameworkCore.Design": {
@@ -99,12 +114,15 @@
               "suppressParent": "All",
               "target": "Package",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "version": "[8.0.4, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
               "version": "[8.0.3, )"
             },
             "SocketIOClient": {
@@ -114,6 +132,9 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
             }
           },
@@ -141,6 +162,7 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -157,6 +179,8 @@
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -168,6 +192,9 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -183,8 +210,13 @@
             "targetAlias": "net8.0",
             "projectReferences": {
 <<<<<<< HEAD
+<<<<<<< HEAD
               "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
                 "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+=======
+              "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
+                "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
               "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
                 "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
@@ -248,6 +280,7 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -264,6 +297,8 @@
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -275,6 +310,9 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -332,6 +370,7 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -348,6 +387,8 @@
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
     "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -359,6 +400,9 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -374,17 +418,23 @@
             "targetAlias": "net8.0",
             "projectReferences": {
 <<<<<<< HEAD
+<<<<<<< HEAD
               "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
                 "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
               },
               "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
                 "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
               "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
                 "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
               },
               "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
                 "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
               }
             }

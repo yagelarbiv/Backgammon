@@ -4127,8 +4127,12 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\David\\.nuget\\packages\\": {}
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
     "C:\\Users\\David\\.nuget\\packages\\": {}
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
@@ -4136,6 +4140,7 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj",
       "projectName": "AuthenticationServer.Data",
@@ -4150,6 +4155,8 @@
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
       "projectUniqueName": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj",
       "projectName": "AuthenticationServer.Data",
       "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj",
@@ -4158,6 +4165,9 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4173,8 +4183,13 @@
           "targetAlias": "net8.0",
           "projectReferences": {
 <<<<<<< HEAD
+<<<<<<< HEAD
             "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
               "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+=======
+            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
+              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
             "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
               "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"

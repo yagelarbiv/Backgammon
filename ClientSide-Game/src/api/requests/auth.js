@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
@@ -20,6 +21,8 @@ export const LogOut = async (e) => {
       navigate("/");
     });
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 import { api } from "../axios.js";
 const authUrl = import.meta.env.VITE_APP_AUTH_URL;
 
@@ -37,12 +40,16 @@ export const logOut = async (e) => {
         localStorage.removeItem("User");
         navigate("/");
       });
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
   } catch (err) {
     console.log(err);
   }
 };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export const Registration = async (e, userName, password, confirmPassword) => {
   e.preventDefault();
@@ -71,6 +78,8 @@ export const Registration = async (e, userName, password, confirmPassword) => {
     console.log(err);
   }
 =======
+=======
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 
 export const LogingIn = async (e) => {
     e.preventDefault();
@@ -117,5 +126,8 @@ export const Registeration = async (e) => {
     } catch (err) {
       console.log(err);
     }
+<<<<<<< HEAD
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
+=======
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 }

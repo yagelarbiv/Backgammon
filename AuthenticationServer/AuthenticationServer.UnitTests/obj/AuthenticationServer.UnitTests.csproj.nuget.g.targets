@@ -3,6 +3,10 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)xunit.core\2.4.2\build\xunit.core.targets" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.4.2\build\xunit.core.targets')" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <Import Project="$(NuGetPackageRoot)system.text.json\7.0.3\buildTransitive\net6.0\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\7.0.3\buildTransitive\net6.0\System.Text.Json.targets')" />
+>>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 =======
     <Import Project="$(NuGetPackageRoot)system.text.json\7.0.3\buildTransitive\net6.0\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\7.0.3\buildTransitive\net6.0\System.Text.Json.targets')" />
 >>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
