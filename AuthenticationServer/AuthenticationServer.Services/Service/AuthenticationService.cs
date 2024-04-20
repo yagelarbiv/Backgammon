@@ -60,6 +60,7 @@ namespace AuthenticationServer.Services.Service
                 throw new InvalidOperationException("database error", ex);
             }
         }
+
         public async Task<AppUser> Refresh(string refreshToken)
         {
             return await tokenRepository.GetByToken(refreshToken);
@@ -84,6 +85,12 @@ namespace AuthenticationServer.Services.Service
             string AccessToken = tokenGenerator.GenerateAccessToken(user);
             await tokenRepository.Update(User);
             return [AccessToken, user.RefreshToken];
+        }
+
+        public async Task<List<string>> GetAllUsernames()
+        {
+            var usernames = await repository.GetAllUserNames();
+            return usernames;
         }
     }
 }
