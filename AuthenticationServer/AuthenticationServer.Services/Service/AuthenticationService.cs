@@ -16,19 +16,6 @@ namespace AuthenticationServer.Services.Service
     IAccessTokenGenerator tokenGenerator,
     IRefreshTokenGenerator refreshTokenGenerator) : IAuthenticationService
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
-        public async Task<List<string>> AllUsersNames()
-        {
-            return await repository.GetAllUserNames();
-        } 
-<<<<<<< HEAD
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
-=======
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<string[]> Login(string username, string password)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(username);
@@ -78,28 +65,13 @@ namespace AuthenticationServer.Services.Service
             return await tokenRepository.GetByToken(refreshToken);
         }
 
-        public async Task Logout(string name)
+        public async Task Logout(Guid Id)
         {
-            var user = await repository.GetByUserName(name);
+            var user = await repository.GetByUserId(Id);
             user.RefreshToken = null;
             await tokenRepository.Update(user);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
-        public async Task<List<string>> GetAllUsers()
-        {
-            var Users = await repository.GetAllUserNames();
-            return Users;
-        }
-
-<<<<<<< HEAD
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
-=======
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
         public async Task<string[]> ReturnTokens(AppUser user)
         {
             string RefreshToken = refreshTokenGenerator.GenerateRefreshToken();

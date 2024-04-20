@@ -9,27 +9,11 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AuthenticationServer.Api
 build_property.RootNamespace = AuthenticationServer.Api
-<<<<<<< HEAD
-<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api\
-=======
-build_property.ProjectDir = C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
-=======
-build_property.ProjectDir = C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api\
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-<<<<<<< HEAD
-<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\AuthenticationServer\AuthenticationServer.Api
-=======
-build_property.MSBuildProjectDirectory = C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
-=======
-build_property.MSBuildProjectDirectory = C:\Users\David\Desktop\Programming\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Api
->>>>>>> 8bf81138cbffe1e1a046f97bccc40ca7af0cee31
 build_property._RazorSourceGeneratorDebug = 
