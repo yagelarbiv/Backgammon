@@ -26,7 +26,7 @@ app.use(cookiesMiddleware()).use(function (req, res) {
   AccessToken = req.universalCookies.get('AccessToken');
 });
 
-axios.get('https://localhost:6001/api/auth/AllUsers', {
+axios.get('https://localhost:6001/api/auth/all-users', {
   headers: {
     'Authorization': `Bearer ${AccessToken}` 
   },
