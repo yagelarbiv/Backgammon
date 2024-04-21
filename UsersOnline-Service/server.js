@@ -2,17 +2,17 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import env from 'dotenv';
-import ClientSocketIO from 'socket.io-client';
 import axios from 'axios';
 import cookiesMiddleware from 'universal-cookie-express';
 import https from 'https';
+import http from 'http';
+import { Server } from 'socket.io';
 
 env.config();
 
 const app = express();
 const PORT = process.env.PORT || 5777;
-const socketClient = ClientSocketIO('https://localhost:5000');
-const onlineUsers = {};
+// const onlineUsers = {};
 let AllUsers = [];
 let AccessToken;
 
@@ -21,6 +21,17 @@ app.use(cors({
     methods: ["GET", "POST"],
     credentials: true
 }));
+
+const server = http.createServer(app);
+
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+    credentials: true
+  },
+});
 
 app.use(cookiesMiddleware()).use(function (req, res) {
   AccessToken = req.universalCookies.get('AccessToken');
@@ -43,60 +54,44 @@ axios.get('https://localhost:6001/api/auth/all-users', {
     }
   });
   AllUsers = dataFromServer;
-  console.log(AllUsers);
+
+  
+  io.on('connection', (socket) => {
+    console.log('A user connected');
+    socket.emit('allUsers', AllUsers);
+  });
+
+  //  console.log(AllUsers);
 }).catch(error => {
   console.error(error);
 });
 
+
+
+
 app.use(bodyParser.json());
 
-// The cookies middleware is already used above, so you don't need to duplicate it here.
+// socketClient.on('disconnect', () => {
+//   const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
+//   if (username) {
+//     const userIndex = AllUsers.findIndex(user => user.name === username);
+//     if (userIndex !== -1) {
+//       AllUsers[userIndex].online = false;
+//       io.emit("online_status", AllUsers); // Emit the updated user list
+//     }
+//   }
+// });
 
-socketClient.on("connect", () => {
-  // const userIndex = AllUsers.findIndex(user => user.name === username);
-  // if (userIndex !== -1) {
-  //   AllUsers[userIndex].online = true;
 
-  io.emit("online_status", AllUsers); // Emit the updated user list
-
-});
-
-socketClient.on("disconnect", () => {
-  console.log(`User disconnected with id ${socketClient.id}`);
-});
-
-socketClient.on('login', (username) => {
-  const userIndex = AllUsers.findIndex(user => user.name === username);
-  if (userIndex !== -1) {
-    AllUsers[userIndex].online = true;
-    io.emit("online_status", AllUsers); // Emit the updated user list
-  }
-});
-
-socketClient.on('disconnect', () => {
-  const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
-  if (username) {
-    const userIndex = AllUsers.findIndex(user => user.name === username);
-    if (userIndex !== -1) {
-      AllUsers[userIndex].online = false;
-      io.emit("online_status", AllUsers); // Emit the updated user list
-    }
-  }
-});
-
-const getOnlineStatus = () => {
-  return AllUsers;
-}
-
-app.get('/api/users/online-status', async (req, res) => {
-  try {
-    const onlineStatus = await getOnlineStatus();
-    res.json(onlineStatus);
-  } catch (err) {
-    console.error('Error fetching data: ', err);
-    res.status(500).send(err.message);
-  }
-});
+// app.get('/api/users/online-status', async (req, res) => {
+//   try {
+//     const onlineStatus = await getOnlineStatus();
+//     res.json(onlineStatus);
+//   } catch (err) {
+//     console.error('Error fetching data: ', err);
+//     res.status(500).send(err.message);
+//   }
+// });
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
