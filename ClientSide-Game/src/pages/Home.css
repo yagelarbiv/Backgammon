@@ -1,0 +1,77 @@
+/* General page styling */
+.home-page {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.title-home {
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+  
+  .start-game {
+    display: flex;
+    justify-content: center;
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px ;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+  }
+  
+  .start-game:hover {
+    background: #45a049;
+  }
+  
+  .join-chat {
+    background: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .join-chat:hover {
+    background: #007bb5;
+  }
+  /* ...existing styles... */
+
+/* Add these new styles */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-end;
+    flex-grow: 1;
+
+}
+
+/* Adjust .home-page to handle the new flex child */
+.home-page {
+    /* ...existing styles... */
+    justify-content: space-between; /* Adjust from column to space between to use the main axis */
+}
+
+/* Optional: Adjust button styles if needed */
+.start-game, .join-chat {
+    width: auto; /* Adjust width as needed, or remove if you want the buttons to size with their content */
+}
