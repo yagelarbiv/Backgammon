@@ -11,7 +11,7 @@ function ChatMessage({ message }) {
     const user = useUserStore(state => state.user);
     
     return (
-        <div className={`message ${name === user ? "sender" : "recipient"}`}>
+        <div className={`message ${name === user.userName ? "sender" : "recipient"}`}>
             
             <div className="message-info">
                 <span className="message-sender">{name}</span>
