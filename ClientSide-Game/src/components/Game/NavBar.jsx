@@ -48,7 +48,7 @@ function NavBar() {
             </button>
             <div className="collapse navbar-collapse" id="navbar">
             <div className="navbar-nav">
-              <a className="nav-item nav-link" id="home" href="/">Home</a>
+              <a className="nav-item nav-link" id="home" href="/home">Home</a>
               <a className="nav-item nav-link" id="logout" href="/logout">Logout</a>
               <a className="nav-item nav-link" id="login" href="/login">Login</a>
               <a className="nav-item nav-link" id="signUp" href="/register">Sign Up</a>

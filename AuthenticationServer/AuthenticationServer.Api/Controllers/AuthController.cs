@@ -21,12 +21,28 @@ namespace AuthenticationServer.Api.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequestModelState();
+
             if (!request.ConfirmPassword.Equals(request.Password))
                 return BadRequest(new ErrorResponse("Passwords do not match"));
 
             try
             {
                 var tokens = await service.Register(request.UserName, request.Password);
+
+
+                Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.UtcNow.AddHours(1) 
+                });
+
+                // Set the refresh token in a cookie
+                Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.UtcNow.AddDays(7) 
+                });
+
                 return Ok(new AuthenticatedUserResponse
                 {
                     AccessToken = tokens[0],
@@ -44,9 +60,23 @@ namespace AuthenticationServer.Api.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequestModelState();
+
             try
             {
                 var tokens = await service.Login(request.UserName, request.Password);
+
+                Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.UtcNow.AddHours(1) 
+                });
+
+                Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.UtcNow.AddDays(7)
+                });
+
                 return Ok(new AuthenticatedUserResponse
                 {
                     AccessToken = tokens[0],
