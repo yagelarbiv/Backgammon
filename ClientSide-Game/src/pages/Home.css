@@ -1,25 +1,25 @@
 /* General page styling */
+
 .home-page {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: #2c3e50;
+    background-color: #0f0f23; /* Deep space blue background */
+    color: #ffffff; /* White text for contrast */
+    font-family: 'Arial', sans-serif; /* Modern, sans-serif font */
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
 .title-home {
+  margin-top: 1rem;
     text-align: center;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
     font-size: 36px;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
-  
-  .start-game {
+.start-game {
     display: flex;
     justify-content: center;
     background: #4CAF50;
@@ -32,28 +32,28 @@
     font-size: 16px;
     transition: background-color 0.3s ease;
 
-  }
+}
   
-  .start-game:hover {
-    background: #45a049;
-  }
-  
-  .join-chat {
-    background: #008CBA;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .join-chat:hover {
-    background: #007bb5;
-  }
-  /* ...existing styles... */
+.start-game:hover {
+  background: #45a049;
+}
+
+.join-chat {
+  background: #008CBA;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.join-chat:hover {
+  background: #007bb5;
+}
+/* ...existing styles... */
 
 /* Add these new styles */
 .button-container {

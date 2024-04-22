@@ -2,36 +2,40 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../components/Game/NavBar'
 import ChatList from '../components/chat/ChatList'
 import './Home.css'
-import io from "socket.io-client";
+import {io} from "socket.io-client";
+import useAllUsersStore from './../../storage/useAllUsersStore';
 
-
-function home() {
-    const [users, setUsers] = useState([]);
-
-    const socket = io('http://localhost:5777', { withCredentials: true });
-
+function Home() {
+  const allUsers = useAllUsersStore((state) => state.allUsers);
+  const setAllUsers = useAllUsersStore((state) => state.setAllUsers);
+    const [socket, setSocket] = useState(null)
 
     useEffect(() => {
-
-        socket.on('allUsers', (users) => {
-            setUsers(users);
-        });
-      
-        return () => {
-            socket.off('allUsers');
-        };
-
+        const newSocket = io('http://localhost:5777', { withCredentials: true });
+        setSocket(newSocket);
+        return () => newSocket && newSocket.close();
     }, []);
+
+    useEffect(() => {
+      if (!socket) return;
+      socket.on("allUsers", (users) => {
+        console.log("Received users from socket:", users);
+        setAllUsers(users);
+
+      });
+      return () => {
+        socket.off("allUsers");
+    };
+    }, [socket,setAllUsers]);
 
   return (
     <>
       <div className="home-page">
         <NavBar/>
-        <header>
-            <h1 className="title-home">Welcome to Backgammon</h1>
-        </header>
+          <h1 className="title-home">Welcome to Backgammon</h1>
         <aside className="sidebar">
-          <ChatList allUsers={users}/>
+          <ChatList allUsers={allUsers}/>
+          
         </aside>
         <div className="button-container">
           <button className='start-game' onClick={() => window.location.href = '/game'}>Start Game</button>
@@ -42,4 +46,4 @@ function home() {
   )
 }
 
-export default home;
+export default Home;

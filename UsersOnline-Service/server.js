@@ -1,12 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
 import env from 'dotenv';
 import axios from 'axios';
 import cookiesMiddleware from 'universal-cookie-express';
 import https from 'https';
 import http from 'http';
 import { Server } from 'socket.io';
+import jwt from 'jsonwebtoken';
+import "dotenv/config";
+import cookieParser from 'cookie-parser';
+
 
 env.config();
 
@@ -22,6 +25,8 @@ app.use(cors({
     credentials: true
 }));
 
+app.use(cookieParser());
+
 const server = http.createServer(app);
 
 
@@ -31,11 +36,36 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
     credentials: true
   },
+  cookies: {
+    cookieName: 'AccessToken',
+    secret: process.env.SECRET_JWT
+  }
 });
 
-app.use(cookiesMiddleware()).use(function (req, res) {
-  AccessToken = req.universalCookies.get('AccessToken');
+io.on('connection', (socket) => {
+  console.log('A user connected');
+  socket.emit('allUsers', AllUsers);
 });
+
+// const getUserNameFromToken = (token) => {
+//   try {
+//     const decoded = jwt.verify(token, process.env.SECRET_JWT);
+//     return decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+//   } catch (error) {
+//     console.error("Failed to decode or verify JWT:", error);
+//     return null;
+//   }
+// };
+
+// io.use((socket,next) => {
+//   const token = socket.handshake.headers.cookie?.split('; ')
+//     .find(cookie => cookie.startsWith('AccessToken='))
+//     ?.split('=')[1];
+//   console.log(socket.handshake.headers.cookie);
+//   const userName = getUserNameFromToken(token);
+//   console.log(userName);
+//   next();
+// })
 
 axios.get('https://localhost:6001/api/auth/all-users', {
   headers: {
@@ -54,22 +84,12 @@ axios.get('https://localhost:6001/api/auth/all-users', {
     }
   });
   AllUsers = dataFromServer;
-
-  
-  io.on('connection', (socket) => {
-    console.log('A user connected');
-    socket.emit('allUsers', AllUsers);
-  });
-
-  //  console.log(AllUsers);
+  console.log(AllUsers);
 }).catch(error => {
   console.error(error);
 });
 
 
-
-
-app.use(bodyParser.json());
 
 // socketClient.on('disconnect', () => {
 //   const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
@@ -83,17 +103,7 @@ app.use(bodyParser.json());
 // });
 
 
-// app.get('/api/users/online-status', async (req, res) => {
-//   try {
-//     const onlineStatus = await getOnlineStatus();
-//     res.json(onlineStatus);
-//   } catch (err) {
-//     console.error('Error fetching data: ', err);
-//     res.status(500).send(err.message);
-//   }
-// });
-
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
