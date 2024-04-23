@@ -1,86 +1,103 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import io from "socket.io-client";
-import './ChatApp.css';
-import ChatList from './ChatList';
-import ChatWindow from './ChatWindow';
-import useUserStore from '../../../storage/userStore';
-
+import "./ChatApp.css";
+import ChatList from "./ChatList";
+import ChatWindow from "./ChatWindow";
+import useUserStore from "../../../storage/userStore";
+import useConversetionStore from "../../../storage/useConversetionStore";
+import useAllUsersStore from "../../../storage/useAllUsersStore";
 
 function ChatApp() {
-    const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
-    const user = useUserStore(state => state.user);
+  const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
+  const user = useUserStore((state) => state.user);
+  const allUsers = useAllUsersStore((state) => state.allUsers);
+  const allConversations = useConversetionStore(
+    (state) => state.conversetions
+  );
+  const [currentConversationId, setCurrentConversationId] = useState();
 
-    const [currentChatId, setCurrentChatId] = useState(null)
-    const [messages, setMessages] = useState([]);
-    const [socket, setSocket] = useState(null);
-    const [name, setName] = useState("");
-    const [currentMessage, setCurrentMessage] = useState("");
-    
-    
-    useEffect(() => {
-        const newSocket = io(chatUrl, { withCredentials: true });
-        setSocket(newSocket);
-        return () => newSocket && newSocket.close();
-    }, []);
+  const [messages, setMessages] = useState([]);
+  const [socket, setSocket] = useState(null);
+  const [name, setName] = useState("");
+  const [currentMessage, setCurrentMessage] = useState("");
 
-    useEffect(() => {
-        if (!socket) return;
+  useEffect(() => {
+    const newSocket = io(chatUrl, { withCredentials: true });
+    setSocket(newSocket);
+    return () => newSocket && newSocket.close();
+  }, []);
 
-        setName(user.userName)
-        socket.emit("set_name", user.userName)
-        
-        const messageHandler = (msg) => {
-            setMessages((prevMessages) => [...prevMessages, msg]);
-        };
-        const messageBroadcastHandler = (msg) => {
-            setMessages((prevMessages) => [...prevMessages, msg]);
-        };
+  useEffect(() => {
+    if (!socket) return;
 
-        socket.on("message", messageHandler);
-        socket.on("message-broadcast", messageBroadcastHandler);
+    setName(user.userName);
+    socket.emit("set_name", user.userName);
 
-        // Cleanup the event listeners
-        return () => {
-            socket.off("message", messageHandler);
-            socket.off("message-broadcast", messageBroadcastHandler);
-        };
-    }, [socket]);
-
-    const handleSendMessage = () => {
-        if (socket && currentMessage.trim() !== '') {
-          socket.emit("message", `${name}: ${currentMessage}`);
-          setCurrentMessage("");
-        } 
+    const messageHandler = (msg) => {
+      setMessages((prevMessages) => [...prevMessages, msg]);
+    };
+    const messageBroadcastHandler = (msg) => {
+      setMessages((prevMessages) => [...prevMessages, msg]);
     };
 
-    const handleDisconnect = () => {                                                        // this function does not work.
-        const newMessage = {
-            sender: name, // This should be replaced with the current user's name
-            content: message,
-            timestamp: new Date().toLocaleString()
-        };
-        setMessages([...messages, newMessage]);
-        setCurrentMessage(newMessage);
-        if (socket) {
-            socket.emit("manual_disconnect");
-            socket.disconnect();
-            alert("Disconnected from server");
-        }
+    socket.on("message", messageHandler);
+    socket.on("message-broadcast", messageBroadcastHandler);
+
+    // Cleanup the event listeners
+    return () => {
+      socket.off("message", messageHandler);
+      socket.off("message-broadcast", messageBroadcastHandler);
     };
+  }, [socket]);
 
-    return (
-        <>
+  const handleSendMessage = () => {
+    if (socket && currentMessage.trim() !== "") {
+      socket.emit("message", `${name}: ${currentMessage}`);
+      setCurrentMessage("");
+    }
+  };
+  const isConversationSelected = (conversation) => {
+    return currentConversationId === conversation.id;
+  };
 
-            <div className="chat-app">
-                <aside className="sidebar">
-                    <ChatList currentChatId={currentChatId} setCurrentChatId={setCurrentChatId} />
-                </aside>
-                <ChatWindow messages={messages} currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage} />
-            </div>
-            {/* <button onClick={handleDisconnect}>Disconnect</button> */}
-
-        </>
-    );
+  return (
+    <>
+      <div className="chat-app">
+        <aside className="sidebar">
+          <ChatList
+            type={"conversations"}
+            items={allConversations}
+            isItemSelected={isConversationSelected}
+            handleClick={(conversation) =>
+              setCurrentConversationId(conversation.id)
+            }
+          />
+        </aside>
+        <ChatWindow
+          messages={messages}
+          currentMessage={currentMessage}
+          setCurrentMessage={setCurrentMessage}
+          handleSendMessage={handleSendMessage}
+        />
+      </div>
+      {/* <button onClick={handleDisconnect}>Disconnect</button> */}
+    </>
+  );
 }
 
 export default ChatApp;
+
+// const handleDisconnect = () => {                                                        // this function does not work.
+//     const newMessage = {
+//         sender: name, // This should be replaced with the current user's name
+//         content: message,
+//         timestamp: new Date().toLocaleString()
+//     };
+//     setMessages([...messages, newMessage]);
+//     setCurrentMessage(newMessage);
+//     if (socket) {
+//         socket.emit("manual_disconnect");
+//         socket.disconnect();
+//         alert("Disconnected from server");
+//     }
+// };
