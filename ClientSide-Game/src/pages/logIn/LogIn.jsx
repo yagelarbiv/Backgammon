@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "../../../../storage/userStore";
-import useAuthStore from "../../../../storage/useAuthStore";
+import useUserStore from "../../stores/userStore";
+import useAuthStore from "../../stores/authStore";
 import './login.css' ;
-import NavBar from "../../Game/NavBar";
+import NavBar from "../../components/Header";
 
 
 const LogIn = () => {
@@ -34,10 +34,8 @@ const LogIn = () => {
       setAccessToken(accessToken);
       setRefreshToken(refreshToken);
 
-      // Saving in zustand to get it in the chat and in the game.
       setuser({ userName });
 
-      //Routing to the main page.
       navigate("/");
 
     } catch (err) {

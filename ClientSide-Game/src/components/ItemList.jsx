@@ -1,8 +1,5 @@
-import React, { useEffect, useState,useMemo } from 'react';
-import useAllUsersStore from '../../../storage/useAllUsersStore';
-import iconoffine from './../../assets/icon-offline.png';
-import icononline from './../../assets/icon-online.png';
-import useConversetionStore from '../../../storage/useConversetionStore';
+import iconoffine from "../assets/icon-offline.png";
+import icononline from "../assets/icon-online.png";
 
 function ChatList({  type,items,isItemSelected,handleClick }) {
    
