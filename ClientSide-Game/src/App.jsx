@@ -1,22 +1,16 @@
-import React from "react";
-import "./App.css";
-import ChatApp from "./components/chat/ChatApp";
-import NavBar from "./components/Game/NavBar";
-import GameBoard from "./components/Game/GameBoard";
-import UsersOnline from "./onlineUsers/OnlineUsers";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import routes from "./routes";
 
 function App() {
-  return(
-  <>
-    
-    {/* <div className="App">
-      <AuthPage/>
-    </div> */}
-    <NavBar/>
-     {/* <GameBoard/>  */}
-     <ChatApp/>
-  </>
-  )
+  return (
+    <Router>
+      <Routes>
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

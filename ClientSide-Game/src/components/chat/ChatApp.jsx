@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
 import "./ChatApp.css";
-import ChatList from "./ChatList";
+import ChatList from "../ItemList";
 import ChatWindow from "./ChatWindow";
-import useUserStore from "../../../storage/userStore";
-import useConversetionStore from "../../../storage/useConversetionStore";
-import useAllUsersStore from "../../../storage/useAllUsersStore";
+import useUserStore from "../../stores/userStore";
+import useConversetionStore from "../../stores/conversetionStore";
+import useAllUsersStore from "../../stores/allUsersStore";
 
 function ChatApp() {
   const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
   const user = useUserStore((state) => state.user);
   const allUsers = useAllUsersStore((state) => state.allUsers);
-  const allConversations = useConversetionStore(
-    (state) => state.conversetions
-  );
+  const allConversations = useConversetionStore((state) => state.conversetions);
   const [currentConversationId, setCurrentConversationId] = useState();
 
   const [messages, setMessages] = useState([]);
@@ -28,7 +26,7 @@ function ChatApp() {
   }, []);
 
   useEffect(() => {
-    if (!socket) return;
+    if (!socket|| !user) return;
 
     setName(user.userName);
     socket.emit("set_name", user.userName);
