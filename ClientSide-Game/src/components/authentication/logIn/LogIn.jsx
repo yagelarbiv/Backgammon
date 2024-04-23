@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../../../../storage/userStore";
+import useAuthStore from "../../../../storage/useAuthStore";
 import './login.css' ;
 import NavBar from "../../Game/NavBar";
 
@@ -11,6 +12,9 @@ const LogIn = () => {
   const [userName, setName] = useState("");
   const [password, setPassword] = useState("");
   const setuser = useUserStore(state => state.setuser);
+  const setAccessToken = useAuthStore(state => state.setAccessToken);
+  const setRefreshToken = useAuthStore(state => state.setRefreshToken);
+
   const navigate = useNavigate();
 
   async function submit(e) {
@@ -20,7 +24,16 @@ const LogIn = () => {
         UserName: userName,
         Password: password,
       });
+
       console.log(response);
+
+      
+      const accessToken = response.data.accessToken;
+      const refreshToken = response.data.refreshToken;
+
+      setAccessToken(accessToken);
+      setRefreshToken(refreshToken);
+
       // Saving in zustand to get it in the chat and in the game.
       setuser({ userName });
 
@@ -30,6 +43,7 @@ const LogIn = () => {
     } catch (err) {
       console.log(err);
     }
+
   }
     return (
       <>

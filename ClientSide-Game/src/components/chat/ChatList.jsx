@@ -1,36 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useMemo } from 'react';
 import useAllUsersStore from '../../../storage/useAllUsersStore';
 import iconoffine from './../../assets/icon-offline.png';
 import icononline from './../../assets/icon-online.png';
-function ChatList({ currentChatId, setCurrentChatId }) {
+import useConversetionStore from '../../../storage/useConversetionStore';
 
-    const allUsers = useAllUsersStore((state) => state.allUsers);
-
-    
-    useEffect(() => {
-        console.log("ChatList allUsers:", allUsers)
-    }, [allUsers]);
-    
+function ChatList({  type,items,isItemSelected,handleClick }) {
+   
     return (
         <>
-            <h2 className="chats-header">Users</h2>
-            {allUsers.length > 0 ? (
-                allUsers.map((user) => (
-                <div className={`chat-item ${currentChatId === user.id ? 'active' : ''}`} key={user.id}>
+            <h2 className="chats-header">{type}</h2>
+            {items.length > 0 ? (
+                items.map((item,index) => (
+                <div className={`chat-item ${isItemSelected(item) ? 'active' : ''}`} key={index}>
                     <button
                         className="chat-button"
-                        onClick={() => setCurrentChatId(user.id)}
+                        onClick={() =>  handleClick = (item) }
                     >
-                        {user.name}
-                    <div className={`online-status ${user.online ? 'online' : 'offline'}`}>
-                        {user.online ? <img src={icononline} alt={user.name} />  : <img src={iconoffine} alt={user.name} />}
-                    </div>
+                        {item.name}
+                    {type === 'users' && <div className={`online-status ${item.online ? 'online' : 'offline'}`}>
+                        {item.online ? <img src={icononline} alt={item.name} />  : <img src={iconoffine} alt={item.name} />}
+                    </div>}
                     </button>
                       
                 </div>
             ))
             ) : (
-                <p>No users found.</p>
+                <p>No Items.</p>
             )}
         </>
     );

@@ -1,36 +1,36 @@
 /* General page styling */
 
 .home-page {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #0f0f23; /* Deep space blue background */
-    color: #ffffff; /* White text for contrast */
-    font-family: 'Arial', sans-serif; /* Modern, sans-serif font */
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0f0f23; /* Deep space blue background */
+  color: #ffffff; /* White text for contrast */
+  font-family: 'Arial', sans-serif; /* Modern, sans-serif font */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .title-home {
   margin-top: 1rem;
-    text-align: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 36px;
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 36px;
 }
 
 .start-game {
-    display: flex;
-    justify-content: center;
-    background: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px ;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  background: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px ;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 
 }
   
@@ -53,25 +53,22 @@
 .join-chat:hover {
   background: #007bb5;
 }
-/* ...existing styles... */
 
-/* Add these new styles */
 .button-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-end;
-    flex-grow: 1;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-end;
+  flex-grow: 1;
 }
 
 /* Adjust .home-page to handle the new flex child */
 .home-page {
-    /* ...existing styles... */
-    justify-content: space-between; /* Adjust from column to space between to use the main axis */
+  /* ...existing styles... */
+  justify-content: space-between; /* Adjust from column to space between to use the main axis */
 }
 
 /* Optional: Adjust button styles if needed */
 .start-game, .join-chat {
-    width: auto; /* Adjust width as needed, or remove if you want the buttons to size with their content */
+  width: auto; /* Adjust width as needed, or remove if you want the buttons to size with their content */
 }
