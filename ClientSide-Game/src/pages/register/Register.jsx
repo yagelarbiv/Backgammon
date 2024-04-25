@@ -31,7 +31,6 @@ const Register = () => {
   }
   return (
     <>
-      <NavBar />
       <div class="login-body">
         <div class="login-title">
           <h1>Sign-Up</h1>

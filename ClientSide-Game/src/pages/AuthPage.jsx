@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import NavBar from "./NavBar";
+
 
 
 const AuthPage = () => {

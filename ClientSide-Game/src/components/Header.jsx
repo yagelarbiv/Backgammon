@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function NavBar() {
-    
+  const navigate = useNavigate();
+
   return (
     <>
     <meta charSet="utf-8" />
@@ -48,10 +50,10 @@ function NavBar() {
             </button>
             <div className="collapse navbar-collapse" id="navbar">
             <div className="navbar-nav">
-              <a className="nav-item nav-link" id="home" href="/home">Home</a>
-              <a className="nav-item nav-link" id="logout" href="/logout">Logout</a>
-              <a className="nav-item nav-link" id="login" href="/login">Login</a>
-              <a className="nav-item nav-link" id="signUp" href="/register">Sign Up</a>
+              <a className="nav-item nav-link" id="home" onClick={() => navigate("/")}>Home</a>
+              <a className="nav-item nav-link" id="logout" onClick={() => navigate("/logout")}>Logout</a>
+              <a className="nav-item nav-link" id="login" onClick={() => navigate("/login")}>Login</a>
+              <a className="nav-item nav-link" id="signUp" onClick={() => navigate("/register")}>Sign Up</a>
             </div>
             </div>
         </nav>

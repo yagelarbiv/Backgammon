@@ -32,14 +32,14 @@ namespace AuthenticationServer.Api.Controllers
 
                 Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
                 {
-                    HttpOnly = true,
-                    Expires = DateTime.UtcNow.AddHours(1) 
-                });
+                    HttpOnly = false,
+                    Expires = DateTime.UtcNow.AddHours(1)
+                }); ;
 
                 // Set the refresh token in a cookie
                 Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
                 {
-                    HttpOnly = true,
+                    HttpOnly = false,
                     Expires = DateTime.UtcNow.AddDays(7) 
                 });
 
@@ -67,13 +67,13 @@ namespace AuthenticationServer.Api.Controllers
 
                 Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
                 {
-                    HttpOnly = true,
+                    HttpOnly = false,
                     Expires = DateTime.UtcNow.AddHours(1) 
                 });
 
                 Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
                 {
-                    HttpOnly = true,
+                    HttpOnly = false,
                     Expires = DateTime.UtcNow.AddDays(7)
                 });
 

@@ -1,11 +1,15 @@
 import iconoffine from "../assets/icon-offline.png";
 import icononline from "../assets/icon-online.png";
+import Modal from "./Modal";
 
-function ChatList({  type,items,isItemSelected,handleClick }) {
+function ChatList({  type,items,isItemSelected,handleClick,onListClick,list }) {
    
     return (
         <>
+
             <h2 className="chats-header">{type}</h2>
+            {type === 'conversations' && <Modal list={list} onListClick={onListClick}  />}  
+
             {items.length > 0 ? (
                 items.map((item,index) => (
                 <div className={`chat-item ${isItemSelected(item) ? 'active' : ''}`} key={index}>

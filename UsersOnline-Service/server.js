@@ -1,14 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-import env from 'dotenv';
 import axios from 'axios';
-import cookiesMiddleware from 'universal-cookie-express';
 import https from 'https';
 import http from 'http';
 import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
 import "dotenv/config";
-import cookieParser from 'cookie-parser';
+
 
 
 const app = express();
@@ -40,51 +38,56 @@ const getUserNameFromToken = (token) => {
     const decoded = jwt.verify(token, process.env.SECRET_JWT);
     return decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
   } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      const decoded = jwt.decode(token,process.env.SECRET_JWT );
+      return decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+    }
     console.error("Failed to decode or verify JWT:", error);
     return null;
   }
 };
 
 io.use((socket, next) => {
-
   const token = socket.handshake.auth.token;
   if (token) {
     const userName = getUserNameFromToken(token);
     if (userName) {
       console.log("Authenticated user:", userName);
-      const user = allUsers.find(user => user.name === userName);
-      if (user) {
+      let isNewUser = false;
+      let user = allUsers.find(user => user.name === userName);
+      if (!user) {
+        user = { name: userName, online: true, socketConnection: socket };
+        allUsers.push(user);
+        isNewUser = true;
+      } else {
         user.online = true;
         user.socketConnection = socket;
       }
-      else{
-        allUsers.push({ name: userName, online: true , socketConnection: socket});
-      }
 
-      for(const user of allUsers){
-        if(user.online && user.socketConnection){
-          user.socketConnection.emit('allUsers', allUsers);
-        }
+      // Emit only if a new user is added to reduce load and avoid recursion
+      if (isNewUser) {
+        const cleanedUsers = allUsers.map(u => ({ name: u.name, online: u.online }));
+        io.emit('allUsers', cleanedUsers);  // Emit to all connected clients at once
       }
       
       return next();
-
     }
-  }
-  else
-  {    
+  } else {    
     const err = new Error("Authentication error");
     err.data = { content: "Please retry later" }; // Additional error data
     next(err);
   }
 });
 
-
 io.on('connection', (socket) => {
   console.log('A user connected' );
-  socket.emit('allUsers', allUsers);
+  const cleanedUsers = allUsers.map(u => ({ name: u.name, online: u.online }));
+  socket.emit('allUsers', cleanedUsers);
 });
 
+// function getCleanedUsers() {
+//   return allUsers.map(u => ({ name: u.name, online: u.online }));
+// }
 
 
 axios.get('https://localhost:6001/api/auth/all-users', {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../../components/Header";
 import ChatList from "../../components/ItemList";
 import "./Home.css";
 import { io } from "socket.io-client";
@@ -49,7 +48,6 @@ function Home() {
   return (
     <>
       <div className="home-page">
-        <NavBar />
         <h1 className="title-home">Welcome to Backgammon</h1>
         <aside className="sidebar">
           <ChatList
