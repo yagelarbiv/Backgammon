@@ -26,7 +26,7 @@ class MainHub {
     async endGame(chat, color) {
         if (!chat) return;
 
-        const currentUser = this.userService.getUsers().find(user => user.connectionId === socket.id);
+        const currentUser = this.userService.getUsers().find(user => user.connectionId === socketIo.id);
         const tmp = chat.users.find(user => user !== currentUser.username);
         const otherUser = this.userService.getUsers().find(user => user.username === tmp);
 
@@ -44,7 +44,7 @@ class MainHub {
     }
 
     async wantToPlayWith(chat) {
-        const currentUser = this.userService.getUsers().find(user => user.connectionId === socket.id);
+        const currentUser = this.userService.getUsers().find(user => user.connectionId === socketIo.id);
         const tmp = chat.users.find(user => user !== currentUser.username);
         const otherUser = this.userService.getUsers().find(user => user.username === tmp);
 
