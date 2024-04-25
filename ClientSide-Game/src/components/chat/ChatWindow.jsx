@@ -3,12 +3,12 @@ import ChatHeader from './ChatHeader';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 
-function ChatWindow({ messages, currentMessage, setCurrentMessage, handleSendMessage }) {
+function ChatWindow({addMessageToConversation,allConversations ,CurrentConversationId, messages, currentMessage, setCurrentMessage, handleSendMessage }) {
     return (
         <section className="chat-window">
-            <ChatHeader />
-            <MessageList messages={messages} />
-            <MessageInput currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage} />
+            <ChatHeader allConversations={allConversations} CurrentConversationId={CurrentConversationId}/>
+            <MessageList messages={messages} allConversations={allConversations} CurrentConversationId={CurrentConversationId} />
+            <MessageInput addMessageToConversation={addMessageToConversation} currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} handleSendMessage={handleSendMessage} />
         </section>
     );
 }

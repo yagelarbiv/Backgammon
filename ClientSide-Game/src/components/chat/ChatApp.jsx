@@ -10,6 +10,7 @@ import { v4 as uuiv4 } from "uuid";
 
 function ChatApp() {
   const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
+  
   const user = useUserStore((state) => state.user);
   const allUsers = useAllUsersStore((state) => state.allUsers);
   const allConversations = useConversetionStore((state) => state.conversetions);
@@ -22,6 +23,7 @@ function ChatApp() {
   const addMessageToConversation = useConversetionStore(
     (state) => state.addMessageToConversation
   );
+
   const [currentConversationId, setCurrentConversationId] = useState();
 
   const [messages, setMessages] = useState([]);
@@ -102,11 +104,11 @@ function ChatApp() {
           />
         </aside>
         <ChatWindow
-          getConversationWithUser={getConversationWithUser}
           messages={currentConversation?.messages || []}
           currentMessage={currentMessage}
           CurrentConversationId={currentConversationId}
           allConversations={allConversations}
+          addMessageToConversation={addMessageToConversation}
           setCurrentMessage={setCurrentMessage}
           handleSendMessage={handleSendMessage}
         />
