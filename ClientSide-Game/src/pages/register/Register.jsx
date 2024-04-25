@@ -32,43 +32,43 @@ const Register = () => {
   return (
     <>
       <NavBar />
-      <div class="login-body">
-        <div class="login-title">
+      <div className="login-body">
+        <div className="login-title">
           <h1>Sign-Up</h1>
-          <form onSubmit={submit} class="loginForm">
-            <label htmlFor="username" class="username-label">
+          <form onSubmit={submit} className="loginForm">
+            <label htmlFor="username" className="username-label">
               UserName
             </label>
             <input
               id="username"
               type="text"
               onChange={(e) => setUserName(e.target.value)}
-              class="input"
+              className="input"
             />
-            <label htmlFor="password" class="password-label">
+            <label htmlFor="password" className="password-label">
               Password
             </label>
             <input
               id="password"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
-              class="input"
+              className="input"
             />
-            <label htmlFor="confirmPassword" class="password-label">
+            <label htmlFor="confirmPassword" className="password-label">
               Confirm Password
             </label>
             <input
               id="confirmPassword"
               type="password"
               onChange={(e) => setConfirmPassword(e.target.value)}
-              class="input"
+              className="input"
             />
             <br />
             <button
               disabled={password.localeCompare(confirmPassword)}
               type="submit"
               onClick={submit}
-              class="submit-button"
+              className="submit-button"
             >
               Sign Up
             </button>

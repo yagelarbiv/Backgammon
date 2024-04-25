@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {}
+    "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
+    "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj",
         "projectName": "AuthenticationServer.Data",
-        "projectPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj",
-        "packagesPath": "C:\\Users\\danko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\danko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
-                "projectPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+              "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
               }
             }
           }
@@ -43,6 +42,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -84,24 +88,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
+    "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
         "projectName": "AuthenticationServer.Models",
-        "projectPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
-        "packagesPath": "C:\\Users\\danko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\danko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -110,7 +114,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -123,6 +126,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -150,24 +158,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {
+    "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj",
         "projectName": "AuthenticationServer.Services",
-        "projectPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj",
-        "packagesPath": "C:\\Users\\danko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\danko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -176,18 +184,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
-                "projectPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
+              "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
               },
-              "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
-                "projectPath": "C:\\Users\\danko\\Desktop\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+              "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
               }
             }
           }
@@ -196,6 +203,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -227,7 +239,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

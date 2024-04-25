@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import UpdateGame from "./UpdateGame";
-import useSound from "use-sound";
-import pieceSound from "../../../assets/sounds/piece.mp3";
-import diceSound from "../../../assets/sounds/dice.mp3";
 import "./GameLogic.css";
 
 const GameLogic = ({
@@ -14,12 +13,8 @@ const GameLogic = ({
   dices,
   board,
   connection,
-  chat,
 }) => {
   const [activePiece, setActivePiece] = useState();
-
-  let [playPiece] = useSound(pieceSound);
-  let [playDice] = useSound(diceSound);
 
   const [isBlackInFinish, setBlackInFinish] = useState(false);
   const [isWhiteInFinish, setWhiteInFinish] = useState(false);
@@ -164,7 +159,6 @@ const GameLogic = ({
   };
 
   useEffect(() => {
-    if (dices) playDice();
     checkCantMoveBtn();
     let colorWin = checkEnd();
     if (colorWin) {
@@ -295,7 +289,7 @@ const GameLogic = ({
                 className="cantMoveBtn"
                 onClick={() => RollDice()}
               >
-                You Can't Move Roll Dice Now!
+                You Can not Move Roll Dice Now!
               </button>
               <div id={"otherTurn"} className="userInfo">
                 {chat.users[0] === currentUser.username
