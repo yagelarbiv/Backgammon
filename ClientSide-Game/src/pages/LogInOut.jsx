@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "../../../storage/userStore";
+import useUserStore from "../stores/userStore";
 
 
 const LogInOut = () => {
@@ -13,7 +13,7 @@ const LogInOut = () => {
     try {
       await axios.post(authUrl+"/logout", {
         headers: {
-          'Authorization': 'Bearer ' + user.refreshedToken  //localStorage.getItem("User").RefreshToken
+          'Authorization': 'Bearer ' + user.refreshedToken  
         }
       })
       .then(function (response) {

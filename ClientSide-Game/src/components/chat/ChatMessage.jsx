@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import useUserStore from '../../../storage/userStore';
+import useUserStore from "../../stores/userStore";
 
 function ChatMessage({ message }) {
     const name = message.split(':')[0]
