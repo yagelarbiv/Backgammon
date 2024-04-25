@@ -1,18 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import env from 'dotenv';
 import axios from 'axios';
-import cookiesMiddleware from 'universal-cookie-express';
 import https from 'https';
 import http from 'http';
 import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
 import "dotenv/config";
-import cookieParser from 'cookie-parser';
 
 
 const app = express();
-const PORT = process.env.PORT; //5777
+const PORT = process.env.PORT || 5777; //5777
 // const onlineUsers = {};
 let allUsers = [];
 let AccessToken;
@@ -98,7 +95,7 @@ axios.get('https://localhost:6001/api/auth/all-users', {
   dataFromServer.forEach(user => {
     const existingUser = allUsers.find(exitingUser => exitingUser.name === user.name);
     if (existingUser) {
-      user.online = existingUser.online; // or some other logic to update the existing user
+      user.online = existingUser.online; 
     }else{
       user.online = false ;
     }
@@ -108,19 +105,6 @@ axios.get('https://localhost:6001/api/auth/all-users', {
 }).catch(error => {
   console.error(error);
 });
-
-
-
-// socketClient.on('disconnect', () => {
-//   const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
-//   if (username) {
-//     const userIndex = AllUsers.findIndex(user => user.name === username);
-//     if (userIndex !== -1) {
-//       AllUsers[userIndex].online = false;
-//       io.emit("online_status", AllUsers); // Emit the updated user list
-//     }
-//   }
-// });
 
 
 server.listen(PORT, () => {

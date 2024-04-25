@@ -18,7 +18,7 @@ const LogInOut = () => {
       })
       .then(function (response) {
         console.log(response);
-        localStorage.removeItem("User");
+        useUserStore.setState({user: null});
         navigate("/")
       })
     } catch (err) {

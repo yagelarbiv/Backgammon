@@ -109,7 +109,7 @@ namespace AuthenticationServer.Api.Controllers
         }
 
         [Authorize]
-        [HttpDelete("logout")]
+        [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
             string? rawUsername = HttpContext.User.FindFirstValue(ClaimTypes.Name);

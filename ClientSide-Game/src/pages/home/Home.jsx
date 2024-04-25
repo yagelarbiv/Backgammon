@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/Header";
 import ChatList from "../../components/ItemList";
@@ -16,7 +16,7 @@ function Home() {
   const accessToken = useAuthStore((state) => state.accessToken);
   const [currentUsername, setCurrentUsername] = useState();
   const user = useUserStore((state) => state.user);
-
+  console.log(socket);
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -24,21 +24,21 @@ function Home() {
   }, [user, navigate]);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:5777", {
+    const newsocket = io("http://localhost:5777", {
       withCredentials: true,
       auth: { token: accessToken },
     });
 
-    setSocket(newSocket);
+    setSocket(newsocket);
 
-    newSocket.on("allUsers", (users) => {
+    newsocket.on("allUsers", (users) => {
       console.log("Received users from socket:", users);
       setAllUsers(users);
     });
 
     return () => {
-      newSocket.off("allUsers");
-      newSocket.close();
+      newsocket.off("allUsers");
+      newsocket.close();
     };
   }, [accessToken, setAllUsers]);
 
@@ -60,7 +60,7 @@ function Home() {
           />
         </aside>
         <div className="button-container">
-          <button className="start-game" onClick={() => navigate("/game")}>
+          <button className="start-game" onClick={() => navigate("/Game")}>
             Start Game
           </button>
           <button className="join-chat" onClick={() => navigate("/chat")}>

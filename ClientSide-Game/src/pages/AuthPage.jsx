@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import NavBar from "./NavBar";
+import LogInOut from "./LogInOut";
 
 
 const AuthPage = () => {
