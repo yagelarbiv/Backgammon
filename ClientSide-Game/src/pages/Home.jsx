@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import ChatList from '../components/chat/ChatList'
+import ItemList from '../components/chat/ItemList'
 import './Home.css'
 import {io} from "socket.io-client";
 import useAllUsersStore from './../../storage/useAllUsersStore';
@@ -49,7 +49,7 @@ function Home() {
 
           <h1 className="title-home">Welcome to Backgammon</h1>
         <aside className="sidebar">
-          <ChatList type={"users"} items={allUsers} isItemSelected={isUserSelected} handleClick={(user) => setCurrentUsername(user.name)}/>
+          <ItemList type={"users"} items={allUsers} isItemSelected={isUserSelected} handleClick={(user) => setCurrentUsername(user.name)}/>
         </aside>
         <div className="button-container">
           <button className='start-game' onClick={() => window.location.href = '/game'}>Start Game</button>

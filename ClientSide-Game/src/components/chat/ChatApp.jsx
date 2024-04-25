@@ -16,6 +16,9 @@ function ChatApp() {
   const getConversationWithUser = useConversetionStore(
     (state) => state.getConversationWithUser
   );
+  const addConversetion = useConversetionStore(
+    (state) => state.addConversetion
+  );
   const addMessageToConversation = useConversetionStore(
     (state) => state.addMessageToConversation
   );
@@ -70,16 +73,18 @@ function ChatApp() {
     return currentConversationId === conversation.id;
   };
   const onListClick = (selectedUser) => {
-    let conversation = getConversationWithUser(selectedUser, allConversations);
+    let conversation = getConversationWithUser(selectedUser);
+    console.log("conversation:", conversation);
     if (!conversation) {
       conversation = {
         id: uuiv4(),
         users: [user, selectedUser],
         messages: [],
       };
-      useConversetionStore.getState().addConversetion(conversation);
+      addConversetion(conversation);
     }
     setCurrentConversationId(conversation.id);
+    console.log(conversation.id);
   };
   return (
     <>
@@ -97,19 +102,22 @@ function ChatApp() {
           />
         </aside>
         <ChatWindow
+          getConversationWithUser={getConversationWithUser}
           messages={currentConversation?.messages || []}
           currentMessage={currentMessage}
+          CurrentConversationId={currentConversationId}
+          allConversations={allConversations}
           setCurrentMessage={setCurrentMessage}
           handleSendMessage={handleSendMessage}
         />
       </div>
-      {/* <button onClick={handleDisconnect}>Disconnect</button> */}
     </>
   );
 }
 
 export default ChatApp;
 
+{/* <button onClick={handleDisconnect}>Disconnect</button> */}
 // const handleDisconnect = () => {                                                        // this function does not work.
 //     const newMessage = {
 //         sender: name, // This should be replaced with the current user's name

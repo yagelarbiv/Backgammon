@@ -22,6 +22,7 @@ function ChatList({  type,items,isItemSelected,handleClick,onListClick,list }) {
                         {item.online ? <img src={icononline} alt={item.name} />  : <img src={iconoffine} alt={item.name} />}
                     </div>}
                     </button>
+                    <button onClick={() => isItemSelected(item)} data-bs-dismiss="modal">-</button>
                       
                 </div>
             ))
