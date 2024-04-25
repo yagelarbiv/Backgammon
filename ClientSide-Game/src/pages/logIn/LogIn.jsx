@@ -1,14 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "../../../../storage/userStore";
-// import './login.css' ;
+import useUserStore from "../../stores/userStore";
+import useAuthStore from "../../stores/authStore";
+import './login.css' ;
+import NavBar from "../../components/Header";
+
 
 const LogIn = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
   const [userName, setName] = useState("");
   const [password, setPassword] = useState("");
   const setuser = useUserStore(state => state.setuser);
+  const setAccessToken = useAuthStore(state => state.setAccessToken);
+  const setRefreshToken = useAuthStore(state => state.setRefreshToken);
+
   const navigate = useNavigate();
 
   async function submit(e) {
@@ -18,29 +24,42 @@ const LogIn = () => {
         UserName: userName,
         Password: password,
       });
+
       console.log(response);
-      // Saving in zustand to get it in the chat and in the game.
+
+      
+      const accessToken = response.data.accessToken;
+      const refreshToken = response.data.refreshToken;
+
+      setAccessToken(accessToken);
+      setRefreshToken(refreshToken);
+
       setuser({ userName });
 
-      //Routing to the main page.
       navigate("/");
 
     } catch (err) {
       console.log(err);
     }
+
   }
     return (
       <>
-        <div>
-          <h1>Log In</h1>
+      <NavBar/>
+      <body className="login-body">
+        <div className="login-page">
+          <h1 className="login-title">Log In</h1>
           <form method="POST" className="loginForm">
-            <label htmlFor="username">UserName</label>
+            <label className="username-label" htmlFor="username">UserName</label>
             <input name="username" id="username" type="text" onChange={(e) => setName(e.target.value)} />
-            <label htmlFor="password">Password</label>
+            <label className="password-label" htmlFor="password">Password</label>
             <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
+          <br />
             <button disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
           </form>
         </div>
+
+      </body>
       </>
     );
 
