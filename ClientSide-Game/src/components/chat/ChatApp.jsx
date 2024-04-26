@@ -17,8 +17,8 @@ function ChatApp() {
   const getConversationWithUser = useConversetionStore(
     (state) => state.getConversationWithUser
   );
-  const addConversetion = useConversetionStore(
-    (state) => state.addConversetion
+  const addConversation = useConversetionStore(
+    (state) => state.addConversation
   );
   const addMessageToConversation = useConversetionStore(
     (state) => state.addMessageToConversation
@@ -34,6 +34,10 @@ function ChatApp() {
   useEffect(() => {
     const newSocket = io(chatUrl, { withCredentials: true });
     setSocket(newSocket);
+
+    newSocket.on("connect", () => {
+      console.log("connected with socket id: " + newSocket.id);
+    });
     return () => newSocket && newSocket.close();
   }, []);
 
@@ -44,21 +48,27 @@ function ChatApp() {
     socket.emit("set_name", user.userName);
 
     const messageHandler = (msg) => {
-      setMessages((prevMessages) => [...prevMessages, msg]);
+      addMessageToConversation(currentConversationId, msg);
     };
     const messageBroadcastHandler = (msg) => {
       setMessages((prevMessages) => [...prevMessages, msg]);
     };
 
+    socket.on('conversation_created', (newConversation) => {
+      addConversation(newConversation);
+    });
+
     socket.on("message", messageHandler);
     socket.on("message-broadcast", messageBroadcastHandler);
 
-    // Cleanup the event listeners
     return () => {
       socket.off("message", messageHandler);
       socket.off("message-broadcast", messageBroadcastHandler);
+      socket.off('conversation_created');
+
     };
-  }, [socket]);
+  }, [socket, currentConversationId, user, addMessageToConversation,addConversation]);
+
   const currentConversation = useMemo(
     () => allConversations.find((c) => c.id === currentConversationId),
     [currentConversationId, allConversations]
@@ -71,23 +81,30 @@ function ChatApp() {
       socket.emit("message", `${name}: ${currentMessage}`);
     }
   };
+
   const isConversationSelected = (conversation) => {
     return currentConversationId === conversation.id;
   };
-  const onListClick = (selectedUser) => {
-    let conversation = getConversationWithUser(selectedUser);
-    console.log("conversation:", conversation);
-    if (!conversation) {
-      conversation = {
-        id: uuiv4(),
-        users: [user, selectedUser],
-        messages: [],
-      };
-      addConversetion(conversation);
-    }
+
+const onListClick = (selectedUser) => {
+  let conversation = getConversationWithUser(selectedUser.name);
+
+  if (!conversation) {
+    conversation = {
+      id: uuiv4(),
+      users: [user, selectedUser],
+      messages: [],
+    };
+  
+    addConversation(conversation);
     setCurrentConversationId(conversation.id);
-    console.log(conversation.id);
-  };
+  
+    socket.emit('new_conversation', { conversation, otherUserId: selectedUser.name });
+    console.log(selectedUser.id);
+  } else {
+    setCurrentConversationId(conversation.id);
+  }
+};
   return (
     <>
       <div className="chat-app">
@@ -111,6 +128,7 @@ function ChatApp() {
           addMessageToConversation={addMessageToConversation}
           setCurrentMessage={setCurrentMessage}
           handleSendMessage={handleSendMessage}
+          currentConversation={currentConversation}
         />
       </div>
     </>

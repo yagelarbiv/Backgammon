@@ -1,7 +1,9 @@
-import propTypes from 'prop-types';
+
 import React from 'react';
 
+
 function MessageInput({ currentMessage, setCurrentMessage, handleSendMessage  }) {
+
     const handleKeyPress = (e) => {
         if (e.key === 'Enter' && currentMessage.trim() !== '') {
             handleSendMessage();

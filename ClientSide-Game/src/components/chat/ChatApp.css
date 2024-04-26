@@ -103,7 +103,12 @@
 .message-sender {
     font-weight: bold;
     margin-right: 10px;
+    text-align: right;
 }
+.message.recipient {
+    text-align: left;
+    font-weight: bold;
+  }
 
 .message-timestamp {
     font-size: 0.8em;
@@ -111,7 +116,6 @@
 }
 
 .message-list{
-    
     display: flex;
     flex-direction: column;
 }
