@@ -47,8 +47,11 @@ function ChatApp() {
     setName(user.userName);
     socket.emit("set_name", user.userName);
 
-    const messageHandler = (msg) => {
-      addMessageToConversation(currentConversationId, msg);
+    const messageHandler = (message) => {
+      if (message.conversationId === currentConversationId) {
+        // Add message to conversation
+        addMessageToConversation(currentConversationId, message);
+      }
     };
     const messageBroadcastHandler = (msg) => {
       setMessages((prevMessages) => [...prevMessages, msg]);
@@ -75,10 +78,24 @@ function ChatApp() {
   );
 
   const handleSendMessage = () => {
-    addMessageToConversation(currentConversationId, { sender: name, text: currentMessage });
-    setCurrentMessage("");
+    //addMessageToConversation(currentConversationId, { sender: name, text: currentMessage });
+
     if (socket && currentMessage.trim() !== "") {
-      socket.emit("message", `${name}: ${currentMessage}`);
+      let recipientName = currentConversation.users.find(u => u.name !== user.name).name;
+      if (recipientName === name) {
+        currentConversation.users.map((u) => {
+          if (u.userName !== recipientName && u.userName !== undefined) {
+            recipientName = u.userName;
+          }
+      })}
+      const messageData = {
+        senderName: name,
+        recipientName: recipientName,
+        text: currentMessage,
+        conversationId: currentConversationId,
+      };
+      socket.emit("message", messageData);
+      setCurrentMessage("");
     }
   };
 
@@ -100,9 +117,10 @@ const onListClick = (selectedUser) => {
     setCurrentConversationId(conversation.id);
   
     socket.emit('new_conversation', { conversation, otherUserId: selectedUser.name });
-    console.log(selectedUser.id);
+
   } else {
     setCurrentConversationId(conversation.id);
+    console.log(conversation);
   }
 };
   return (

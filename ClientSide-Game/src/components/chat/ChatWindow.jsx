@@ -3,6 +3,7 @@ import ChatHeader from './ChatHeader';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 
+
 function ChatWindow({currentConversation, messages, currentMessage, setCurrentMessage, handleSendMessage }) {
     return (
         <section className="chat-window">

@@ -28,7 +28,7 @@ function ChatHeader({ currentConversation }) {
       {userName && secondUserName ? (
         `${userName}'s conversation with ${secondUserName}`
       ) : (
-        'Loading conversation...'
+        userName+"'s chat"
       )}
     </header>
   );
