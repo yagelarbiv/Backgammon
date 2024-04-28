@@ -567,11 +567,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
       "projectName": "AuthenticationServer.Models",
-      "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

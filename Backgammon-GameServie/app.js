@@ -59,29 +59,7 @@ export function socketEmit(eventName, data, to) {
   io.to(to).emit(eventName, data);
 }
 
-io.on('game-start', (from, to) => {
-  log(from, to);
-  try {
-      if (!to || !from) {
-        return res.status(400).json({ error: "Missing username" });
-      }
-      if (!exists) {
-        return res.status(404).json({ error: "User not found" });
-      }
-      io.to(to).emit("game-invite", from);
-      return res.status(200).json({ message: "User found" });
-    } catch (err) {
-      return res.status(500).json({ error: "Internal Server Error" });
-    }
-  });
-  
-  io.on("invite-declined", (from, to) => {
-    io.to(allUsers[from]).emit("decline-invite", to);
-  });
-  
-  io.on("invite-accepted", (from, to) => {
-    io.to(allUsers[from]).emit("accept-invite", to);
-  });
+
 
 io.on("connection", (socket) => {
   console.log(socket.id);
@@ -94,6 +72,29 @@ io.on("connection", (socket) => {
     );
     io.emit("user-disconnected", leavingUser);
   });
+  socket.on('game-start', (from, to) => {
+    log(from, to);
+    try {
+        if (!to || !from) {
+          return res.status(400).json({ error: "Missing username" });
+        }
+        if (!exists) {
+          return res.status(404).json({ error: "User not found" });
+        }
+        io.to(to).emit("game-invite", from);
+        return res.status(200).json({ message: "User found" });
+      } catch (err) {
+        return res.status(500).json({ error: "Internal Server Error" });
+      }
+    });
+    
+  socket.on("invite-declined", (from, to) => {
+    io.to(allUsers[from]).emit("decline-invite", to);
+  });
+    
+  socket.on("invite-accepted", (from, to) => {
+    io.to(allUsers[from]).emit("accept-invite", to);
+  });
 });
 
 io.on("disconnect", () => {
@@ -101,5 +102,5 @@ io.on("disconnect", () => {
 });
 
 socketServer.listen(process.env.GAME_PORT || 3003,() => {
-  console.log('Server is running on port 5700');
+  console.log('Server is running on port 3003');
 });
