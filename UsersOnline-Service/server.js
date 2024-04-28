@@ -85,11 +85,6 @@ io.on('connection', (socket) => {
   socket.emit('allUsers', cleanedUsers);
 });
 
-// function getCleanedUsers() {
-//   return allUsers.map(u => ({ name: u.name, online: u.online }));
-// }
-
-
 axios.get('https://localhost:6001/api/auth/all-users', {
   headers: {
     'Authorization': `Bearer ${AccessToken}` 
@@ -111,20 +106,6 @@ axios.get('https://localhost:6001/api/auth/all-users', {
 }).catch(error => {
   console.error(error);
 });
-
-
-
-// socketClient.on('disconnect', () => {
-//   const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
-//   if (username) {
-//     const userIndex = AllUsers.findIndex(user => user.name === username);
-//     if (userIndex !== -1) {
-//       AllUsers[userIndex].online = false;
-//       io.emit("online_status", AllUsers); // Emit the updated user list
-//     }
-//   }
-// });
-
 
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
