@@ -23,34 +23,47 @@ const io = new Server(server, {
     credentials: true
   },
 });
-
+const userToSocketIdMap = {};
 io.on("connection", (socket) => {
   console.log("New user connected");
 
   // Handle client setting their name
   socket.on("set_name", (name) => {
     socket.clientName = name;
+    userToSocketIdMap[name] = socket.id; // Corrected variable name here
     socket.emit(
       "message",
-      socket.clientName
-        ? `${socket.clientName}: ${name} Connected`
-        : "Hello From server!"
+      `${socket.clientName} Connected`
     );
   });
 
-  // Handle message sending
-  socket.on("message", (msg) => {
-    console.log("message received:", msg);
-    io.emit("message-broadcast", msg);
-  });
+socket.on('new_conversation', (data) => {
+  const { conversation, otherUserId } = data;
+  const otherUserSocketId = userToSocketIdMap[otherUserId];
 
-//   socket.on("message", (message) => {
-//     console.log("message received:", message);
-//     // You'll need to find the recipient's socket and emit the message to that socket.
-//     // This is a simplified example. You'll need to maintain a map of user IDs to socket IDs.
-//     const recipientSocket = findRecipientSocket(message.recipientId);
-//     recipientSocket.emit("message", message);
-// });
+  if (otherUserSocketId) {
+    io.to(otherUserSocketId).emit('conversation_created', conversation);
+  }
+});
+
+socket.on("message", (msg) => {
+  const { senderName, recipientName, text, conversationId } = msg;
+
+  // Emit the message to the sender
+  const senderSocketId = userToSocketIdMap[senderName];
+  if (senderSocketId) {
+    io.to(senderSocketId).emit("message", { senderName, text, conversationId });
+  }
+
+  // Emit the message to the recipient if the recipient is different from the sender
+  if (recipientName !== senderName) {
+    const recipientSocketId = userToSocketIdMap[recipientName];
+    if (recipientSocketId) {
+      io.to(recipientSocketId).emit("message", { senderName, text, conversationId });
+    }
+  }
+});
+
 
   // Handle addition of items
   socket.on("addItems", (data) => {
@@ -70,14 +83,13 @@ io.on("connection", (socket) => {
   });
 
   // Handle automatic disconnection
+
   socket.on("disconnect", () => {
-    if (socket.clientName) {
-      socket.broadcast.emit(
-        "message-broadcast",
-        `${socket.clientName} has disconnected.`
-      );
+    // Remove the mapping when the user disconnects
+    const userName = Object.keys(userToSocketIdMap).find(name => userToSocketIdMap[name] === socket.id);
+    if (userName) {
+      delete userToSocketIdMap[userName];
     }
-    console.log("User disconnected");
   });
 });
 
