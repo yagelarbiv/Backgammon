@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import useUserStore from "../../stores/userStore";
 
 function ChatMessage({ message }) {

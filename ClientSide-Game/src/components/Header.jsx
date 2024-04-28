@@ -1,7 +1,8 @@
-import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function NavBar() {
-    
+  const navigate = useNavigate();
+
   return (
     <>
     <meta charSet="utf-8" />
@@ -34,7 +35,7 @@ function NavBar() {
     ></script>
     <script
     src="https://cdn.socket.io/4.6.0/socket.io.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossOrigin="anonymous">
     </script>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -48,10 +49,10 @@ function NavBar() {
             </button>
             <div className="collapse navbar-collapse" id="navbar">
             <div className="navbar-nav">
-              <a className="nav-item nav-link" id="home" href="/home">Home</a>
-              <a className="nav-item nav-link" id="logout" href="/logout">Logout</a>
-              <a className="nav-item nav-link" id="login" href="/login">Login</a>
-              <a className="nav-item nav-link" id="signUp" href="/register">Sign Up</a>
+              <a className="nav-item nav-link" id="home" onClick={() => navigate("/")}>Home</a>
+              <a className="nav-item nav-link" id="logout" onClick={() => navigate("/logout")}>Logout</a>
+              <a className="nav-item nav-link" id="login" onClick={() => navigate("/login")}>Login</a>
+              <a className="nav-item nav-link" id="signUp" onClick={() => navigate("/register")}>Sign Up</a>
             </div>
             </div>
         </nav>

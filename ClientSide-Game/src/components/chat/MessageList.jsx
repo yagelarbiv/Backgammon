@@ -1,4 +1,3 @@
-import propTypes from 'prop-types';
 import ChatMessage from './ChatMessage';
 
 function MessageList({ messages }) {

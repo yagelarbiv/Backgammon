@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+
 import ChatHeader from './ChatHeader';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';

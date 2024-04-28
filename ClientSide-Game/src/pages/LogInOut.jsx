@@ -6,10 +6,13 @@ import useUserStore from "../stores/userStore";
 const LogInOut = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
   const user = useUserStore(state => state.user);
+  const auth = useUserStore(state => state.auth);
   const navigate = useNavigate();
 
   async function submit(e) {
     e.preventDefault();
+    
+    console.log("user refreshed token: " + auth.refreshedToken);
     try {
       await axios.post(authUrl+"/logout", {
         headers: {
@@ -18,7 +21,7 @@ const LogInOut = () => {
       })
       .then(function (response) {
         console.log(response);
-        useUserStore.setState({user: null});
+        localStorage.removeItem("User");
         navigate("/")
       })
     } catch (err) {

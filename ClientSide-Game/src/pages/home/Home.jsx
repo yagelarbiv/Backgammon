@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../../components/Header";
 import ChatList from "../../components/ItemList";
 import "./Home.css";
 import { io } from "socket.io-client";
@@ -16,7 +15,7 @@ function Home() {
   const accessToken = useAuthStore((state) => state.accessToken);
   const [currentUsername, setCurrentUsername] = useState();
   const user = useUserStore((state) => state.user);
-  console.log(socket);
+console.log(socket);
   useEffect(() => {
     if (!user) {
       navigate("/login");
@@ -24,21 +23,21 @@ function Home() {
   }, [user, navigate]);
 
   useEffect(() => {
-    const newsocket = io("http://localhost:5777", {
+    const newSocket = io("http://localhost:5777", {
       withCredentials: true,
       auth: { token: accessToken },
     });
 
-    setSocket(newsocket);
+    setSocket(newSocket);
 
-    newsocket.on("allUsers", (users) => {
+    newSocket.on("allUsers", (users) => {
       console.log("Received users from socket:", users);
       setAllUsers(users);
     });
 
     return () => {
-      newsocket.off("allUsers");
-      newsocket.close();
+      newSocket.off("allUsers");
+      newSocket.close();
     };
   }, [accessToken, setAllUsers]);
 
@@ -49,7 +48,6 @@ function Home() {
   return (
     <>
       <div className="home-page">
-        <NavBar />
         <h1 className="title-home">Welcome to Backgammon</h1>
         <aside className="sidebar">
           <ChatList
@@ -60,7 +58,7 @@ function Home() {
           />
         </aside>
         <div className="button-container">
-          <button className="start-game" onClick={() => navigate("/Game")}>
+          <button className="start-game" onClick={() => navigate("/game")}>
             Start Game
           </button>
           <button className="join-chat" onClick={() => navigate("/chat")}>

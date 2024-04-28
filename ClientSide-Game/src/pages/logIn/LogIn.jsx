@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useUserStore from "../../stores/userStore";
 import useAuthStore from "../../stores/authStore";
 import './login.css' ;
-import NavBar from "../../components/Header";
+
 
 
 const LogIn = () => {
@@ -31,6 +31,10 @@ const LogIn = () => {
       const accessToken = response.data.accessToken;
       const refreshToken = response.data.refreshToken;
 
+
+      console.log("accessToken:", accessToken);
+      console.log("refreshToken:", refreshToken);
+      
       setAccessToken(accessToken);
       setRefreshToken(refreshToken);
 
@@ -45,8 +49,7 @@ const LogIn = () => {
   }
     return (
       <>
-      <NavBar/>
-      <body className="login-body">
+      <div className="login-body">
         <div className="login-page">
           <h1 className="login-title">Log In</h1>
           <form method="POST" className="loginForm">
@@ -58,8 +61,7 @@ const LogIn = () => {
             <button disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
           </form>
         </div>
-
-      </body>
+      </div>
       </>
     );
 

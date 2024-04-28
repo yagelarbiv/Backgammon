@@ -1,5 +1,4 @@
-import LogInOut from "./LogInOut";
-
+import LogInOut from "../components/LogInOut";
 
 const AuthPage = () => {
   return (
