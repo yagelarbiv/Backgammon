@@ -3,8 +3,6 @@ import {
   existsInMap as existsInUsernameToSocketIdMap,
   getGameId,
 } from "../utils/utils.js";
-import mongoose from "mongoose";
-import fs from "fs";
 import User from "../models/user.js";
 
 export const usernameToSocketIdMap = {};

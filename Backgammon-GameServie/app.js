@@ -7,7 +7,6 @@ import gameRoutes from "./routes/game.routes.js";
 import {
   usernameToSocketIdMap
 } from "./controllers/game.controller.js";
-
 import dotenv from "dotenv";
 import { log } from "console";
 dotenv.config();
@@ -44,7 +43,8 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || "An unknown error occurred!" });
 });
 
-const sockets = [];
+let sockets = [];
+let users = [];
 const socketServer = http.createServer(app);
 export const io = new Server(socketServer, {
   cors: {
@@ -59,48 +59,45 @@ export function socketEmit(eventName, data, to) {
   io.to(to).emit(eventName, data);
 }
 
+function someUserCheckFunction(username) {
+  return true;
+}
 
+
+const userToSocketIdMap = {};
 
 io.on("connection", (socket) => {
-  console.log(socket.id);
-  socket.on("game-win", (data) => {
-    socket.emit("on-game-won", data);
+  console.log("New user connected");
+
+  socket.on("set_name", (name) => {
+    userToSocketIdMap[name] = socket.id;
+    socket.emit("welcome", `${name}, you are connected for gaming.`);
   });
+
+  socket.on("game-start", (from, to) => {
+    console.log(`Game start requested from ${from} to ${to}`);
+    if (!to || !from) {
+      socket.emit('error', { error: "Missing username" });
+      return;
+    }
+    const toSocketId = userToSocketIdMap[to];
+    if (toSocketId) {
+        io.to(toSocketId).emit("game-invite", from);
+        console.log(`Game invite sent from ${from} to ${to}`);
+    } else {
+        socket.emit('error', { error: "User not found" });
+    }
+  });
+
   socket.on("disconnect", () => {
-    const leavingUser = Object.keys(usernameToSocketIdMap).find(
-      (username) => usernameToSocketIdMap[username] === socket.id
-    );
-    io.emit("user-disconnected", leavingUser);
-  });
-  socket.on('game-start', (from, to) => {
-    log(from, to);
-    try {
-        if (!to || !from) {
-          return res.status(400).json({ error: "Missing username" });
-        }
-        if (!exists) {
-          return res.status(404).json({ error: "User not found" });
-        }
-        io.to(to).emit("game-invite", from);
-        return res.status(200).json({ message: "User found" });
-      } catch (err) {
-        return res.status(500).json({ error: "Internal Server Error" });
-      }
-    });
-    
-  socket.on("invite-declined", (from, to) => {
-    io.to(allUsers[from]).emit("decline-invite", to);
-  });
-    
-  socket.on("invite-accepted", (from, to) => {
-    io.to(allUsers[from]).emit("accept-invite", to);
+    const userName = Object.keys(userToSocketIdMap).find(name => userToSocketIdMap[name] === socket.id);
+    if (userName) {
+      delete userToSocketIdMap[userName];
+      console.log(`${userName} disconnected and removed from user map.`);
+    }
   });
 });
 
-io.on("disconnect", () => {
-  console.log("disconnected io");
-});
-
-socketServer.listen(process.env.GAME_PORT || 3003,() => {
-  console.log('Server is running on port 3003');
+socketServer.listen(3003, () => {
+  console.log("Server is running on port 3003 for game invites");
 });

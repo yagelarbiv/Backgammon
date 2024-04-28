@@ -79,8 +79,6 @@ function ChatApp() {
   );
 
   const handleSendMessage = () => {
-    //addMessageToConversation(currentConversationId, { sender: name, text: currentMessage });
-
     if (socket && currentMessage.trim() !== "") {
       let recipientName = currentConversation.users.find(u => u.name !== user.name).name;
       if (recipientName === name) {
