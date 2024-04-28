@@ -1,12 +1,73 @@
-#app {
-  display: grid;
-  place-content: center;
-  height: 100vh;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
-.links {
+.header {
   display: flex;
-  align-content: center;
+  top: 0;
+  z-index: 3;
+  width: 100%;
 }
-.game {
+.dice {
+  justify-self: center;
+  margin: auto;
+  transform: translateX(-150%);
+}
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 0.9em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #141415;
+  color: rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.Black {
+  color: #000;
+  -webkit-text-stroke: 1px #44444455;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.board-top {
+  background-color: #482e00;
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.013) 50%,
+      transparent 100%
+    ),
+    linear-gradient(60deg, rgba(255, 255, 255, 0.013) 50%, transparent 50%),
+    linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.017) 50%),
+    linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.019) 50%);
+  background-size: 13px, 29px, 37px, 53px;
+  box-shadow: inset 7px 3px 7px black;
+  border: 10px solid #141415;
+  border-bottom: 0;
+  padding: 15px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.board-bottom {
+  background-color: black;
+  border: 10px solid #141415;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
 }

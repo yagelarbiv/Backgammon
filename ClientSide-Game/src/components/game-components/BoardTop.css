@@ -1,0 +1,3 @@
+.rotated {
+  transform: scale(-1, -1) rotateY(180deg);
+}

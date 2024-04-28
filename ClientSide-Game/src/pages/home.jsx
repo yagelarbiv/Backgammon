@@ -1,0 +1,62 @@
+import { useState, useEffect } from 'react';
+import ItemList from '../components/chat/ItemList'
+import './Home.css'
+import {io} from "socket.io-client";
+import useAllUsersStore from './../../storage/useAllUsersStore';
+import useAuthStore from '../../storage/useAuthStore';
+
+function Home() {
+  const allUsers = useAllUsersStore((state) => state.allUsers);
+  const setAllUsers = useAllUsersStore((state) => state.setAllUsers);
+  const [socket, setSocket] = useState(null)
+  const accessToken = useAuthStore((state) => state.accessToken);
+  const refreshToken = useAuthStore((state) => state.refreshToken);
+  const [currentUsername, setCurrentUsername] = useState()
+
+
+  useEffect(() => {
+      const newSocket = io('http://localhost:5777', { 
+      withCredentials: true, 
+      auth: { token: accessToken, refreshToken: refreshToken  },
+
+    });
+      setSocket(newSocket);
+      return () => newSocket && newSocket.close();
+  }, [accessToken]);
+
+  useEffect(() => {
+    if (!socket) return;
+
+    socket.on("allUsers", (users) => {
+      console.log("Received users from socket:", users);
+      setAllUsers(users);
+    });
+
+    return () => {
+      socket.off("allUsers");
+  };
+  }, [socket,setAllUsers]);
+  
+  const isUserSelected = (user) => {
+    return currentUsername === user.name;
+  }
+
+
+  return (
+    <>
+      <div className="home-page">
+
+          <h1 className="title-home">Welcome to Backgammon</h1>
+        <aside className="sidebar">
+          <ItemList type={"users"} items={allUsers} isItemSelected={isUserSelected} handleClick={(user) => setCurrentUsername(user.name)}/>
+        </aside>
+        <div className="button-container">
+          <button className='start-game' onClick={() => window.location.href = '/game'}>Start Game</button>
+          <button className='join-chat' onClick={() => window.location.href = '/'}>Join Chat</button>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default Home;

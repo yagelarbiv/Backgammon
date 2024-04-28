@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import useUserStore from "../../stores/userStore";
 
 function ChatHeader() {

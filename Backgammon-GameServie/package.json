@@ -1,13 +1,28 @@
 {
-  "name": "backgammon-gameservie",
+  "name": "talkbackserver.game",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "startDev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.15",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.4",
+    "nodemon": "^3.1.0",
+    "react-hot-toast": "^2.4.1",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.1"
+  }
 }

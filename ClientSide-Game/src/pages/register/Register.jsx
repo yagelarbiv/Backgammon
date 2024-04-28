@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../../stores/userStore"
 import "../logIn/login.css";
-import NavBar from "../../components/Header";
 
 const Register = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
@@ -31,7 +30,6 @@ const Register = () => {
   }
   return (
     <>
-      <NavBar />
       <div className="login-body">
         <div className="login-title">
           <h1>Sign-Up</h1>
