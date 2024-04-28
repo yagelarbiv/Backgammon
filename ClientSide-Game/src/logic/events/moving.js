@@ -1,7 +1,6 @@
 import { io } from "socket.io-client";
 import "react-dotenv";
 
-console.log(import.meta.env.VITE_APP_GAME_URL)
 const socket = io(import.meta.env.VITE_APP_GAME_URL, {
   withCredentials: true
 });

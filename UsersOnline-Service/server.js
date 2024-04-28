@@ -6,11 +6,11 @@ import http from 'http';
 import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
 import "dotenv/config";
+import { log } from 'console';
 
 
 const app = express();
 const PORT = process.env.PORT || 5777; //5777
-// const onlineUsers = {};
 let allUsers = [];
 let AccessToken;
 
@@ -43,7 +43,7 @@ const getUserNameFromToken = (token) => {
 };
 
 io.use((socket, next) => {
-
+  log("Socket connection", socket.handshake.auth.token);
   const token = socket.handshake.auth.token;
   if (token) {
     const userName = getUserNameFromToken(token);
@@ -81,8 +81,6 @@ io.on('connection', (socket) => {
   console.log('A user connected' );
   socket.emit('allUsers', allUsers);
 });
-
-
 
 axios.get('https://localhost:6001/api/auth/all-users', {
   headers: {
