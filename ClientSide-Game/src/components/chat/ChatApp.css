@@ -37,12 +37,17 @@
 }
 
 .message-list {
+    display: flex;
+    flex-direction: column;
     background-color: #0f0f23; /* Deep space blue background */
     color: #ffffff; /* White text for contrast */
     font-family: 'Arial', sans-serif; /* Modern, sans-serif font */
     flex: 1;
     overflow: auto;
     padding: 10px;
+    scrollbar-color:  #0f0f23 #2C2C2C;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
 .message-input {
@@ -103,18 +108,18 @@
 .message-sender {
     font-weight: bold;
     margin-right: 10px;
+    text-align: right;
 }
+.message.recipient {
+    text-align: left;
+    font-weight: bold;
+  }
 
 .message-timestamp {
     font-size: 0.8em;
     color: #bdc3c7;
 }
 
-.message-list{
-    
-    display: flex;
-    flex-direction: column;
-}
 
 .chat-item{
     background-color: #0f0f23; /* Deep space blue background */

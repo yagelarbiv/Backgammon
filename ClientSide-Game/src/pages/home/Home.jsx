@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ChatList from "../../components/ItemList";
@@ -15,6 +16,7 @@ function Home() {
   const accessToken = useAuthStore((state) => state.accessToken);
   const [currentUsername, setCurrentUsername] = useState();
   const user = useUserStore((state) => state.user);
+
   useEffect(() => {
     if (!user) {
       navigate("/login");

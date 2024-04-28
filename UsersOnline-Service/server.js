@@ -6,11 +6,12 @@ import http from 'http';
 import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
 import "dotenv/config";
-import { log } from 'console';
+
 
 
 const app = express();
-const PORT = process.env.PORT || 5777; //5777
+const PORT = process.env.PORT; //5777
+// const onlineUsers = {};
 let allUsers = [];
 let AccessToken;
 
@@ -37,50 +38,57 @@ const getUserNameFromToken = (token) => {
     const decoded = jwt.verify(token, process.env.SECRET_JWT);
     return decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
   } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      const decoded = jwt.decode(token,process.env.SECRET_JWT );
+      return decoded['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+    }
     console.error("Failed to decode or verify JWT:", error);
     return null;
   }
 };
 
 io.use((socket, next) => {
-  log("Socket connection", socket.handshake.auth.token);
   const token = socket.handshake.auth.token;
   if (token) {
     const userName = getUserNameFromToken(token);
     if (userName) {
       console.log("Authenticated user:", userName);
-      const user = allUsers.find(user => user.name === userName);
-      if (user) {
+      let isNewUser = false;
+      let user = allUsers.find(user => user.name === userName);
+      if (!user) {
+        user = { name: userName, online: true, socketConnection: socket };
+        allUsers.push(user);
+        isNewUser = true;
+      } else {
         user.online = true;
         user.socketConnection = socket;
       }
-      else{
-        allUsers.push({ name: userName, online: true , socketConnection: socket});
-      }
 
-      for(const user of allUsers){
-        if(user.online && user.socketConnection){
-          user.socketConnection.emit('allUsers', allUsers);
-        }
+      // Emit only if a new user is added to reduce load and avoid recursion
+      if (isNewUser) {
+        const cleanedUsers = allUsers.map(u => ({ name: u.name, online: u.online }));
+        io.emit('allUsers', cleanedUsers);  // Emit to all connected clients at once
       }
       
       return next();
-
     }
-  }
-  else
-  {    
+  } else {    
     const err = new Error("Authentication error");
     err.data = { content: "Please retry later" }; // Additional error data
     next(err);
   }
 });
 
-
 io.on('connection', (socket) => {
   console.log('A user connected' );
-  socket.emit('allUsers', allUsers);
+  const cleanedUsers = allUsers.map(u => ({ name: u.name, online: u.online }));
+  socket.emit('allUsers', cleanedUsers);
 });
+
+// function getCleanedUsers() {
+//   return allUsers.map(u => ({ name: u.name, online: u.online }));
+// }
+
 
 axios.get('https://localhost:6001/api/auth/all-users', {
   headers: {
@@ -93,7 +101,7 @@ axios.get('https://localhost:6001/api/auth/all-users', {
   dataFromServer.forEach(user => {
     const existingUser = allUsers.find(exitingUser => exitingUser.name === user.name);
     if (existingUser) {
-      user.online = existingUser.online; 
+      user.online = existingUser.online; // or some other logic to update the existing user
     }else{
       user.online = false ;
     }
@@ -103,6 +111,19 @@ axios.get('https://localhost:6001/api/auth/all-users', {
 }).catch(error => {
   console.error(error);
 });
+
+
+
+// socketClient.on('disconnect', () => {
+//   const username = Object.keys(onlineUsers).find(key => onlineUsers[key] === socket.id);
+//   if (username) {
+//     const userIndex = AllUsers.findIndex(user => user.name === username);
+//     if (userIndex !== -1) {
+//       AllUsers[userIndex].online = false;
+//       io.emit("online_status", AllUsers); // Emit the updated user list
+//     }
+//   }
+// });
 
 
 server.listen(PORT, () => {

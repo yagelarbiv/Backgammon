@@ -1,4 +1,4 @@
-import {create} from 'zustand';
+import create from 'zustand';
 import { persist } from 'zustand/middleware'
 
 const useConversetionStore = create(persist((set,get) => ({
@@ -8,7 +8,12 @@ const useConversetionStore = create(persist((set,get) => ({
   getConversationWithUser:(user) => {
     const conversations = get().conversetions;
     return conversations.find(c => c.users.some(u => u.name === user.name));
+    
   },
+  deleteConversation: (id) => set((state) => ({
+    conversetions: 
+    state.conversetions.filter(conversation => conversation.id !== id)
+  })),
   getConversationMessages: (id) => set((state) => ({ conversetions: state.conversetions.map((c) => c.id === id ? c.messages : c) })), // Function to get conversation messages
 
   addConversation: (conversation) => set((state) => ({ conversetions: [...state.conversetions, conversation] })), // Function to set conversation data
