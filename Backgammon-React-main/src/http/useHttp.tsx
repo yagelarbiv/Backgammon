@@ -4,8 +4,7 @@ import axios, {
   CancelTokenSource,
   AxiosError,
 } from "axios";
-// import jwt from "jsonwebtoken";
-import 'dotenv/config';
+import { refreshTokens } from "../utils/functions";
 
 interface UserAuthData {
   userId: string;
@@ -34,12 +33,26 @@ export const useHttpClient = (): HttpClientHook => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const searchParams = new URLSearchParams(window.location.search);
-  const token = searchParams.get("token");
+  let token = searchParams.get("token");
   console.log(token);
   useEffect(() => {
     if(!token) setError("Not authorized. Please log in.");
   }, []);
-
+  axios.interceptors.response.use(
+    async (response): Promise<any> => {
+      if (response.status === 401 && response.data.message === "TokenExpiredError" && token) {
+        //refresh token
+        const tokens = await refreshTokens(token);
+        console.log(tokens);
+        if (tokens) {
+          token = tokens[0];
+        }
+      }
+    },
+    (error) => {
+    
+    }
+  )
   const activeHttpRequests = useRef<CancelTokenSource[]>([]);
 
   const sendRequest = useCallback(
@@ -91,22 +104,28 @@ export const useHttpClient = (): HttpClientHook => {
     socketId: string | undefined
   ): Promise<boolean> {
     try {
-      if (token !== null) {
-        // jwt.decode(token, import.meta.env.SECRET_JWT);
-      }
+      // if (token !== null) {
+      //   // jwt.decode(token, import.meta.env.SECRET_JWT);
+      // }
       if (socketId === undefined) false;
       const body = {
         username,
         opponent,
         socketId,
       };
+      try {
       const response =  await sendRequest(
           baseURL + "/join-game",
           "POST",
           body,
           { authorization: `Bearer ${token}` }
         );
-      if (!response) throw new Error("failed to join game");
+        if (!response) throw new Error("failed to join game");
+      } catch (err) {
+        if (err){
+
+        }
+      }
       return true;
     } catch (err) {
       console.error(err);
