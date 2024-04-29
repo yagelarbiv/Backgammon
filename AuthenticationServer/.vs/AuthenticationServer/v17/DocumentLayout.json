@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -107,6 +107,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "AuthenticationServer.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
+              "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-16T11:23:29.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
               "Title": "AuthenticationConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationConfiguration.cs",
@@ -128,19 +141,6 @@
               "ViewState": "AQIAACIAAAAAAAAAAAAWwCoAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T13:00:51.913Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "AuthenticationServer.Api\\appsettings.json",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\FinalProject\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
-              "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-16T11:23:29.971Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
