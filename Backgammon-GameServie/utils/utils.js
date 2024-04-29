@@ -8,9 +8,3 @@ export function existsInMap(name, map) {
     const sortedNames = [username, opponent].sort();
     return sortedNames.join("-");
   }
-export async function refreshTokens(Token) {
-  const response = await axios.post("https://localhost:6001/api/Auth/refresh", {
-    accessToken: Token,
-  });
-return response.data;
-}
