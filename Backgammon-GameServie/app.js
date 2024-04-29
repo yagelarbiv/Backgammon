@@ -81,9 +81,10 @@ io.on("connection", (socket) => {
       return;
     }
     const toSocketId = userToSocketIdMap[to];
+    console.log(toSocketId);
     if (toSocketId) {
-        io.to(toSocketId).emit("game-invite", from);
-        console.log(`Game invite sent from ${from} to ${to}`);
+      console.log(`Game invite sent from ${from} to ${to}`);
+      io.to(toSocketId).emit("game-invite", from);
     } else {
         socket.emit('error', { error: "User not found" });
     }
