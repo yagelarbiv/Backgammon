@@ -14,8 +14,8 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
     const [otherUser, setOtherUser] = useState(null);
     const user = useUserStore((state) => state.user);
     const accessToken = useAuthStore((state) => state.accessToken);
+    // let refreshToken = useAuthStore((state) => state.refreshToken);
     const deleteConversation = useConversationStore((state) => state.deleteConversation);
-
     useEffect(() => {
         const newSocket = socketio('http://localhost:3003', {
             withCredentials: true,
@@ -41,6 +41,9 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
 
     useEffect(() => {
         if (socket) {
+        socket.emit("connection", () => {
+            console.log("Connected to server");
+        });
         socket.emit("set_name", user.userName);
             socket.on("game-invite", (otherUser) => {
                 setOtherUser(otherUser);
@@ -64,6 +67,7 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
 
     const handleAcceptGame = () => {
         socket.emit("invite-accepted", otherUser, user.userName);
+
         window.open(
             `http://localhost:5174/game?user=${encodeURIComponent(user.userName)}&opponent=${encodeURIComponent(otherUser)}&token=${encodeURIComponent(accessToken)}`
         );

@@ -7,7 +7,7 @@ const useAuthStore = create(persist((set) => ({
   setAccessToken: (token) => set({ accessToken: token }),
   refreshToken: null,
   setRefreshToken: (token) => set({ refreshToken: token }),
-
+  clearData: () => set({ accessToken: null, refreshToken: null }),
 }), {
   name: 'AuthStorage', // unique name for localStorage key
   getStorage: () => localStorage, // define localStorage as storage location
