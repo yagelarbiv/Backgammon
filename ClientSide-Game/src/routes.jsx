@@ -4,7 +4,6 @@ import Register from "./pages/register/Register";
 import LogInOut from "./pages/LogInOut";
 import Home from "./pages/home/Home";
 import ChatApp from "./components/chat/ChatApp";
-import Game from "./pages/Game/Game";
 
 const routes = [
   { path: "/login", element: <LogIn /> },
@@ -12,7 +11,6 @@ const routes = [
   { path: "/logout", element: <LogInOut /> },
   { path: "/", element: <Home /> },
   { path: "/chat", element: <ChatApp/>},
-  { path: "/game/:users", element: <Game/> }
 
 ];
 

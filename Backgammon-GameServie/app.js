@@ -4,16 +4,15 @@ import express from "express";
 import cors from "cors";
 import fs from "fs";
 import gameRoutes from "./routes/game.routes.js";
-import {
-  usernameToSocketIdMap
-} from "./controllers/game.controller.js";
 import dotenv from "dotenv";
-import { log } from "console";
 dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174"
+  ],
   methods: ["GET", "POST"],
   credentials: true
 }));
@@ -48,7 +47,10 @@ let users = [];
 const socketServer = http.createServer(app);
 export const io = new Server(socketServer, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174"
+    ],
   methods: ["GET", "POST"],
   credentials: true
   },
@@ -73,7 +75,13 @@ io.on("connection", (socket) => {
     userToSocketIdMap[name] = socket.id;
     socket.emit("welcome", `${name}, you are connected for gaming.`);
   });
-
+  socket.on('new_game', (otherUser,game) => {
+    const otherUserSocketId = userToSocketIdMap[otherUser];
+  
+    if (otherUserSocketId) {
+      io.to(otherUserSocketId).emit('game_created', game);
+    }
+  });
   socket.on("game-start", (from, to) => {
     console.log(`Game start requested from ${from} to ${to}`);
     if (!to || !from) {

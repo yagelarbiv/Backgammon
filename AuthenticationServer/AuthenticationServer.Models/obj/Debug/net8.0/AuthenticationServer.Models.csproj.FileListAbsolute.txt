@@ -113,3 +113,16 @@ C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\Backgammon\Authe
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\refint\AuthenticationServer.Models.dll
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.pdb
 C:\Users\User\Desktop\Studies\Programming\Projects\FinalProject\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\ref\AuthenticationServer.Models.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\bin\Debug\net8.0\AuthenticationServer.Models.deps.json
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\bin\Debug\net8.0\AuthenticationServer.Models.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\bin\Debug\net8.0\AuthenticationServer.Models.pdb
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.AssemblyInfo.cs
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.sourcelink.json
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\refint\AuthenticationServer.Models.dll
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\AuthenticationServer.Models.pdb
+C:\Users\User\Desktop\Studies\Programming\Projects\backgammon\Backgammon\AuthenticationServer\AuthenticationServer.Models\obj\Debug\net8.0\ref\AuthenticationServer.Models.dll

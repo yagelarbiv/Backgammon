@@ -8,7 +8,7 @@ import jwt from "jsonwebtoken";
 import "dotenv/config";
 
 const app = express();
-const PORT = process.env.PORT; //5777
+const PORT = 5777; //5777
 // const onlineUsers = {};
 let allUsers = [];
 let AccessToken;
@@ -30,11 +30,7 @@ const io = new Server(server, {
     credentials: true,
   },
 });
-async function getAccessToken() {
-  const response = await axios.post("https://localhost:6001/api/Auth/refresh", {
-    refreshToken: "admin",
-  });
-}
+
 
 const getUserNameFromToken = (token) => {
   try {
@@ -44,7 +40,7 @@ const getUserNameFromToken = (token) => {
     ];
   } catch (error) {
     if (error.name === "TokenExpiredError") {
-      const decoded = jwt.verify(token, process.env.SECRET_JWT);
+      const decoded = jwt.decode(token, process.env.SECRET_JWT);
     return decoded[
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
     ];
