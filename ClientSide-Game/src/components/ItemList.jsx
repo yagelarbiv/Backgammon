@@ -36,6 +36,9 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
         setOtherUser(otherUser);
         if (socket) {
             socket.emit("game-start", user.userName, otherUser);
+            // window.open(
+            //     `http://localhost:5174/game/${otherUser}&${user.userName}?token=${accessToken}`
+            // );
         }
     };
 
@@ -49,11 +52,17 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
                 setOtherUser(otherUser);
                 setOpenGameInvitedModal(true);
             });
+            socket.on('game_created', (newGame) => {
+                window.open(
+                    `${newGame}`
+                );
+            });
             socket.on("cancel-invite", () => {
                 setOpenGameInvitedModal(false);
             });
 
             return () => {
+                socket.off("game_created");
                 socket.off("game-invite");
                 socket.off("cancel-invite");
             };
@@ -67,10 +76,10 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
 
     const handleAcceptGame = () => {
         socket.emit("invite-accepted", otherUser, user.userName);
-
         window.open(
-            `http://localhost:5174/game?user=${encodeURIComponent(user.userName)}&opponent=${encodeURIComponent(otherUser)}&token=${encodeURIComponent(accessToken)}`
+            `http://localhost:5174/game/${user.userName}&${otherUser}?token=${accessToken}`
         );
+        socket.emit("new_game", otherUser, `http://localhost:5174/game/&${otherUser}${user.userName}?token=${accessToken}`);
         setOpenGameInvitedModal(false);
     };
 
