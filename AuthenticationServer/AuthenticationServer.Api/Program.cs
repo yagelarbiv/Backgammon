@@ -92,17 +92,16 @@ public class Program
 
         var app = builder.Build();
 
+        app.UseCors("AllowSpecificOrigin");
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-        app.UseCors("AllowSpecificOrigin");
 
         app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
-
 
         app.MapControllers();
 
