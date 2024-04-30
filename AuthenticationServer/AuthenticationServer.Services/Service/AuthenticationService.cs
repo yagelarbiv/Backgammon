@@ -69,7 +69,7 @@ namespace AuthenticationServer.Services.Service
         public async Task Logout(string name)
         {
             var user = await repository.GetByUserName(name);
-            user.RefreshToken = null;
+            user.RefreshToken = "";
             await tokenRepository.Update(user);
         }
 
