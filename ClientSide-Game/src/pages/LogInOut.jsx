@@ -6,18 +6,19 @@ import useAuthStore from "../stores/authStore";
 
 const LogInOut = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
-  const user = useUserStore(state => state.user);
   const clearUser = useUserStore(state => state.clearUser);
   const accessToken = useAuthStore(state => state.accessToken);
   const clearData  = useAuthStore(state => state.clearData);
   const navigate = useNavigate();
-console.log(accessToken);
   async function submit(e) {
     e.preventDefault();
+    console.log(accessToken);
     try {
-      await axios.post(authUrl+"/logout", {
+      await axios.post(authUrl + "/logout", {
+        withCredentials: true,
         headers: {
-          'Authorization': 'Bearer ' + accessToken
+          'Authorization': 'Bearer ' + accessToken,
+          'Content-Type': 'application/json',
         }
       })
       .then(function (response) {

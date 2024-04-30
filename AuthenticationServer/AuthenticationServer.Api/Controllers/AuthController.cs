@@ -5,6 +5,7 @@ using AuthenticationServer.Models.Entities;
 using AuthenticationServer.Services.Service;
 using AuthenticationServer.Services.TokenGenerator.TokenValidators;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -13,6 +14,7 @@ namespace AuthenticationServer.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowSpecificOrigin")]
     public class AuthController(IAuthenticationService service,
         RefreshTokenValidators validators) : ControllerBase
     {
@@ -112,13 +114,13 @@ namespace AuthenticationServer.Api.Controllers
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
-            string? rawUsername = HttpContext.User.FindFirstValue(ClaimTypes.Name);
-            if (rawUsername == null && rawUsername == "")
+            string? rawUserName = HttpContext.User.FindFirstValue(ClaimTypes.Name);
+            if (rawUserName == null || rawUserName == "")
             {
                 return Unauthorized();
             }
             else
-                await service.Logout(rawUsername);
+                await service.Logout(rawUserName);
             return Ok();
         }
 

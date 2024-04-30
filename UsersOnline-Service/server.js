@@ -50,7 +50,7 @@ const getUserNameFromToken = (token) => {
   }
 };
 
- io.use((socket, next) => {
+io.use((socket, next) => {
     const token = socket.handshake.auth.token;
     if (token) {
       const userName = getUserNameFromToken(token);

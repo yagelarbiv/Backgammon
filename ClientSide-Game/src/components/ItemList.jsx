@@ -36,9 +36,6 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
         setOtherUser(otherUser);
         if (socket) {
             socket.emit("game-start", user.userName, otherUser);
-            // window.open(
-            //     `http://localhost:5174/game/${otherUser}&${user.userName}?token=${accessToken}`
-            // );
         }
     };
 
@@ -53,8 +50,9 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
                 setOpenGameInvitedModal(true);
             });
             socket.on('game_created', (newGame) => {
+                newGame._gameOn = true;
                 window.open(
-                    `${newGame}`
+                    `http://localhost:5174/game/${otherUser}&${user.userName}?token=${accessToken}`
                 );
             });
             socket.on("cancel-invite", () => {
