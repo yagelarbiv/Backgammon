@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AuthenticationServer.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91020f64c9fc65f30ba006b1933f5077708af276")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f73856ce4f08dd0964c36895f67f3f2f5f86210")]
 [assembly: System.Reflection.AssemblyProductAttribute("AuthenticationServer.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AuthenticationServer.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

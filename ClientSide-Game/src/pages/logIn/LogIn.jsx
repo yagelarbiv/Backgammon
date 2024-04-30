@@ -20,26 +20,22 @@ const LogIn = () => {
   async function submit(e) {
     e.preventDefault();
     try {
+      axios.defaults.withCredentials = true;
       const response = await axios.post(authUrl + "/login", {
+        Headers: {
+          withCredentials: true // Only set this if you need to send credentials
+        },
         UserName: userName,
         Password: password,
       });
-
       console.log(response);
-
-      
       const accessToken = response.data.accessToken;
       const refreshToken = response.data.refreshToken;
-
-
       console.log("accessToken:", accessToken);
       console.log("refreshToken:", refreshToken);
-      
       setAccessToken(accessToken);
       setRefreshToken(refreshToken);
-
       setuser({ userName });
-
       navigate("/");
 
     } catch (err) {

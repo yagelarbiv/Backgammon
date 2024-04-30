@@ -37,14 +37,20 @@ io.on("connection", (socket) => {
     );
   });
 
-socket.on('new_conversation', (data) => {
-  const { conversation, otherUserId } = data;
-  const otherUserSocketId = userToSocketIdMap[otherUserId];
-
-  if (otherUserSocketId) {
-    io.to(otherUserSocketId).emit('conversation_created', conversation);
-  }
-});
+  socket.on('new_conversation', (data) => {
+    const { conversation, otherUserId } = data;
+    
+    if (conversation.users && conversation.users.length === 2) {
+      const user1 = { userName: conversation.users[1].name };
+      const user2 = { name: conversation.users[0].userName };
+      conversation.users = [user1, user2];
+    }
+    
+    const otherUserSocketId = userToSocketIdMap[otherUserId];
+    if (otherUserSocketId) {
+      io.to(otherUserSocketId).emit('conversation_created', conversation);
+    }
+  });
 
 socket.on("message", (msg) => {
   const { senderName, recipientName, text, conversationId } = msg;
