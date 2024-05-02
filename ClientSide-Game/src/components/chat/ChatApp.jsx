@@ -8,6 +8,8 @@ import useUserStore from "../../stores/userStore";
 import useConversetionStore from "../../stores/conversetionStore";
 import useAllUsersStore from "../../stores/allUsersStore";
 import { v4 as uuiv4 } from "uuid";
+import { fetchMessages } from '../../services/chatService'
+
 
 function ChatApp() {
   const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
@@ -24,7 +26,7 @@ function ChatApp() {
   const addMessageToConversation = useConversetionStore(
     (state) => state.addMessageToConversation
   );
-
+  const { hasUnreadMessages, sethasUnreadMessages } = useConversetionStore();
   const [currentConversationId, setCurrentConversationId] = useState();
 
   const [messages, setMessages] = useState([]);
@@ -37,7 +39,7 @@ function ChatApp() {
     setSocket(newSocket);
 
     newSocket.on("connect", () => {
-      console.log("connected with socket id: " + newSocket.id);
+      // console.log("connected with socket id: " + newSocket.id);
     });
     return () => newSocket && newSocket.close();
   }, []);
@@ -49,11 +51,8 @@ function ChatApp() {
     socket.emit("set_name", user.userName);
 
     const messageHandler = (message) => {
-      if (message.conversationId === currentConversationId) {
-        // Add message to conversation
-        addMessageToConversation(currentConversationId, message);
-      }
-    };
+      addMessageToConversation(message.conversationId, message);
+    }
     const messageBroadcastHandler = (msg) => {
       setMessages((prevMessages) => [...prevMessages, msg]);
     };
@@ -98,8 +97,30 @@ function ChatApp() {
     }
   };
 
-  const isConversationSelected = (conversation) => {
-    return currentConversationId === conversation.id;
+  
+  
+  const isConversationSelected = async (conversation) => {
+    if (user) {
+      try {
+        const messages = await fetchMessages(user.userName); 
+        for (const message of messages) {
+          // console.log("The messages are:", message._id);
+          if(message.readStatus === false ) {
+            await socket.emit("mark-message-as-read", message._id);
+            sethasUnreadMessages(true);
+            // if (message.conversationId === conversation.id ) {
+            //   console.log(message.conversationId+ "===" + conversation.id);
+            //   sethasUnreadMessages(false);
+            // }else{
+            //   sethasUnreadMessages(true);
+            // }
+          }
+        }
+      } catch (error) {
+        console.error("Failed to fetch messages:", error);
+      }
+      return currentConversationId === conversation.id;
+    }
   };
 
 const onListClick = (selectedUser) => {
@@ -121,12 +142,15 @@ const onListClick = (selectedUser) => {
     setCurrentConversationId(conversation.id);
     console.log(conversation);
   }
+
 };
   return (
     <>
       <div className="chat-app">
         <aside className="sidebar">
           <ChatList
+            sethasUnreadMessages={sethasUnreadMessages}
+            hasUnreadMessages={hasUnreadMessages}
             type={"conversations"}
             items={allConversations}
             isItemSelected={isConversationSelected}

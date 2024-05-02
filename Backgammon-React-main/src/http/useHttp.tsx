@@ -34,20 +34,19 @@ export const useHttpClient = (): HttpClientHook => {
   const [error, setError] = useState<string | null>(null);
   const searchParams = new URLSearchParams(window.location.search);
   let token = searchParams.get("token");
-  console.log(token);
   useEffect(() => {
     if(!token) setError("Not authorized. Please log in.");
   }, []);
   axios.interceptors.response.use(
     async (response): Promise<any> => {
-      if (response.status === 401 && response.data.message === "TokenExpiredError" && token) {
-        //refresh token
-        const tokens = await refreshTokens(token);
-        console.log(tokens);
-        if (tokens) {
-          token = tokens[0];
-        }
-      }
+      // if (response.status === 401 && response.data.message === "TokenExpiredError" && token) {
+      //   //refresh token
+      //   const tokens = await refreshTokens(token);
+      //   console.log(tokens);
+      //   if (tokens) {
+      //     token = tokens[0];
+      //   }
+      // }
     },
     (error) => {
     

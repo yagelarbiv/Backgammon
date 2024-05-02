@@ -1,7 +1,4 @@
-import { createContext, useContext } from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import useTimer from "../frontend/components/timer/useTimer";
+import { useContext } from "react";
 import Game from "../logic/models/game";
 import ThisTurn from "../logic/models/this-turn";
 import ThisMove from "../logic/models/this-move";

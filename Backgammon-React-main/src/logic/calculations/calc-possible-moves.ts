@@ -13,6 +13,7 @@ export function checkCantMove(game: Game, thisTurn: ThisTurn): ThisTurn {
     );
 
     thisTurn = changeTurn(game, thisTurn);
+    
   }
 
   return thisTurn;

@@ -14,12 +14,9 @@ const LogInOut = () => {
     e.preventDefault();
     console.log(accessToken);
     try {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
       await axios.post(authUrl + "/logout", {
         withCredentials: true,
-        headers: {
-          'Authorization': 'Bearer ' + accessToken,
-          'Content-Type': 'application/json',
-        }
       })
       .then(function (response) {
         console.log(response);

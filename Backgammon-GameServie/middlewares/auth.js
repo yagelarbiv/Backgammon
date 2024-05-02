@@ -8,7 +8,7 @@ export const auth = async (req, res, next) => {
     const userToken = req.header("authorization");
     if (!userToken) return res.status(401).json({ error: "unauthorization" });
     const token = userToken.split(" ")[1];
-    const payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const payload = jwt.decode(token, process.env.JWT_SECRET_KEY);
     console.log(payload);
     if (!payload){ 
       
@@ -18,11 +18,7 @@ export const auth = async (req, res, next) => {
   } catch (err) {
     console.log("error" + err);
     if (err.name === "TokenExpiredError") { 
-      const userToken = req.header("authorization");
-      if (!userToken) return res.status(401).json({ error: "unauthorization" });
-      const token = userToken.split(" ")[1];
-      const tokens = await refreshTokens(token);
-      return res.status(401).json({ tokens });
+      return res.status(401).json({ error: "TokenExpiredError" });
     }
     return res.status(401).json({ error: "EXP" });
   }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import socketio from "socket.io-client";
 import Modal from "./Modal";
 import Notification from "./Notification";
@@ -12,14 +12,27 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
     const [socket, setSocket] = useState(null);
     const [OpenGameInvitedModal, setOpenGameInvitedModal] = useState(false);
     const [otherUser, setOtherUser] = useState(null);
+    const { hasUnreadMessages, sethasUnreadMessages } = useConversationStore();
+    const toggleUnread = () => {
+        if (hasUnreadMessages ) {
+            sethasUnreadMessages(!hasUnreadMessages);
+        }
+    }
     const user = useUserStore((state) => state.user);
     const accessToken = useAuthStore((state) => state.accessToken);
-    // let refreshToken = useAuthStore((state) => state.refreshToken);
     const deleteConversation = useConversationStore((state) => state.deleteConversation);
+
+    const sortedItems = useMemo(() => {
+        const onlineUsers = items.filter(user => user.online);
+        const offlineUsers = items.filter(user => !user.online);
+        return [...onlineUsers, ...offlineUsers];
+    }, [items]);
+
+
     useEffect(() => {
         const newSocket = socketio('http://localhost:3003', {
             withCredentials: true,
-            transports: ['websocket']  // Ensuring to use WebSockets
+            transports: ['websocket'] 
         });
         setSocket(newSocket);
         return () => newSocket.disconnect();
@@ -50,9 +63,10 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
                 setOpenGameInvitedModal(true);
             });
             socket.on('game_created', (newGame) => {
-                newGame._gameOn = true;
+                console.log("Game created:", newGame);
+                // newGame._gameOn = true;
                 window.open(
-                    `http://localhost:5174/game/${otherUser}&${user.userName}?token=${accessToken}`
+                    `http://localhost:5174/game/${user.userName}&${otherUser}?token=${accessToken}`
                 );
             });
             socket.on("cancel-invite", () => {
@@ -66,6 +80,7 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
             };
         }
     }, [socket]);
+
 
     const closeGameInvited = () => {
         setOpenGameInvitedModal(false);
@@ -86,22 +101,26 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
             <h2 className="chats-header">{type}</h2>
             {type === 'conversations' && <Modal list={list} onListClick={onListClick} />}
             {OpenGameInvitedModal && <Notification otherUser={otherUser} onClose={closeGameInvited} onAccept={handleAcceptGame} />}
-            {items.length > 0 ? (
-                items.map((item, index) => (
-                    <div className={`chat-item ${isItemSelected(item) ? 'active' : ''}`} key={item.id || index}>
+            {sortedItems.length > 0 ? (
+                sortedItems.map((item, index) => (
+                    <div onClick={toggleUnread} className={`chat-item ${isItemSelected(item) ? 'active' : ''}`} key={item.id || index}>
                         <button className="chat-button" onClick={() => handleClick(item)}>
                             {type === 'conversations' && item.users && item.users.length > 1 && (
                                 <>
-                                    <span>{item.users[1].name}</span>
-                                    <button className="btn btn-danger" onClick={(e) => handleDelete(item, e)}>-</button>
-                                    <button data-bs-dismiss="chat-button" onClick={(e) => sendGameInviting(item.users[1].name, e)}>Ask to a Game</button>
+                                    <span>{item.users[1].name}
+                                    <button data-bs-dismiss="chat-button" onClick={(e) => sendGameInviting(item.users[1].name, e)}>Request Game</button>
+                                    <button className="" onClick={(e) => handleDelete(item, e)}><i class="bi bi-person-x-fill"></i></button></span>
+                                    {hasUnreadMessages && <span className="unread-indicator"> </span>} 
                                 </>
                             )}
                             {type === 'users' && (
+                                <>
                                 <div className={`online-status ${item.online ? 'online' : 'offline'}`}>
+                                    {item.online ? <i className="bi bi-person-check"></i> : <i className="bi bi-person-dash"></i>}
                                     {item.name}
-                                    <img src={item.online ? icononline : iconoffline} alt={item.name} />
+                                    {/* <img src={item.online ? icononline : iconoffline} alt={item.name} /> */}
                                 </div>
+                                </>
                             )}
                         </button>
                     </div>

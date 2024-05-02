@@ -61,13 +61,16 @@ function App() {
   useEffect(() => {
     socket.on("user-connection", handleUserJoined);
     socket.on("user-rolled-dice", handleDiceRoll);
+    socket.on("opponent-rolled-dice", handleDiceRoll);
     socket.on("opponent-select", handleOpponentSelect);
+    socket.on("user-select", handleUserSelect);
     socket.on("opponent-started-game", opponentStartedGame);
     socket.on("changed-turn", toastMessage);
     socket.on("game-over", toastMessage);
     socket.on("on-game-won", (game) => handleGameOver(game, true));
     socket.on("user-disconnected", handleOpponentLeft);
     return () => {
+      socket.off("opponent-rolled-dice", handleDiceRoll);
       socket.off("user-connection", handleUserStartedGame);
       socket.off("user-rolled-dice", handleDiceRoll);
       socket.off("opponent-select", handleOpponentSelect);

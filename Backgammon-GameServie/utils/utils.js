@@ -1,4 +1,4 @@
-import axios from "axios";
+
 export function existsInMap(name, map) {
     const arr = Object.keys(map);
     return arr.includes(name);

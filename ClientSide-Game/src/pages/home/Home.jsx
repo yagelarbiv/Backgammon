@@ -48,9 +48,10 @@ function Home() {
 
   return (
     <>
-      <div className="home-page">
+      <div className="home-page" >
+      <div className="central-container">
         <h1 className="title-home">Welcome to Backgammon</h1>
-        <aside className="sidebar">
+        <aside className="sidebar" >
           <ChatList
             type={"users"}
             items={allUsers}
@@ -65,6 +66,7 @@ function Home() {
           <button className="join-chat" onClick={() => navigate("/chat")}>
             Join Chat
           </button>
+        </div>
         </div>
       </div>
     </>

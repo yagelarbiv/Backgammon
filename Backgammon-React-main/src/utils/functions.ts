@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
 import ThisTurn from "../logic/models/this-turn";
 import axios from "axios";
+import { changingTurn } from './../logic/events/change-turn';
 export const toastStyle = (thisTurn: ThisTurn) => {
     return {
       style: {
@@ -17,6 +18,7 @@ export const toastStyle = (thisTurn: ThisTurn) => {
 
   export function toastMessage(messageJSON: string) {
     const { message, turn } = JSON.parse(messageJSON);
+    changingTurn(turn);
     toast.success(message, toastStyle(turn));
   }
   export async function refreshTokens(Token: string) : Promise<string[]> {
