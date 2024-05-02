@@ -14,7 +14,6 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
     const [otherUser, setOtherUser] = useState(null);
     const user = useUserStore((state) => state.user);
     const accessToken = useAuthStore((state) => state.accessToken);
-    // let refreshToken = useAuthStore((state) => state.refreshToken);
     const deleteConversation = useConversationStore((state) => state.deleteConversation);
     useEffect(() => {
         const newSocket = socketio('http://localhost:3003', {
@@ -49,10 +48,10 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
                 setOtherUser(otherUser);
                 setOpenGameInvitedModal(true);
             });
-            socket.on('game_created', (newGame) => {
-                newGame._gameOn = true;
+            socket.on('game_created', (OtherUser) => {
+                console.log('game Accepted from ' + OtherUser);
                 window.open(
-                    `http://localhost:5174/game/${otherUser}&${user.userName}?token=${accessToken}`
+                    `http://localhost:5174/game/${user.userName}&${OtherUser}?token=${accessToken}`
                 );
             });
             socket.on("cancel-invite", () => {
@@ -77,7 +76,7 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
         window.open(
             `http://localhost:5174/game/${user.userName}&${otherUser}?token=${accessToken}`
         );
-        socket.emit("new_game", otherUser, `http://localhost:5174/game/&${otherUser}${user.userName}?token=${accessToken}`);
+        socket.emit("new_game", otherUser, user.userName);
         setOpenGameInvitedModal(false);
     };
 

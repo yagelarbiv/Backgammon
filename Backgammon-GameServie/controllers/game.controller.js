@@ -41,7 +41,6 @@ export async function userJoin(req, res, next) {
   }
 }
 
-// save win/lose to opponent/username in database
 export async function saveGame(req, res, next) {
   try {
     console.log("save game");
@@ -82,7 +81,7 @@ export async function saveGame(req, res, next) {
     }
     await user.save();
     await opponentModel.save();
-    return res.sendStatus(200);
+    return res.status(200).json("Some data if needed");
   } catch (err) {
     return res.status(500).send("Internal server error");
   }
@@ -125,7 +124,7 @@ export async function startGame(req, res, next) {
       gameObject,
       usernameToSocketIdMap[opponent]
     );
-    return res.sendStatus(200);
+    return res.status(200).json("Some data if needed");
   } catch (err) {
     return res.status(500).send("internal server error");
   }
@@ -148,8 +147,8 @@ export async function select(req, res, next) {
     }
 
     socketEmit("opponent-select", json, usernameToSocketIdMap[opponent]);
-
-    return res.sendStatus(200);
+    console.log("the response is ");
+    return res.status(200).json("Some data if needed");
   } catch (err) {
     if (err instanceof SyntaxError) {
       return res.status(400).send("Invalid JSON format");
@@ -168,7 +167,7 @@ export async function notifyChangeTurn(req, res, next) {
     if (!areUsersConnected(username, opponent))
       return res.status(404).send("username or opponent not connected");
     socketEmit("changed-turn", message, usernameToSocketIdMap[opponent]);
-    return res.sendStatus(200);
+    return res.status(200).json("Some data if needed");
   } catch (err) {
     return res.status(500).send("Internal server error");
   }
@@ -183,8 +182,10 @@ export async function rollDice(req, res, next) {
     if (!areUsersConnected(username, opponent)) {
       return res.status(404).send("username or opponent not connected");
     }
-    socketEmit("user-rolled-dice", turnJson, usernameToSocketIdMap[opponent]);
-    return res.sendStatus(200);
+    console.log("emmiting");
+    socketEmit("opponent-rolled-dice", turnJson, usernameToSocketIdMap[opponent]);
+    console.log("passed socket");
+    return res.status(200).json("Some data if needed");
   } catch (err) {
     return res.status(500).send("Internal server error");
   }
@@ -193,6 +194,7 @@ export async function rollDice(req, res, next) {
 export async function getFirstPlayer(req, res, next) {
   try {
     const players = req.body.users;
+    console.log(players);
     const gameId = getGameId(players[0], players[1]);
     if (openGames[gameId].firstPlayer !== "") {
       return res.status(200).json({ result: openGames[gameId].firstPlayer });
@@ -206,8 +208,9 @@ export async function getFirstPlayer(req, res, next) {
     }
     const chance = Math.floor(Math.random() * 100);
     const result = chance > 50 ? players[0] : players[1];
+    console.log(result);
     setFirstPlayer(gameId, result);
-    return res.status(200).json({ result });
+    return res.status(200).json({ startingPlayer: result });
   } catch (err) {
     return res.status(500).send("Internal server error");
   }
