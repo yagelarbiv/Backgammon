@@ -5,8 +5,6 @@ import Notification from "./Notification";
 import useUserStore from "../stores/userStore";
 import useAuthStore from "../stores/authStore";
 import useConversationStore from "../stores/conversetionStore";
-import iconoffline from "../assets/images/icon-offline.png";
-import icononline from "../assets/images/icon-online.png";
 
 function ChatList({ type, items, isItemSelected, handleClick, onListClick, list }) {
     const [socket, setSocket] = useState(null);
@@ -109,7 +107,7 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
                                 <>
                                     <span>{item.users[1].name}
                                     <button data-bs-dismiss="chat-button" onClick={(e) => sendGameInviting(item.users[1].name, e)}>Request Game</button>
-                                    <button className="" onClick={(e) => handleDelete(item, e)}><i class="bi bi-person-x-fill"></i></button></span>
+                                    <button className="" onClick={(e) => handleDelete(item, e)}><i className="bi bi-person-x-fill"></i></button></span>
                                     {hasUnreadMessages && <span className="unread-indicator"> </span>} 
                                 </>
                             )}
