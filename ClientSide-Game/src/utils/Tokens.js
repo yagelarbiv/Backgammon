@@ -1,7 +1,8 @@
 import axios from "axios";
-export async function refreshAccessToken(accessToken) {
+export async function refreshAccessToken(RefreshToken) {
   const response = await axios.post("https://localhost:6001/api/Auth/refresh", {
-    accessToken: accessToken,
+    RefreshToken: RefreshToken,
   });
+  console.log(response.data);
   return response.data;
 }

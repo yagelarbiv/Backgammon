@@ -1,7 +1,7 @@
 import useUserStore from "../../stores/userStore";
 import useConversetionStore from "../../stores/conversetionStore";
 //import {unreadMessages} from "../../services/chatService";
-function ChatMessage({ message,isLastMessage,user1,user2 }) {
+function ChatMessage({ message,isLastMessage }) {
     const { hasUnreadMessages } = useConversetionStore();
 
 
@@ -10,7 +10,6 @@ function ChatMessage({ message,isLastMessage,user1,user2 }) {
     const content = message.text;
     const date = new Date(); 
     const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
-    // console.log("hasUnreadMessages", user1.hasUnreadMessages);
 
 
     return (

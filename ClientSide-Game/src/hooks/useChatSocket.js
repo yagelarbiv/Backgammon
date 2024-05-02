@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import io from 'socket.io-client';
+import useUserStore from '../stores/userStore';
 
 export default function useOnlineSocket() {
     const chatUrl = import.meta.env.VITE_APP_CHAT_URL;

@@ -2,7 +2,7 @@
 function Modal({list,onListClick}) {
   return (
     <>
-    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="bi bi-menu-up"></i> </button>
+    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i className="bi bi-menu-up"></i> </button>
     <div className="modal fade" style={{color: "black"}} id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog">
         <div className="modal-content">
