@@ -51,6 +51,7 @@ const LogIn = () => {
           <br />
             <button disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
           </form>
+          <p>Don&apos;t have an account? <a href="/register">Sign Up</a></p>
         </div>
       </div>
       </>
