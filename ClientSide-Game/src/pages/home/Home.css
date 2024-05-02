@@ -9,6 +9,9 @@
   font-family: 'Arial', sans-serif; /* Modern, sans-serif font */
   display: flex;
   flex-direction: column;
+  /* background-image: url('../../assets/images/BackGround.jpeg');
+  background-size:contain;
+  background-position: center; */
   height: 100vh;
 }
 
@@ -19,56 +22,37 @@
   font-size: 36px;
 }
 
-.start-game {
+.button-container {
   display: flex;
-  justify-content: center;
-  background: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px ;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-  
+
+.start-game, .join-chat {
+  width: 60%;
+  padding: 15px 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  opacity: 0.9;
+}
+
+.start-game {
+  background: #4CAF50;
+}
+
 .start-game:hover {
   background: #45a049;
 }
 
 .join-chat {
   background: #008CBA;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
 }
 
 .join-chat:hover {
   background: #007bb5;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: flex-end;
-  flex-grow: 1;
-}
-
-/* Adjust .home-page to handle the new flex child */
-.home-page {
-  /* ...existing styles... */
-  justify-content: space-between; /* Adjust from column to space between to use the main axis */
-}
-
-/* Optional: Adjust button styles if needed */
-.start-game, .join-chat {
-  width: auto; /* Adjust width as needed, or remove if you want the buttons to size with their content */
 }

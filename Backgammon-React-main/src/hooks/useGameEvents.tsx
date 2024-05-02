@@ -18,7 +18,6 @@ import { toastMessage, toastStyle } from "../utils/functions";
 import { getDiceToast, rollingDice } from "../logic/events/roll-dice";
 import { checkCantMove } from "../logic/calculations/calc-possible-moves";
 import { changeTurn } from "../logic/events/change-turn";
-import { handleUserLeftGameEnd } from "../logic/events/end-game";
 import { selecting } from "../logic/events/select";
 
 interface GameObjectModel {
@@ -117,7 +116,7 @@ export default function useGameEvents(username: string, opponent: string) {
       if (thisTurn._rolledDice) {
         toast.error(
           `Play your move first
-          ${thisTurn.turnPlayer.icon} 🎲 ${thisTurn.dices} 🎲`,
+          ${thisTurn.turnPlayer} 🎲 ${thisTurn.dices} 🎲`,
           toastStyle(thisTurn)
         );
         return;
@@ -133,6 +132,7 @@ export default function useGameEvents(username: string, opponent: string) {
 
   function handleDiceRoll(turnJson: string) {
     const turn = JSON.parse(turnJson);
+    console.log(turn);
     oponentRolledDice(turn);
   }
 
@@ -229,6 +229,7 @@ export default function useGameEvents(username: string, opponent: string) {
       opponent,
       gameJSON
     );
+    console.log(requestSuccessful);
     if (!requestSuccessful) {
       setIsSelecting(false);
       select(JSON.stringify(memoizedGame));
