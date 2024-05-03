@@ -1,57 +1,57 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\",
+  "WorkspaceRootPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.services\\service\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\service\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.data\\repositories\\refreshtoken\\inmemoryrefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|solutionrelative:authenticationserver.data\\repositories\\refreshtoken\\inmemoryrefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.services\\tokengenerator\\accesstoken\\accesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\tokengenerator\\accesstoken\\accesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52097F13-38D1-49EA-8604-18253C71620B}|AuthenticationServer.Models\\AuthenticationServer.Models.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.models\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52097F13-38D1-49EA-8604-18253C71620B}|AuthenticationServer.Models\\AuthenticationServer.Models.csproj|solutionrelative:authenticationserver.models\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.services\\tokengenerator\\tokenvalidators\\refreshtokenvalidators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\tokengenerator\\tokenvalidators\\refreshtokenvalidators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.data\\repositories\\users\\appuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|solutionrelative:authenticationserver.data\\repositories\\users\\appuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.services\\service\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\service\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.api\\authenticationserver.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.services\\service\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\service\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.data\\repositories\\refreshtoken\\inmemoryrefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|solutionrelative:authenticationserver.data\\repositories\\refreshtoken\\inmemoryrefreshtokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.services\\tokengenerator\\accesstoken\\accesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\tokengenerator\\accesstoken\\accesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52097F13-38D1-49EA-8604-18253C71620B}|AuthenticationServer.Models\\AuthenticationServer.Models.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.models\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52097F13-38D1-49EA-8604-18253C71620B}|AuthenticationServer.Models\\AuthenticationServer.Models.csproj|solutionrelative:authenticationserver.models\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.services\\tokengenerator\\tokenvalidators\\refreshtokenvalidators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\tokengenerator\\tokenvalidators\\refreshtokenvalidators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.data\\repositories\\users\\appuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|solutionrelative:authenticationserver.data\\repositories\\users\\appuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.services\\service\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\service\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.api\\authenticationserver.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\authenticationserver.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D712D313-4C0F-43BD-8D93-3BE37E3AA6D1}|AuthenticationServer.UnitTests\\AuthenticationServer.UnitTests.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.unittests\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D712D313-4C0F-43BD-8D93-3BE37E3AA6D1}|AuthenticationServer.UnitTests\\AuthenticationServer.UnitTests.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.unittests\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D712D313-4C0F-43BD-8D93-3BE37E3AA6D1}|AuthenticationServer.UnitTests\\AuthenticationServer.UnitTests.csproj|solutionrelative:authenticationserver.unittests\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -62,15 +62,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
               "RelativeToolTip": "AuthenticationServer.Api\\Program.cs",
               "ViewState": "AQIAADcAAAAAAAAAAAAgwF8AAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -80,11 +80,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
               "RelativeToolTip": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
               "ViewState": "AQIAAGQAAAAAAAAAAAAWwG8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -94,11 +94,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
               "RelativeToolTip": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
               "ViewState": "AQIAAEAAAAAAAAAAAAAAAFcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -108,11 +108,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "RefreshTokenValidators.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
               "RelativeToolTip": "AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAAACMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -122,31 +122,15 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{1a46fd64-28d5-434c-8eb3-17a02d419b53}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "InMemoryRefreshTokenRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
               "RelativeToolTip": "AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAAB4AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -155,11 +139,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AccessTokenGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\AccessToken\\AccessTokenGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\AccessToken\\AccessTokenGenerator.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Services\\TokenGenerator\\AccessToken\\AccessTokenGenerator.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\AccessToken\\AccessTokenGenerator.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\AccessToken\\AccessTokenGenerator.cs",
               "RelativeToolTip": "AuthenticationServer.Services\\TokenGenerator\\AccessToken\\AccessTokenGenerator.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAtwBoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -168,11 +152,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AppUser.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\Entities\\AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\Entities\\AppUser.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Models\\Entities\\AppUser.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\Entities\\AppUser.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\Entities\\AppUser.cs",
               "RelativeToolTip": "AuthenticationServer.Models\\Entities\\AppUser.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAAtwBMAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -181,24 +165,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\appsettings.json",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
-              "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAACjAAAA",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json*",
+              "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAACWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-05-02T15:44:23.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AppUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
               "RelativeToolTip": "AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAAgwBoAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -207,11 +191,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "IAuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
               "RelativeToolTip": "AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -222,9 +206,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "GlobalUsings.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.UnitTests\\GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.UnitTests\\GlobalUsings.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.UnitTests\\GlobalUsings.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.UnitTests\\GlobalUsings.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.UnitTests\\GlobalUsings.cs",
               "RelativeToolTip": "AuthenticationServer.UnitTests\\GlobalUsings.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -233,11 +217,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Properties\\launchSettings.json",
               "RelativeToolTip": "AuthenticationServer.Api\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -248,9 +232,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "AuthenticationServer.Api.http",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.http",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.http",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\AuthenticationServer.Api.http",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.http",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.http",
               "RelativeToolTip": "AuthenticationServer.Api\\AuthenticationServer.Api.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
