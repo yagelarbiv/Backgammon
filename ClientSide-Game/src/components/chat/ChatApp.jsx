@@ -9,6 +9,7 @@ import useConversetionStore from "../../stores/conversetionStore";
 import useAllUsersStore from "../../stores/allUsersStore";
 import { v4 as uuiv4 } from "uuid";
 import { fetchMessages } from '../../services/chatService'
+import {unreadMessages} from "../../services/chatService"
 
 
 function ChatApp() {
@@ -97,24 +98,22 @@ function ChatApp() {
     }
   };
 
-  
-  
   const isConversationSelected = async (conversation) => {
     if (user) {
       try {
-        const messages = await fetchMessages(user.userName); 
+        const messages = await unreadMessages(user.userName);
         for (const message of messages) {
-          // console.log("The messages are:", message._id);
-          if(message.readStatus === false ) {
-            await socket.emit("mark-message-as-read", message._id);
-            sethasUnreadMessages(true);
-            // if (message.conversationId === conversation.id ) {
-            //   console.log(message.conversationId+ "===" + conversation.id);
-            //   sethasUnreadMessages(false);
-            // }else{
-            //   sethasUnreadMessages(true);
-            // }
+          if (messages.length === 0 || messages === undefined || messages === null) {
+             return currentConversationId === conversation.id;
           }
+          else{
+              await socket.emit("mark-message-as-read", message._id);
+              if (message.conversationId === currentConversationId ) {
+                return currentConversationId === conversation.id;
+              }else{
+                sethasUnreadMessages(true);
+              }
+            }
         }
       } catch (error) {
         console.error("Failed to fetch messages:", error);

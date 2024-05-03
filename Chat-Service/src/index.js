@@ -130,9 +130,15 @@ io.on("connection", (socket) => {
 
   // To get my messages from the back to the react app
   app.get('/api/messages', async (req, res) => {
-    const { receiverName } = req.query;
+    const { receiverName, readStatus } = req.query;
+  
+    let query = { receiverName: receiverName };
+    if (readStatus !== undefined) {
+      query.readStatus = readStatus === 'true'; 
+    }
+  
     try {
-      const messages = await Message.find({ receiverName: receiverName });
+      const messages = await Message.find(query);
       res.json(messages);
     } catch (error) {
       console.error("Failed to fetch messages", error);

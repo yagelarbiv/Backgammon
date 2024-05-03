@@ -1,6 +1,7 @@
 export const fetchMessages = async (receiverName) => {
     try {
       const response = await fetch(`http://localhost:5000/api/messages?receiverName=${encodeURIComponent(receiverName)}`);
+      if (response === null) return [];
       if (!response.ok) throw new Error('Failed to fetch messages');
       return await response.json();
     } catch (error) {
