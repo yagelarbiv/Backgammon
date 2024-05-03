@@ -16,8 +16,6 @@ function MessageList({ messages , currentConversation }) {
                 key={msg.id}
                 message={msg} 
                 isLastMessage={index === currentConversationMessages.length - 1}
-                user1 = {currentConversation.users[1].name}
-                user2 = {currentConversation.users[0].userName}
                 /> 
             ))}
             <div ref={messagesEndRef} />
