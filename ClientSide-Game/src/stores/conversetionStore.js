@@ -26,7 +26,11 @@ const useConversetionStore = create(persist((set,get) => ({
   updateConversetion: (conversation) => set((state) => ({ conversetions: state.conversetions.map((c) => c.id === conversation.id ? conversation : c) })), // Function to update conversation data
   addMessageToConversation: (id, message) => set((state) => ({ conversetions: state.conversetions.map((c) => c.id === id ? { ...c, messages: [...c.messages, message] } : c) })), // Function to add message to conversation
 
-  sethasUnreadMessages: (flag) => set({ hasUnreadMessages: flag }),  
+  sethasUnreadMessages: (flag) => set({ hasUnreadMessages: flag }),
+  clearConversations: () => set({
+    conversations: [],
+    hasUnreadMessages: false
+  }), 
 
 }),{
 name: 'ConversetionsStorage', // unique name for localStorage key

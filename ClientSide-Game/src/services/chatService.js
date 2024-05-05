@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const fetchMessages = async (receiverName) => {
     try {
       const response = await fetch(`http://localhost:5000/api/messages?receiverName=${encodeURIComponent(receiverName)}`);

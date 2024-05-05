@@ -3,7 +3,8 @@ import {
   useEffect
 } from "react";
 import notificationSound from "../assets/sounds/message-sound.mp3";
-
+import notificationChatSound from "../assets/sounds/message-alert-sound.mp3";
+export { notificationChatSound }; 
 const Notification = ({
   otherUser,
   onAccept,
@@ -17,6 +18,15 @@ const Notification = ({
       setPlayMessageSound(false);
     }
   }, [playMessageSound]);
+
+  const [playMessageChatSound, setPlayMessageChatSound] = useState(false);
+  useEffect(() => {
+    if (playMessageChatSound) {
+      const audio = new Audio(notificationChatSound);
+      audio.play();
+      setPlayMessageChatSound(false);
+    }
+  }, [playMessageChatSound]);
 
   return (
     <div>

@@ -10,8 +10,7 @@ import useAllUsersStore from "../../stores/allUsersStore";
 import { v4 as uuiv4 } from "uuid";
 import { fetchMessages } from '../../services/chatService'
 import {unreadMessages} from "../../services/chatService"
-
-
+import { notificationChatSound } from '../Notification'
 function ChatApp() {
   const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
   
@@ -107,6 +106,7 @@ function ChatApp() {
              return currentConversationId === conversation.id;
           }
           else{
+              notificationChatSound()
               await socket.emit("mark-message-as-read", message._id);
               if (message.conversationId === currentConversationId ) {
                 return currentConversationId === conversation.id;

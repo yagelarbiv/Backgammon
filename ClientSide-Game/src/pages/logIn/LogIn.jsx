@@ -28,7 +28,7 @@ const LogIn = () => {
         UserName: userName,
         Password: password,
       });
-      console.log(response);
+      console.log("The res is" + response);
       const accessToken = response.data.accessToken;
       const refreshToken = response.data.refreshToken;
       console.log("accessToken:", accessToken);

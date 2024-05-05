@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useUserStore from "../stores/userStore";
 import useAuthStore from "../stores/authStore";
 import { refreshAccessToken } from '../utils/Tokens';
+import useConversationStore from "../stores/conversetionStore";
 
 const LogInOut = () => {
   const authUrl = import.meta.env.VITE_APP_AUTH_URL;
@@ -10,6 +11,7 @@ const LogInOut = () => {
   const accessToken = useAuthStore(state => state.accessToken);
   const refreshToken = useAuthStore(state => state.refreshToken);
   const clearData = useAuthStore(state => state.clearData);
+  const clearConversations = useConversationStore(state => state.clearConversations);
   const navigate = useNavigate();
 
   axios.interceptors.response.use(function () {
@@ -43,7 +45,8 @@ const LogInOut = () => {
           console.log(response);
           clearUser();
           clearData();
-          navigate("/")
+          clearConversations();
+          navigate("/login")
         })
     } catch (err) {
       console.log(err.response.status);
