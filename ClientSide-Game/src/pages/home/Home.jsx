@@ -76,7 +76,7 @@ function Home() {
           />
         </aside>
         <div className="button-container">
-          <button className="start-game">
+          <button className="start-game" onClick={() => navigate("/game")}>
             Start Game
           </button>
           <button className="join-chat" onClick={() => navigate("/chat")}>

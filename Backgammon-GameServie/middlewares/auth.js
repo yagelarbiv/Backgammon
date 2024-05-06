@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const auth = async (req, res, next) => {
-  console.log("Line - 17" + process.env.JWT_SECRET_KEY)
   try {
     const userToken = req.header("authorization");
     if (!userToken) return res.status(401).json({ error: "unauthorization" });

@@ -1,0 +1,45 @@
+.home-page-game {
+    background-image: url('../../assets/images/background-game.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    position: relative; /* Establishes a positioning context */
+    justify-content: flex-start; /* Left aligns children */
+    align-items: center; /* Vertically centers children */
+}
+
+.title-game {
+    font-size: 48px;
+    font-weight: bold;
+    color: beige;
+    background-color: rgba(0, 0, 0, 0.5); /* Ensure consistency in CSS for transparency */
+    text-align: center;
+    border-radius: 10px;
+    transform: translateX(50%);
+}
+
+.sidebar-game {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: beige;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    height: 80%; /* Example height, adjust as needed */
+    z-index: 1; /* Ensure sidebar is below the game container when overlapping */
+}
+
+.game-container-right {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: beige;
+    padding: 25rem;
+    border-radius: 10px;
+    width:75%; /* Match the sidebar width or adjust as needed */
+    height: 60%; /* Match the sidebar height or adjust as needed */
+    position: absolute; /* Positions the element absolutely within its nearest positioned ancestor */
+    top: 51.8%;
+    left: 20rem;/* Align it with the left edge of the parent container */
+    transform: translateY(-45%); /* Adjust vertically to center on top of the sidebar */
+    z-index: 2; /* Ensures it overlays on top of the sidebar */
+}

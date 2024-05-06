@@ -6,15 +6,17 @@ import connectDB from './config/db.js';
 import 'dotenv/config';
 import insertMessage from './messageOperators.js';
 import Message from './Message.js'
+import Conversation from "./conversation.js";
 
 const app = express();
+const router = express.Router();
 connectDB();
 app.use(cors({
   origin: "http://localhost:5173",
-  methods: ["GET","POST"],
+  methods: ["GET","POST", "DELETE"],
   credentials: true
 }));
-
+app.use(express.json());
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -24,7 +26,7 @@ const io = new Server(server, {
       "http://localhost:5000",
       "http://localhost:5173",
     ],
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "DELETE"],
     credentials: true
   },
 });
@@ -145,22 +147,77 @@ io.on("connection", (socket) => {
       res.status(500).send("Failed to fetch messages");
     }
   });
+
+
+  app.get('/api/messages/:conversationId', async (req, res) => {
+    const { conversationId } = req.params;
+    const query = { _id: conversationId };
+    try {
+      const messages = await Conversation.find(query);
+      res.json(messages);
+    } catch (error) {
+      console.error("Failed to fetch messages", error);
+      res.status(500).send("Failed to fetch messages");
+    }
+  });
+
+  app.delete('/api/delete-chat', async (req, res) => {
+    const { conversationId } = req.query;
+
+    try {
+        await Message.deleteMany({ conversationId: conversationId });
+        await Conversation.deleteOne({ _id: conversationId });
+      res.sendStatus(200);
+    } catch (error) {
+      res.status(500).send("Failed to delete conversation");
+    }
+  })
+  app.get('/api/get-conversations-with-user/:username', async (req, res) => { //Todo check if its working with more then one conversation 
+    const { username } = req.params;
+    try {
+      const messages = await Conversation.find({ members: { $in: [username] } });
+      res.json(messages);
+    } catch (error) {
+      res.status(500).send("Failed to fetch conversations");
+    }
+  });
+
+  app.post('/api/add-conversation', async (req, res) => {
+    const { users } = req.body;
+    try {
+      const newConversation = await Conversation.create({ members: users });
+      res.status(201).json(newConversation);  
+    } catch (error) {
+      console.error('Error creating conversation:', error);
+      res.status(500).send("Failed to add conversation");
+    }
+  });
+  app.post('/api/add-message-to-conversation', async (req, res) => {
+    const { conversationId, message, senderName, receiverName } = req.query;
+    try {
+      await Message.create({conversationId: conversationId, messageText: message , senderName: senderName, receiverName: receiverName});
+      res.sendStatus(200);
+    } catch (error) {
+      res.status(500).send("Failed to add message");
+    }
+  })
+
   // Handle addition of items
   socket.on("addItems", (data) => {
     console.log("Items received:", data);
     socket.emit("addItem", { item: data, author: socket.id });
   });
 
-  // Handle manual disconnection
-  socket.on("manual_disconnect", () => {
-    if (socket.clientName) {
-      socket.broadcast.emit(
-        "message-broadcast",
-        `${socket.clientName} manually disconnected.`
-      );
-    }
-    socket.disconnect();
-  });
+  // // Handle manual disconnection
+  // socket.on("manual_disconnect", () => {
+  //   if (socket.clientName) {
+  //     socket.broadcast.emit(
+  //       "message-broadcast",
+  //       `${socket.clientName} manually disconnected.`
+  //     );
+  //   }
+  //   socket.disconnect();
+  // });
 
   // Handle automatic disconnection
 

@@ -5,12 +5,14 @@ import Notification from "./Notification";
 import useUserStore from "../stores/userStore";
 import useAuthStore from "../stores/authStore";
 import useConversationStore from "../stores/conversetionStore";
+import useAllUsersStore from "../stores/allUsersStore";
 
-function ChatList({ type, items, isItemSelected, handleClick, onListClick, list }) {
+function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,deleteChat }) {
     const [socket, setSocket] = useState(null);
     const [OpenGameInvitedModal, setOpenGameInvitedModal] = useState(false);
     const [otherUser, setOtherUser] = useState(null);
     const { hasUnreadMessages, sethasUnreadMessages } = useConversationStore();
+    const { allUsers, setAllUsers } = useAllUsersStore();
     const toggleUnread = () => {
         if (hasUnreadMessages ) {
             sethasUnreadMessages(!hasUnreadMessages);
@@ -26,7 +28,6 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
         return [...onlineUsers, ...offlineUsers];
     }, [items]);
 
-
     useEffect(() => {
         const newSocket = socketio('http://localhost:3003', {
             withCredentials: true,
@@ -38,7 +39,7 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
 
     const handleDelete = (itemToDelete, event) => {
         event.stopPropagation();
-        deleteConversation(itemToDelete.id);
+        deleteChat(itemToDelete._id);
     };
 
     const sendGameInviting = async (otherUser, e) => {
@@ -100,15 +101,18 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
             {type === 'conversations' && <Modal list={list} onListClick={onListClick} />}
             {OpenGameInvitedModal && <Notification otherUser={otherUser} onClose={closeGameInvited} onAccept={handleAcceptGame} />}
             {sortedItems.length > 0 ? (
+                
                 sortedItems.map((item, index) => (
                     <div onClick={toggleUnread} className={`chat-item ${isItemSelected(item) ? 'active' : ''}`} key={item.id || index}>
                         <button className="chat-button" onClick={() => handleClick(item)}>
-                            {type === 'conversations' && item.users && item.users.length > 1 && (
+                            {type === 'conversations' && item.members && item.members.length > 1 && (
                                 <>
-                                    <span>{item.users[1].name}
-                                    <button data-bs-dismiss="chat-button" onClick={(e) => sendGameInviting(item.users[1].name, e)}>Request Game</button>
-                                    <button className="" onClick={(e) => handleDelete(item, e)}><i className="bi bi-person-x-fill"></i></button></span>
-                                    {hasUnreadMessages && <span className="unread-indicator"> </span>} 
+                                    <span>{item.members[0]}</span>
+                                    <button data-bs-dismiss="chat-button" onClick={(e) => sendGameInviting(item.members[1], e)}>Request Game</button>
+                                    <button className="" onClick={(e) => handleDelete(item, e)}>
+                                        <i className="bi bi-person-x-fill"></i>
+                                    </button>
+                                    {hasUnreadMessages && <span className="unread-indicator"></span>} 
                                 </>
                             )}
                             {type === 'users' && (
@@ -119,6 +123,13 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
                                     {/* <img src={item.online ? icononline : iconoffline} alt={item.name} /> */}
                                 </div>
                                 </>
+                            )}
+                            { type === 'game' && (
+                                <div className={`online-status`}>
+                                     {item.online ? <i className="bi bi-person-check"></i> : <i className="bi bi-person-dash"></i>}
+                                     {item.name}
+                                     {/* { <img src={item.online ? icononline : iconoffline} alt={item.name} /> } */}
+                                </div>
                             )}
                         </button>
                     </div>

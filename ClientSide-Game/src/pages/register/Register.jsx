@@ -1,34 +1,36 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "../../stores/userStore"
+import useAuthStore from "../../stores/authStore";
 import "../logIn/login.css";
+import { Registeration } from "../../api/requests/auth";
 
 const Register = () => {
-  const authUrl = import.meta.env.VITE_APP_AUTH_URL;
   const setuser = useUserStore((state) => state.setuser);
-
+  const setAccessToken = useAuthStore(state => state.setAccessToken);
+  const setRefreshToken = useAuthStore(state => state.setRefreshToken);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  async function submit(e) {
+async function submit(e) {
     e.preventDefault();
     console.log(userName, password);
     try {
-      const response = await axios.post(authUrl + "/register", {
-        UserName: userName,
-        Password: password,
-        ConfirmPassword: confirmPassword,
-      });
+      const response = await Registeration(userName, password, confirmPassword);
+      if (response == false) {
+        return alert("username already exists");
+      }
       console.log(response);
       setuser(userName);
+      setAccessToken(response.data.accessToken);
+      setRefreshToken(response.data.refreshToken);
       navigate("/");
     } catch (err) {
       console.log(err);
     }
   }
-  return (
+return (
     <>
       <div className="login-body">
         <div className="login-title">

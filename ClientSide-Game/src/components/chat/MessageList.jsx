@@ -1,14 +1,16 @@
 import ChatMessage from './ChatMessage';
 import { useRef, useEffect} from 'react';
 
-function MessageList({ messages , currentConversation }) {
+function MessageList({ messages, allConversations }) {
     const messagesEndRef = useRef(null);
 
-    const currentConversationMessages = currentConversation?.messages || [];
+    const currentConversationMessages = messages || [];
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
+    console.log("messsages", messages)
+    console.log("currentConversationMessages", currentConversationMessages);
     return (
         <div className="message-list">
             {currentConversationMessages.map((msg, index) => (

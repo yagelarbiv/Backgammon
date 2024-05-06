@@ -4,10 +4,10 @@ import useConversetionStore from "../../stores/conversetionStore";
 function ChatMessage({ message,isLastMessage }) {
     const { hasUnreadMessages } = useConversetionStore();
 
-
+    console.log("message",message);
     const user = useUserStore(state => state.user);
     const name = message.senderName;
-    const content = message.text;
+    const content = message;
     const date = new Date(); 
     const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
 
