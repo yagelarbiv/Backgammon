@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import useUserStore from "../../stores/userStore";
 import useAuthStore from "../../stores/authStore";
 import './login.css' ;
+import { LogingIn } from "../../api/requests/auth";
 
 
 
 const LogIn = () => {
-  const authUrl = import.meta.env.VITE_APP_AUTH_URL;
   const [userName, setName] = useState("");
   const [password, setPassword] = useState("");
   const setuser = useUserStore(state => state.setuser);
@@ -21,14 +21,13 @@ const LogIn = () => {
     e.preventDefault();
     try {
       axios.defaults.withCredentials = true;
-      const response = await axios.post(authUrl + "/login", {
-        Headers: {
-          withCredentials: true // Only set this if you need to send credentials
-        },
-        UserName: userName,
-        Password: password,
-      });
+      const response = await LogingIn(userName, password);
       console.log(response);
+      if (response == false) {
+        return(
+          alert("Wrong username or password")
+        )
+      }
       const accessToken = response.data.accessToken;
       const refreshToken = response.data.refreshToken;
       console.log("accessToken:", accessToken);

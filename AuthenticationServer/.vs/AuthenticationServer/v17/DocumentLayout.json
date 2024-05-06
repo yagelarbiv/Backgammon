@@ -19,16 +19,8 @@
       "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\tokengenerator\\accesstoken\\accesstokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52097F13-38D1-49EA-8604-18253C71620B}|AuthenticationServer.Models\\AuthenticationServer.Models.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.models\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52097F13-38D1-49EA-8604-18253C71620B}|AuthenticationServer.Models\\AuthenticationServer.Models.csproj|solutionrelative:authenticationserver.models\\entities\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.services\\tokengenerator\\tokenvalidators\\refreshtokenvalidators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\tokengenerator\\tokenvalidators\\refreshtokenvalidators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.services\\tokengenerator\\refreshtoken\\refreshtokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{923E9AAC-B7BA-4D4B-A3F7-4461C6565A39}|AuthenticationServer.Services\\AuthenticationServer.Services.csproj|solutionrelative:authenticationserver.services\\tokengenerator\\refreshtoken\\refreshtokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB6036DD-3A76-4599-8EAC-B34CA546A58B}|AuthenticationServer.Data\\AuthenticationServer.Data.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.data\\repositories\\users\\appuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,64 +54,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
-              "RelativeToolTip": "AuthenticationServer.Api\\Program.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAgwF8AAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-07T08:27:26.554Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAWwG8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T12:56:18.32Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "RelativeToolTip": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAAAFcAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:00:51.913Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RefreshTokenValidators.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
-              "RelativeToolTip": "AuthenticationServer.Services\\TokenGenerator\\TokenValidators\\RefreshTokenValidators.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAACMAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T15:46:42.933Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
@@ -142,15 +78,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InMemoryRefreshTokenRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "RelativeToolTip": "AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB4AAAAIAAAA",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
+              "RelativeDocumentMoniker": "AuthenticationServer.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
+              "RelativeToolTip": "AuthenticationServer.Api\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAWwBkAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T15:46:09.733Z",
+              "WhenOpened": "2024-04-07T08:27:26.554Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "AuthenticationServer.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAowF8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T12:56:18.32Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "RelativeToolTip": "AuthenticationServer.Services\\Service\\AuthenticationService.cs",
+              "ViewState": "AQIAAEgAAAAAAAAAAAD4v1cAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T13:00:51.913Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -163,51 +127,51 @@
               "RelativeToolTip": "AuthenticationServer.Services\\TokenGenerator\\AccessToken\\AccessTokenGenerator.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAtwBoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:04:04.216Z",
+              "WhenOpened": "2024-05-05T17:32:46.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InMemoryRefreshTokenRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
+              "RelativeDocumentMoniker": "AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
+              "RelativeToolTip": "AuthenticationServer.Data\\Repositories\\RefreshToken\\InMemoryRefreshTokenRepository.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAtwCQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T15:46:09.733Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AppUser.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\Entities\\AppUser.cs",
-              "RelativeDocumentMoniker": "AuthenticationServer.Models\\Entities\\AppUser.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\Entities\\AppUser.cs",
-              "RelativeToolTip": "AuthenticationServer.Models\\Entities\\AppUser.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAtwBMAAAAvAAAA",
+              "Title": "RefreshTokenGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\RefreshToken\\RefreshTokenGenerator.cs",
+              "RelativeDocumentMoniker": "AuthenticationServer.Services\\TokenGenerator\\RefreshToken\\RefreshTokenGenerator.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\TokenGenerator\\RefreshToken\\RefreshTokenGenerator.cs",
+              "RelativeToolTip": "AuthenticationServer.Services\\TokenGenerator\\RefreshToken\\RefreshTokenGenerator.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAtwBwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T11:51:19.991Z",
+              "WhenOpened": "2024-05-05T17:33:01.242Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "AuthenticationServer.Api\\appsettings.json",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
-              "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAACjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-02T15:44:23.19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "AppUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
               "RelativeToolTip": "AuthenticationServer.Data\\Repositories\\Users\\AppUserRepository.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAgwBoAAAAMAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAowBkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-30T06:29:17.3Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "IAuthenticationService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
@@ -215,12 +179,11 @@
               "RelativeToolTip": "AuthenticationServer.Services\\Service\\IAuthenticationService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:01:53.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T13:01:53.464Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "GlobalUsings.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.UnitTests\\GlobalUsings.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.UnitTests\\GlobalUsings.cs",
@@ -228,12 +191,11 @@
               "RelativeToolTip": "AuthenticationServer.UnitTests\\GlobalUsings.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:03:58.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T13:03:58.598Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\Properties\\launchSettings.json",
@@ -241,12 +203,11 @@
               "RelativeToolTip": "AuthenticationServer.Api\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-17T09:33:35.518Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-17T09:33:35.518Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "AuthenticationServer.Api.http",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\AuthenticationServer.Api.http",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\AuthenticationServer.Api.http",
@@ -254,8 +215,7 @@
               "RelativeToolTip": "AuthenticationServer.Api\\AuthenticationServer.Api.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-04-16T11:42:08.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T11:42:08.228Z"
             }
           ]
         }
