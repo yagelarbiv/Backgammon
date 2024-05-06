@@ -33,13 +33,30 @@
 .game-container-right {
     background-color: rgba(0, 0, 0, 0.5);
     color: beige;
-    padding: 25rem;
+    padding: 19rem;
     border-radius: 10px;
-    width:75%; /* Match the sidebar width or adjust as needed */
-    height: 60%; /* Match the sidebar height or adjust as needed */
+    width:75vw; /* Match the sidebar width or adjust as needed */
+    height: 60vh; /* Match the sidebar height or adjust as needed */
     position: absolute; /* Positions the element absolutely within its nearest positioned ancestor */
     top: 51.8%;
     left: 20rem;/* Align it with the left edge of the parent container */
     transform: translateY(-45%); /* Adjust vertically to center on top of the sidebar */
     z-index: 2; /* Ensures it overlays on top of the sidebar */
+}
+.notification{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: beige;
+    border-radius: 10px;
+    z-index: 3;
+    margin: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 30%;
+    height: 10%;
+    transform: translateX(50%);
+    transform: translateY(50%);
+    animation: fadeOut 2s ease-in-out forwards;
+    animation-delay: 3s;
 }

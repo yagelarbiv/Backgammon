@@ -61,17 +61,13 @@ export function socketEmit(eventName, data, to) {
   io.to(to).emit(eventName, data);
 }
 
-function someUserCheckFunction(username) {
-  return true;
-}
-
-
 const userToSocketIdMap = {};
 
 io.on("connection", (socket) => {
   console.log("New user connected");
 
   socket.on("set_name", (name) => {
+    console.log('name: ',name);
     userToSocketIdMap[name] = socket.id;
     socket.emit("welcome", `${name}, you are connected for gaming.`);
   });
@@ -84,13 +80,14 @@ io.on("connection", (socket) => {
     }
   });
   socket.on("game-start", (from, to) => {
-    console.log(`Game start requested from ${from} to ${to}`);
+    console.log('list: ',userToSocketIdMap);
+    console.log('users: ', from, to);
     if (!to || !from) {
       socket.emit('error', { error: "Missing username" });
       return;
     }
     const toSocketId = userToSocketIdMap[to];
-    console.log(toSocketId);
+    console.log('socketId', toSocketId);
     if (toSocketId) {
       console.log(`Game invite sent from ${from} to ${to}`);
       io.to(toSocketId).emit("game-invite", from);
@@ -98,7 +95,6 @@ io.on("connection", (socket) => {
         socket.emit('error', { error: "User not found" });
     }
   });
-
   socket.on("disconnect", () => {
     const userName = Object.keys(userToSocketIdMap).find(name => userToSocketIdMap[name] === socket.id);
     if (userName) {

@@ -7,7 +7,6 @@ import ChatWindow from "./ChatWindow";
 import useUserStore from "../../stores/userStore";
 import useConversetionStore from "../../stores/conversetionStore";
 import useAllUsersStore from "../../stores/allUsersStore";
-// import { fetchMessages } from "../../services/chatService";
 import { unreadMessages } from "../../services/chatService";
 import { notificationChatSound } from "../Notification";
 import {
@@ -179,7 +178,6 @@ function ChatApp() {
           addMessageToConversation={addMessageToConversation}
           setCurrentMessage={setCurrentMessage}
           handleSendMessage={handleSendMessage}
-          //currentConversation={currentConversation}
         />
       </div>
     </>

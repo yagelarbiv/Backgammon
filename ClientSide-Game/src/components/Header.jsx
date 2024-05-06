@@ -54,7 +54,8 @@ function NavBar() {
                   <>
                     <a className="nav-item nav-link" id="home" onClick={() => navigate("/")}>Home</a>
                     <a className="nav-item nav-link" id="logout" onClick={() => navigate("/logout")}>Logout</a>
-                    <a className="nav-item nav-link" id="logout" onClick={() => navigate("/chat")}>chat</a>
+                    <a className="nav-item nav-link" id="chat" onClick={() => navigate("/chat")}>chat</a>
+                    <a className="nav-item nav-link" id="game" onClick={() => navigate("/game")}>game</a>
                   </>
                 ) : (
                   <>

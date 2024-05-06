@@ -5,14 +5,12 @@ import Notification from "./Notification";
 import useUserStore from "../stores/userStore";
 import useAuthStore from "../stores/authStore";
 import useConversationStore from "../stores/conversetionStore";
-import useAllUsersStore from "../stores/allUsersStore";
 
 function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,deleteChat }) {
     const [socket, setSocket] = useState(null);
     const [OpenGameInvitedModal, setOpenGameInvitedModal] = useState(false);
     const [otherUser, setOtherUser] = useState(null);
     const { hasUnreadMessages, sethasUnreadMessages } = useConversationStore();
-    const { allUsers, setAllUsers } = useAllUsersStore();
     const toggleUnread = () => {
         if (hasUnreadMessages ) {
             sethasUnreadMessages(!hasUnreadMessages);
@@ -20,7 +18,6 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,
     }
     const user = useUserStore((state) => state.user);
     const accessToken = useAuthStore((state) => state.accessToken);
-    const deleteConversation = useConversationStore((state) => state.deleteConversation);
 
     const sortedItems = useMemo(() => {
         const onlineUsers = items.filter(user => user.online);
