@@ -16,6 +16,7 @@ import {
   addMessageToConversation,
   deleteChat,
 } from "../../services/apiService";
+import { updateConversation } from "../../utils/UpdateConversation";
 
 function ChatApp() {
   const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
@@ -23,7 +24,7 @@ function ChatApp() {
 
   const { hasUnreadMessages, sethasUnreadMessages } = useConversetionStore();
   const [ currentConversationId, setCurrentConversationId ] = useState();
-
+  const [ currentConversation, setCurrentConversation ] = useState();
   const [ messages, setMessages] = useState([]);
   const [ conversations, setConversations] = useState([]);
   const [ socket, setSocket] = useState(null);
@@ -33,6 +34,7 @@ function ChatApp() {
 
   useEffect(() => {
     const fetchConversations = async () => {
+      if (!user ) return;
       try {
         const allConversations = await fetchConversationsWithUser(user.userName);
         setConversations(allConversations);
@@ -43,7 +45,21 @@ function ChatApp() {
     };
 
     fetchConversations();
-  }, [user.userName]);
+  }, [name, currentConversation]);
+
+  useEffect(() => {
+    const findCurrentConversation = async () => {
+      if (currentConversationId) {
+        conversations.map((conversation) => {
+          if (conversation._id === currentConversationId) {
+            setCurrentConversation(conversation);
+          }
+        });
+      }
+    }
+
+    findCurrentConversation();
+  }, [currentConversationId]);
   useEffect(() => {
     const newSocket = io(chatUrl, { withCredentials: true });
     setSocket(newSocket);
@@ -54,10 +70,12 @@ function ChatApp() {
     return () => newSocket && newSocket.close();
   }, []);
 
+  
   useEffect(() => {
     const fetchMessages = async () => {
       if (currentConversationId) {
         const messages = await getMessagesByConversation(currentConversationId);
+        console.log("fetch messages", messages);
         setMessages(messages);
       } else {
         setCurrentConversationId([]);
@@ -73,9 +91,27 @@ function ChatApp() {
     setName(user.userName);
     socket.emit("set_name", user.userName);
 
-    const messageHandler = (message) => {
-      setMessages((prevMessages) => [...prevMessages, message]);
+    const messageHandler = async (message) => {
+      console.log("received message in messege handelr", message);
+
+      if (message.conversationId !== currentConversationId) return
+
+      setMessages((prevMessages) =>  [...prevMessages, message]);
+      // await addMessageToConversation(message.conversationId, message.text, message.senderName,message.senderName)     
+      // .then(() => setCurrentMessage(""))
+      // .catch(error => console.error('Error sending message:', error));
     };
+
+    const deleteConversationHandler = async (conversationId) => {
+      updateConversation('delete', { conversationId }, setConversations);
+    }
+
+    const addConversationHandler = (newConversation) => {
+      updateConversation('add', newConversation, setConversations);
+    }
+
+    socket.on('delete-conversation', deleteConversationHandler);
+    socket.on("add-conversation", addConversationHandler);
 
     socket.on("conversation_created", (newConversation) => {
       setConversations((prevConversations) => [
@@ -87,6 +123,8 @@ function ChatApp() {
     socket.on("message", messageHandler);
 
     return () => {
+      socket.off("delete-conversation", deleteConversationHandler);
+      socket.off("add-conversation", addConversationHandler);
       socket.off("message", messageHandler);
       socket.off("conversation_created");
     };
@@ -96,24 +134,28 @@ function ChatApp() {
     user,
     addMessageToConversation,
     addConversation,
+    setConversations,
+
   ]);
 
-  const handleSendMessage = () => {
-    if (socket && currentMessage.trim() !== "") {
-      const messageData = {
-        senderName: user.userName,
-        text: currentMessage,
-        conversationId: currentConversationId,
-      };
-      socket.emit("message", messageData);
-      setCurrentMessage("");
-    }
+const handleSendMessage = async () => {
+  if (!socket || currentMessage.trim() === "") return;
+
+  const messageData = {
+    senderName: user.userName,
+    recipientName: currentConversation.members.find(m => m !== user.userName),
+    text: currentMessage,
+    conversationId: currentConversationId,
   };
+  
+  socket.emit("message", messageData);
+  setCurrentMessage("")
+};
 
   const isConversationSelected = async (conversation) => {
-    if (user) {
+    if (user && currentConversationId) {
       try {
-        const messages = await unreadMessages(user.userName);
+        const messages = await unreadMessages(name);
         for (const message of messages) {
           if (
             messages.length === 0 ||
@@ -121,8 +163,8 @@ function ChatApp() {
             messages === null
           ) {
             return currentConversationId === conversation._id;
-          } else {
-            notificationChatSound();
+          } else { 
+            //Here sound effect
             await socket.emit("mark-message-as-read", message._id);
             if (message.conversationId === currentConversationId) {
               return currentConversationId === conversation._id;
@@ -145,9 +187,8 @@ function ChatApp() {
 
   const onListClick = async (user) => {
     if (!user) return;
-    console.log("conversations", conversations);
+
     const conversation = await addConversation([user.name,name]);
-    console.log("conversation id", conversation._id);
     if (conversation) {
       setCurrentConversationId(conversation._id);
     }
@@ -168,6 +209,7 @@ function ChatApp() {
             list={allUsers}
             onListClick={onListClick}
             deleteChat={deleteChat}
+            setConversations={setConversations}
           />
         </aside>
         <ChatWindow
@@ -178,6 +220,7 @@ function ChatApp() {
           addMessageToConversation={addMessageToConversation}
           setCurrentMessage={setCurrentMessage}
           handleSendMessage={handleSendMessage}
+          currentConversation={currentConversation}
         />
       </div>
     </>

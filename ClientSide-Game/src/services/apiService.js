@@ -43,10 +43,11 @@ export const addConversation = async (users) => {
     }
   };
 
+
 export const addMessageToConversation = async (conversationId, message, senderName, receiverName) => {
   try {
-    await axios.post(`${API_BASE_URL}/add-message-to-conversation`, { 
-      params: { conversationId, message, senderName, receiverName } 
+    await axios.post(`${API_BASE_URL}/add-message-to-conversation`, {
+      conversationId, message, senderName, receiverName
     });
   } catch (error) {
     console.error('Failed to add message:', error);

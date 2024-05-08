@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "electron-packager": "^17.1.2"
+  },
+  "name": "backgammon-desktop",
+  "version": "1.0.0",
+  "main": "public/index.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@electron/packager": "^18.3.2",
+    "electron": "^30.0.2"
+  }
+}

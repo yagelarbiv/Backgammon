@@ -6,7 +6,7 @@ import useUserStore from "../stores/userStore";
 import useAuthStore from "../stores/authStore";
 import useConversationStore from "../stores/conversetionStore";
 
-function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,deleteChat }) {
+function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,deleteChat, setConversations }) {
     const [socket, setSocket] = useState(null);
     const [OpenGameInvitedModal, setOpenGameInvitedModal] = useState(false);
     const [otherUser, setOtherUser] = useState(null);
@@ -36,7 +36,11 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,
 
     const handleDelete = (itemToDelete, event) => {
         event.stopPropagation();
-        deleteChat(itemToDelete._id);
+        deleteChat(itemToDelete._id)
+        .then(() => {
+            setConversations(prevConversations => prevConversations.filter(conversation => conversation._id !== itemToDelete._id));
+        })
+        .catch(error => console.error('Error deleting chat:', error));
     };
 
     const sendGameInviting = async (otherUser, e) => {
@@ -104,7 +108,8 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,
                         <button className="chat-button" onClick={() => handleClick(item)}>
                             {type === 'conversations' && item.members && item.members.length > 1 && (
                                 <>
-                                    <span>{item.members[0]}</span>
+                                    <span>{item.members[0] === user.userName ? item.members[1] : item.members[0]}</span>
+
                                     <button data-bs-dismiss="chat-button" onClick={(e) => sendGameInviting(item.members[1], e)}>Request Game</button>
                                     <button className="" onClick={(e) => handleDelete(item, e)}>
                                         <i className="bi bi-person-x-fill"></i>

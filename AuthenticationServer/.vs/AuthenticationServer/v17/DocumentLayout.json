@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\",
+  "WorkspaceRootPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\user\\desktop\\studies\\programming\\projects\\backgammon\\backgammon\\authenticationserver\\authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|c:\\users\\david\\desktop\\programming\\finalproject\\projectwithelectron\\backgammon\\authenticationserver\\authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{100F15FE-A28E-4B87-9A3B-4E829FA78ED3}|AuthenticationServer.Api\\AuthenticationServer.Api.csproj|solutionrelative:authenticationserver.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\Program.cs",
               "RelativeToolTip": "AuthenticationServer.Api\\Program.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAgwF8AAAAoAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAUwBEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-07T08:27:26.554Z",
               "IsPinned": true,
@@ -36,33 +36,17 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{1a46fd64-28d5-434c-8eb3-17a02d419b53}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
               "RelativeDocumentMoniker": "AuthenticationServer.Api\\appsettings.json",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json*",
-              "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAACjAAAA",
+              "ToolTip": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Api\\appsettings.json",
+              "RelativeToolTip": "AuthenticationServer.Api\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAACWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-05-02T15:44:23.19Z",
               "EditorCaption": ""

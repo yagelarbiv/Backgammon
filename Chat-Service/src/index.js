@@ -7,6 +7,7 @@ import 'dotenv/config';
 import insertMessage from './messageOperators.js';
 import Message from './Message.js'
 import Conversation from "./conversation.js";
+import internal from "stream";
 
 const app = express();
 const router = express.Router();
@@ -48,23 +49,17 @@ const userToSocketIdMap = {};
 io.on("connection", (socket) => {
   console.log("New user connected");
 
-  // Handle client setting their name
   socket.on("set_name", (name) => {
     socket.clientName = name;
-    userToSocketIdMap[name] = socket.id; // Corrected variable name here
-    socket.emit(
-      "message",
-      `${socket.clientName} Connected`
-    );
+    userToSocketIdMap[name] = socket.id; 
   });
 
   socket.on('new_conversation', (data) => {
     const { conversation, otherUserId } = data;
-    
-    if (conversation.users && conversation.users.length === 2) {
-      const user1 = { userName: conversation.users[1].name };
-      const user2 = { name: conversation.users[0].userName };
-      conversation.users = [user1, user2];
+    if (conversation.members && conversation.members.length === 2) {
+      const user1 = { userName: conversation.members[1] };
+      const user2 = { name: conversation.members[0] };
+      conversation.members = [user1, user2];
     }
     
     const otherUserSocketId = userToSocketIdMap[otherUserId];
@@ -85,28 +80,27 @@ io.on("connection", (socket) => {
         readStatus: false,
         conversationId: conversationId
       });
-  
+      
       const savedMessage = await newMessage.save();
       console.log('Message saved:', savedMessage);
   
-      // Emit the message to the sender
-      const senderSocketId = userToSocketIdMap[senderName];
-      if (senderSocketId) {
-        io.to(senderSocketId).emit("message", { senderName, text, conversationId });
+      // Emit message to the recipient
+      const recipientSocketId = userToSocketIdMap[recipientName];
+      if (recipientSocketId) {
+        io.to(recipientSocketId).emit("message", { senderName, text, conversationId,recipientName });
       }
   
-      // Emit the message to the recipient if different from the sender
-      if (recipientName !== senderName) {
-        const recipientSocketId = userToSocketIdMap[recipientName];
-        if (recipientSocketId) {
-          io.to(recipientSocketId).emit("message", { senderName, text, conversationId});
-        }
+      // Also emit back to sender to confirm message was sent
+      const senderSocketId = userToSocketIdMap[senderName];
+      if (senderSocketId && senderName !== recipientName) {
+        io.to(senderSocketId).emit("message", { senderName, text, conversationId,recipientName, fromSelf: true });
       }
+  
     } catch (error) {
       console.error("Error saving message to database:", error);
       // Optionally emit an error message back to the sender
-      if (userToSocketIdMap[senderName]) {
-        io.to(userToSocketIdMap[senderName]).emit("error", "Failed to save message.");
+      if (senderSocketId) {
+        io.to(senderSocketId).emit("error", "Failed to save message.");
       }
     }
   });
@@ -134,7 +128,7 @@ io.on("connection", (socket) => {
   app.get('/api/messages', async (req, res) => {
     const { receiverName, readStatus } = req.query;
   
-    let query = { receiverName: receiverName };
+    let query = { receiverName: receiverName, readStatus: readStatus };
     if (readStatus !== undefined) {
       query.readStatus = readStatus === 'true'; 
     }
@@ -151,10 +145,15 @@ io.on("connection", (socket) => {
 
   app.get('/api/messages/:conversationId', async (req, res) => {
     const { conversationId } = req.params;
-    const query = { _id: conversationId };
+    const query = { conversationId: conversationId };
+  
     try {
-      const messages = await Conversation.find(query);
-      res.json(messages);
+      const messages = await Message.find(query); 
+      if (messages.length === 0) {
+        res.status(404).json({ message: "No messages found for this conversation." });
+      } else {
+        res.json(messages);
+      }
     } catch (error) {
       console.error("Failed to fetch messages", error);
       res.status(500).send("Failed to fetch messages");
@@ -167,11 +166,14 @@ io.on("connection", (socket) => {
     try {
         await Message.deleteMany({ conversationId: conversationId });
         await Conversation.deleteOne({ _id: conversationId });
+
+        io.emit('delete-conversation', conversationId);
       res.sendStatus(200);
     } catch (error) {
       res.status(500).send("Failed to delete conversation");
     }
   })
+
   app.get('/api/get-conversations-with-user/:username', async (req, res) => { //Todo check if its working with more then one conversation 
     const { username } = req.params;
     try {
@@ -184,8 +186,18 @@ io.on("connection", (socket) => {
 
   app.post('/api/add-conversation', async (req, res) => {
     const { users } = req.body;
+    const receiverSocketId = userToSocketIdMap[users[0]];
+    const senderSocketId = userToSocketIdMap[users[1]];
+    console.log(users[0], receiverSocketId, users[1], senderSocketId);
+     
+
     try {
       const newConversation = await Conversation.create({ members: users });
+
+      if (!receiverSocketId || !senderSocketId) return;
+      io.to(receiverSocketId).emit('add-conversation', newConversation);
+      io.to(senderSocketId).emit('add-conversation', newConversation);
+    
       res.status(201).json(newConversation);  
     } catch (error) {
       console.error('Error creating conversation:', error);
@@ -193,33 +205,28 @@ io.on("connection", (socket) => {
     }
   });
   app.post('/api/add-message-to-conversation', async (req, res) => {
-    const { conversationId, message, senderName, receiverName } = req.query;
+    const { conversationId, message, senderName, receiverName } = req.body; 
     try {
-      await Message.create({conversationId: conversationId, messageText: message , senderName: senderName, receiverName: receiverName});
+      await Message.create({
+        conversationId: conversationId,
+        messageText: message,
+        senderName: senderName,
+        receiverName: receiverName,
+        readStatus: false, 
+        timestamp: new Date() 
+      });
       res.sendStatus(200);
     } catch (error) {
+      console.error('Failed to add message:', error);
       res.status(500).send("Failed to add message");
     }
-  })
+  });
 
   // Handle addition of items
   socket.on("addItems", (data) => {
     console.log("Items received:", data);
     socket.emit("addItem", { item: data, author: socket.id });
   });
-
-  // // Handle manual disconnection
-  // socket.on("manual_disconnect", () => {
-  //   if (socket.clientName) {
-  //     socket.broadcast.emit(
-  //       "message-broadcast",
-  //       `${socket.clientName} manually disconnected.`
-  //     );
-  //   }
-  //   socket.disconnect();
-  // });
-
-  // Handle automatic disconnection
 
   socket.on("disconnect", () => {
     // Remove the mapping when the user disconnects

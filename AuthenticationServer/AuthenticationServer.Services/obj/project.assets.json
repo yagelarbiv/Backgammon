@@ -2553,24 +2553,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\David\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj",
+      "projectUniqueName": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj",
       "projectName": "AuthenticationServer.Services",
-      "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\obj\\",
+      "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\AuthenticationServer.Services.csproj",
+      "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Services\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2584,11 +2579,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
-              "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
+            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj": {
+              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Data\\AuthenticationServer.Data.csproj"
             },
-            "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
-              "projectPath": "C:\\Users\\User\\Desktop\\Studies\\Programming\\Projects\\backgammon\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
+            "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj": {
+              "projectPath": "C:\\Users\\David\\Desktop\\Programming\\FinalProject\\ProjectWithElectron\\Backgammon\\AuthenticationServer\\AuthenticationServer.Models\\AuthenticationServer.Models.csproj"
             }
           }
         }
