@@ -206,3 +206,12 @@ Thumbs.db
 
 # Vite specific
 .vite/
+
+# Electron-specific
+/electron-output/
+*.asar
+*.log
+
+# Electron Packager
+/electron-packager/
+/electron-dist/
