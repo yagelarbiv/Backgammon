@@ -7,8 +7,9 @@ function NavBar() {
     const user = useUserStore(state => state.user);
     const [isOpen, setIsOpen] = useState(false);
 
+    // Function to handle navigation and also close the navbar
     const handleNavigation = (path) => {
-        setIsOpen(false);  
+        setIsOpen(false);  // This will close the navbar on click
         navigate(path);
     }
 
@@ -38,6 +39,13 @@ function NavBar() {
                             </>
                         )}
                     </div>
+                    {user && (
+                        <div className="ml-auto d-none d-lg-block">
+                            <span className="navbar-text">
+                               <i class="bi bi-person-circle"></i> Logged in as {user.userName}
+                            </span>
+                        </div>
+                    )}
                 </div>
             </nav>
         </>
