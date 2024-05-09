@@ -71,12 +71,12 @@ io.on("connection", (socket) => {
     userToSocketIdMap[name] = socket.id;
     socket.emit("welcome", `${name}, you are connected for gaming.`);
   });
-  socket.on('new_game', (otherUser, User) => {
-    const otherUserSocketId = userToSocketIdMap[otherUser];
+  socket.on('new_game', (User, otherUser) => {
+    const otherUserSocketId = userToSocketIdMap[User];
   
     if (otherUserSocketId) {
       console.log(`Game created ${otherUserSocketId}`);
-      io.to(otherUserSocketId).emit('game_created', User);
+      io.to(otherUserSocketId).emit('game_created', otherUser);
     }
   });
   socket.on("game-start", (from, to) => {

@@ -24,9 +24,9 @@ function Game() {
         return () => newSocket.disconnect();
     }, []);
 
-    const sendGameInviting = async (selectedUser) => {
-        console.log("Invited user:", selectedUser);
-        setSelectedUser(selectedUser.name);
+    const sendGameInviting = async (selected) => {
+        console.log("Invited user:", selected.name);
+        setSelectedUser(selected.name);
         console.log(user.userName);
         if (socket) {
             socket.emit("game-start", user.userName, selectedUser.name);
@@ -44,11 +44,10 @@ function Game() {
                 console.log("Game invite:", selectedUser);
                 setOpenGameInvitedModal(true);
             });
-            socket.on('game_created', (newGame) => {
-                console.log("Game created:", newGame);
-                console.log(selectedUser);
+            socket.on('game_created', (User) => {
+                console.log("Game created:", User);
                 window.open(
-                    `http://localhost:5174/game/${user.userName}&${selectedUser}?token=${accessToken}`
+                    `http://localhost:5174/game/${user.userName}&${User}?token=${accessToken}`
                 );
             });
             socket.on("cancel-invite", () => {
@@ -73,7 +72,7 @@ function Game() {
         window.open(
             `http://localhost:5174/game/${user.userName}&${selectedUser}?token=${accessToken}`
         );
-        socket.emit("new_game", selectedUser);
+        socket.emit("new_game", selectedUser,user.userName);
         setOpenGameInvitedModal(false);
     };
 

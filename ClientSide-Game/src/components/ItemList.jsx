@@ -43,10 +43,10 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,
         .catch(error => console.error('Error deleting chat:', error));
     };
 
-    const sendGameInviting = async (otherUser, e) => {
-        console.log("Invited user:", otherUser);
-        e.stopPropagation();
-        setOtherUser(otherUser);
+    const sendGameInviting = async (selected) => {
+        console.log("Invited user:", selected);
+        setOtherUser(selected);
+        console.log(user.userName);
         if (socket) {
             socket.emit("game-start", user.userName, otherUser);
         }
@@ -58,15 +58,15 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,
             console.log("Connected to server");
         });
         socket.emit("set_name", user.userName);
-            socket.on("game-invite", (otherUser) => {
-                setOtherUser(otherUser);
+            socket.on("game-invite", (other) => {
+                setOtherUser(other);
+                console.log("Game invite:", other);
                 setOpenGameInvitedModal(true);
             });
-            socket.on('game_created', (newGame) => {
-                console.log("Game created:", newGame);
-                // newGame._gameOn = true;
+            socket.on('game_created', (User) => {
+                console.log("Game created:", User);
                 window.open(
-                    `http://localhost:5174/game/${user.userName}&${otherUser}?token=${accessToken}`
+                    `http://localhost:5174/game/${user.userName}&${User}?token=${accessToken}`
                 );
             });
             socket.on("cancel-invite", () => {
@@ -92,17 +92,15 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,
         window.open(
             `http://localhost:5174/game/${user.userName}&${otherUser}?token=${accessToken}`
         );
-        socket.emit("new_game", otherUser, `http://localhost:5174/game/&${otherUser}${user.userName}?token=${accessToken}`);
+        socket.emit("new_game", otherUser,user.userName);
         setOpenGameInvitedModal(false);
-    };
-
+    }
     return (
         <>
             <h2 className="chats-header">{type}</h2>
             {type === 'conversations' && <Modal list={list} onListClick={onListClick} />}
             {OpenGameInvitedModal && <Notification otherUser={otherUser} onClose={closeGameInvited} onAccept={handleAcceptGame} />}
             {sortedItems.length > 0 ? (
-                
                 sortedItems.map((item, index) => (
                     <div onClick={toggleUnread} className={`chat-item ${isItemSelected(item) ? 'active' : ''}`} key={item.id || index}>
                         <button className="chat-button" onClick={() => handleClick(item)}>
