@@ -422,7 +422,6 @@ packages/
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
 
 # Visual Studio
