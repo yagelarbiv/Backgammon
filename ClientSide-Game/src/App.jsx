@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <Router>
-      <Header/>
+      <Header />
       <Routes>
         {routes.map((route, index) => (
           <Route key={index} path={route.path} element={route.element} />

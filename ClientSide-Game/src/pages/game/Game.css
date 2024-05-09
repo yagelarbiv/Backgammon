@@ -60,3 +60,17 @@
     animation: fadeOut 2s ease-in-out forwards;
     animation-delay: 3s;
 }
+
+button{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: beige;
+    border-radius: 30px;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: fadeOut 2s ease-in-out forwards;
+    animation-delay: 3s;
+}

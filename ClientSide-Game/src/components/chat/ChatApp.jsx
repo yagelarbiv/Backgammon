@@ -92,14 +92,8 @@ function ChatApp() {
     socket.emit("set_name", user.userName);
 
     const messageHandler = async (message) => {
-      console.log("received message in messege handelr", message);
-
       if (message.conversationId !== currentConversationId) return
-
       setMessages((prevMessages) =>  [...prevMessages, message]);
-      // await addMessageToConversation(message.conversationId, message.text, message.senderName,message.senderName)     
-      // .then(() => setCurrentMessage(""))
-      // .catch(error => console.error('Error sending message:', error));
     };
 
     const deleteConversationHandler = async (conversationId) => {
@@ -109,6 +103,7 @@ function ChatApp() {
     const addConversationHandler = (newConversation) => {
       updateConversation('add', newConversation, setConversations);
     }
+
 
     socket.on('delete-conversation', deleteConversationHandler);
     socket.on("add-conversation", addConversationHandler);
@@ -135,7 +130,6 @@ function ChatApp() {
     addMessageToConversation,
     addConversation,
     setConversations,
-
   ]);
 
 const handleSendMessage = async () => {
@@ -153,7 +147,8 @@ const handleSendMessage = async () => {
 };
 
   const isConversationSelected = async (conversation) => {
-    if (user && currentConversationId) {
+    
+    if (user ) {
       try {
         const messages = await unreadMessages(name);
         for (const message of messages) {
@@ -164,7 +159,7 @@ const handleSendMessage = async () => {
           ) {
             return currentConversationId === conversation._id;
           } else { 
-            //Here sound effect
+            // await new Audio(notificationChatSound).play();
             await socket.emit("mark-message-as-read", message._id);
             if (message.conversationId === currentConversationId) {
               return currentConversationId === conversation._id;
@@ -212,7 +207,7 @@ const handleSendMessage = async () => {
             setConversations={setConversations}
           />
         </aside>
-        <ChatWindow
+        <ChatWindow 
           messages={messages || []}
           currentMessage={currentMessage}
           CurrentConversationId={currentConversationId}

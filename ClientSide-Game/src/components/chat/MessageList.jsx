@@ -12,6 +12,7 @@ function MessageList({ messages,currentConversation }) {
 
 
     return (
+        <>
         <div className="message-list">
             {messages.map((msg, index) => (
                 <ChatMessage 
@@ -19,9 +20,11 @@ function MessageList({ messages,currentConversation }) {
                 message={msg} 
                 isLastMessage={index === messages.length - 1}
                 /> 
-            ))}
+            ))} 
             <div ref={messagesEndRef} />
-        </div>
+        </div> 
+        {messages.length === 0 && <div className="no-messages"></div>}
+        </>
     );
 }
 

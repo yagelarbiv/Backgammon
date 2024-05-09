@@ -9,13 +9,6 @@ export const updateConversation = (operation, data, setConversations) => {
             setConversations(prevConversations => 
                 prevConversations.filter(conversation => conversation._id !== data.conversationId));
             break;
-        case 'modify':
-            // Modify an existing conversation
-            setConversations(prevConversations =>
-                prevConversations.map(conversation =>
-                    conversation._id === data.conversationId ? { ...conversation, ...data.updates } : conversation
-                ));
-            break;
         default:
             // Handle unknown operation
             console.error("Unknown operation:", operation);

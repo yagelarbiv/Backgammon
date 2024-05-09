@@ -84,13 +84,12 @@ io.on("connection", (socket) => {
       const savedMessage = await newMessage.save();
       console.log('Message saved:', savedMessage);
   
-      // Emit message to the recipient
+
       const recipientSocketId = userToSocketIdMap[recipientName];
       if (recipientSocketId) {
         io.to(recipientSocketId).emit("message", { senderName, text, conversationId,recipientName });
       }
-  
-      // Also emit back to sender to confirm message was sent
+
       const senderSocketId = userToSocketIdMap[senderName];
       if (senderSocketId && senderName !== recipientName) {
         io.to(senderSocketId).emit("message", { senderName, text, conversationId,recipientName, fromSelf: true });
@@ -100,7 +99,8 @@ io.on("connection", (socket) => {
       console.error("Error saving message to database:", error);
       // Optionally emit an error message back to the sender
       if (senderSocketId) {
-        io.to(senderSocketId).emit("error", "Failed to save message.");
+        //io.to(senderSocketId).emit("error", "Failed to save message.");
+        return
       }
     }
   });
@@ -117,7 +117,7 @@ io.on("connection", (socket) => {
       // const message = await Message.findById(messageId);
       // if (message && userToSocketIdMap[message.senderName]) {
       //   io.to(userToSocketIdMap[message.senderName]).emit("message-read", messageId);
-       //}
+      //  }
     } catch (error) {
       console.error("Error updating message read status:", error);
       socket.emit("error", "Failed to update message read status.");
@@ -194,7 +194,12 @@ io.on("connection", (socket) => {
     try {
       const newConversation = await Conversation.create({ members: users });
 
-      if (!receiverSocketId || !senderSocketId) return;
+      if (!receiverSocketId){
+        io.to(senderSocketId).emit('add-conversation', newConversation);
+        return res.status(201).json(newConversation);
+      }
+       if (!receiverSocketId || !senderSocketId) return;
+
       io.to(receiverSocketId).emit('add-conversation', newConversation);
       io.to(senderSocketId).emit('add-conversation', newConversation);
     
@@ -220,6 +225,17 @@ io.on("connection", (socket) => {
       console.error('Failed to add message:', error);
       res.status(500).send("Failed to add message");
     }
+  });
+
+
+  app.post('/api/unread-messages', async (req, res) => {
+    const { user } = req.query;
+
+    const receiverSocketId = userToSocketIdMap[user];
+  
+    socket.emit('message-read', conversation);
+   
+    //on work.
   });
 
   // Handle addition of items

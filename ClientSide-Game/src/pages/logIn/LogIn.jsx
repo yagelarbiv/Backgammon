@@ -52,7 +52,7 @@ return (
             <label className="password-label" htmlFor="password">Password</label>
             <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
           <br />
-            <button disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
+            <button className="login-button" disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
           </form>
         </div>
       </div>
