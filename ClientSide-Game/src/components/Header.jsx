@@ -40,9 +40,9 @@ function NavBar() {
                         )}
                     </div>
                     {user && (
-                        <div className="ml-auto d-none d-lg-block">
+                        <div className="ml-auto d-none d-lg-block" style={{ marginLeft: 'auto' }}>
                             <span className="navbar-text">
-                               <i class="bi bi-person-circle"></i> Logged in as {user.userName}
+                               <i className="bi bi-person-circle"></i> Logged in as {user.userName}
                             </span>
                         </div>
                     )}

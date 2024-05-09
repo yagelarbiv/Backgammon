@@ -5,9 +5,9 @@ services:
   auth-service:
     build: ./AuthenticationServer   
     environment:
-      - DB_CONNECTION_STRING=Server=db;Database=MyDatabase;User Id=sa;Password=Password123!
+      - DB_CONNECTION_STRING="Data Source=DESKTOP-KGPO5UJ;Initial Catalog=AuthenticationServer;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     ports:
-      - "6001:6001"
+      - "6001:80"
     depends_on:
       - db
 

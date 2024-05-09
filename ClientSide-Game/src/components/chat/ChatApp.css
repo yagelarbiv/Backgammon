@@ -184,7 +184,7 @@
 
 .no-messages{
     background: url('../../assets/images/select-conversation.webp') no-repeat;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: #0f0f23;
     background-position: center;
 
     width: 100%;
