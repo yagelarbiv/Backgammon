@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+
+  auth-service:
+    build: ./AuthenticationServer   
+    environment:
+      - DB_CONNECTION_STRING=Server=db;Database=MyDatabase;User Id=sa;Password=Password123!
+    ports:
+      - "6001:6001"
+    depends_on:
+      - db
+
+  game-service:
+    build: ./Backgammon-GameService
+     
+    ports:
+      - "3003:3003"
+
+  chat-service:
+    build: ./Chat-Service
+  
+    environment:
+      - SECRET_JWT=4y7XS2AHicSOs2uUJCxwlHWqTJNExW3UDUjMeXi96uLEso1YV4RazqQubpFBdx0zZGtdxBelKURhh0WXxPR0mEJQHk_0U9HeYtqcMManhoP3X2Ge8jgxh6k4C_Gd4UPTc6lkx0Ca5eRE16ciFQ6wmYDnaXC8NbngGqartHccAxE
+      - MONGO_URI=mongodb://mongo:27017/chatApp
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+
+  users-online-service:
+    build: ./UsersOnline-Service
+
+    environment:
+      - SECRET_JWT=4y7XS2AHicSOs2uUJCxwlHWqTJNExW3UDUjMeXi96uLEso1YV4RazqQubpFBdx0zZGtdxBelKURhh0WXxPR0mEJQHk_0U9HeYtqcMManhoP3X2Ge8jgxh6k4C_Gd4UPTc6lkx0Ca5eRE16ciFQ6wmYDnaXC8NbngGqartHccAxE
+      - PORT=5777
+    ports:
+      - "5777:5777"
+    depends_on:
+      - auth-service
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - SA_PASSWORD=Password123!
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"

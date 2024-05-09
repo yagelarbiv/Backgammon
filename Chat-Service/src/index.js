@@ -10,7 +10,6 @@ import Conversation from "./conversation.js";
 import internal from "stream";
 
 const app = express();
-const router = express.Router();
 connectDB();
 app.use(cors({
   origin: "http://localhost:5173",
@@ -33,11 +32,11 @@ const io = new Server(server, {
 });
 
 app.get('/fetch-unread-messages', async (req, res) => {
-  const { userId } = req.query; // Assume user ID is passed as a query parameter
+  const { userId } = req.query; 
   try {
     const unreadMessages = await Message.find({ receiverName: userId, readStatus: false }).exec();
     res.json(unreadMessages);
-    // Optionally, set messages to read
+   
     await Message.updateMany({ receiverName: userId, readStatus: false }, { $set: { readStatus: true } });
   } catch (error) {
     console.error("Failed to fetch messages", error);
@@ -113,18 +112,13 @@ io.on("connection", (socket) => {
       );
       console.log('Message read status updated:', result);
   
-      // Optionally notify the sender that the message was read
-      // const message = await Message.findById(messageId);
-      // if (message && userToSocketIdMap[message.senderName]) {
-      //   io.to(userToSocketIdMap[message.senderName]).emit("message-read", messageId);
-      //  }
+   
     } catch (error) {
       console.error("Error updating message read status:", error);
       socket.emit("error", "Failed to update message read status.");
     }
   });
 
-  // To get my messages from the back to the react app
   app.get('/api/messages', async (req, res) => {
     const { receiverName, readStatus } = req.query;
   
@@ -174,7 +168,7 @@ io.on("connection", (socket) => {
     }
   })
 
-  app.get('/api/get-conversations-with-user/:username', async (req, res) => { //Todo check if its working with more then one conversation 
+  app.get('/api/get-conversations-with-user/:username', async (req, res) => { 
     const { username } = req.params;
     try {
       const messages = await Conversation.find({ members: { $in: [username] } });
@@ -228,28 +222,17 @@ io.on("connection", (socket) => {
   });
 
 
-  app.post('/api/unread-messages', async (req, res) => {
-    const { user } = req.query;
-
-    const receiverSocketId = userToSocketIdMap[user];
-  
-    socket.emit('message-read', conversation);
-   
-    //on work.
-  });
-
-  // Handle addition of items
   socket.on("addItems", (data) => {
     console.log("Items received:", data);
     socket.emit("addItem", { item: data, author: socket.id });
   });
 
   socket.on("disconnect", () => {
-    // Remove the mapping when the user disconnects
     const userName = Object.keys(userToSocketIdMap).find(name => userToSocketIdMap[name] === socket.id);
     if (userName) {
       delete userToSocketIdMap[userName];
     }
+
   });
 });
 
