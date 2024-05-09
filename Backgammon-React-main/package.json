@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "public/main-backgammon-react.cjs",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

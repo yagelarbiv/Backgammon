@@ -54,7 +54,7 @@ input:focus {
     background-color: #1e1e52; /* Darker blue when focused */
 }
 
-button {
+.login-button {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -64,11 +64,11 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.login-button:hover {
     background: linear-gradient(145deg, #0083b0, #00b4db);
 }
 
-button:disabled {
+.login-button:disabled {
     background: #3a3a55;
     cursor: not-allowed;
 }

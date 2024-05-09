@@ -1,27 +1,30 @@
 import ChatMessage from './ChatMessage';
 import { useRef, useEffect} from 'react';
 
-function MessageList({ messages , currentConversation }) {
+function MessageList({ messages,currentConversation }) {
     const messagesEndRef = useRef(null);
 
-    const currentConversationMessages = currentConversation?.messages || [];
+
     useEffect(() => {
+        if (!currentConversation) return;
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, [messages]);
+    }, [messages,currentConversation]);
+
 
     return (
+        <>
         <div className="message-list">
-            {currentConversationMessages.map((msg, index) => (
+            {messages.map((msg, index) => (
                 <ChatMessage 
-                key={msg.id}
+                key={index}
                 message={msg} 
-                isLastMessage={index === currentConversationMessages.length - 1}
-                user1 = {currentConversation.users[1].name}
-                user2 = {currentConversation.users[0].userName}
+                isLastMessage={index === messages.length - 1}
                 /> 
-            ))}
+            ))} 
             <div ref={messagesEndRef} />
-        </div>
+        </div> 
+        {messages.length === 0 && <div className="no-messages"></div>}
+        </>
     );
 }
 

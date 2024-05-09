@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import useUserStore from "../../stores/userStore";
 import useAuthStore from "../../stores/authStore";
 import './login.css' ;
+import { LogingIn } from "../../api/requests/auth";
 
 
 
 const LogIn = () => {
-  const authUrl = import.meta.env.VITE_APP_AUTH_URL;
   const [userName, setName] = useState("");
   const [password, setPassword] = useState("");
   const setuser = useUserStore(state => state.setuser);
@@ -16,19 +16,17 @@ const LogIn = () => {
   const setRefreshToken = useAuthStore(state => state.setRefreshToken);
 
   const navigate = useNavigate();
-
-  async function submit(e) {
+async function submit(e) {
     e.preventDefault();
     try {
       axios.defaults.withCredentials = true;
-      const response = await axios.post(authUrl + "/login", {
-        Headers: {
-          withCredentials: true // Only set this if you need to send credentials
-        },
-        UserName: userName,
-        Password: password,
-      });
+      const response = await LogingIn(userName, password);
       console.log(response);
+      if (response == false) {
+        return(
+          alert("Wrong username or password")
+        )
+      }
       const accessToken = response.data.accessToken;
       const refreshToken = response.data.refreshToken;
       console.log("accessToken:", accessToken);
@@ -43,7 +41,7 @@ const LogIn = () => {
     }
 
   }
-    return (
+return (
       <>
       <div className="login-body">
         <div className="login-page">
@@ -54,7 +52,7 @@ const LogIn = () => {
             <label className="password-label" htmlFor="password">Password</label>
             <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
           <br />
-            <button disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
+            <button className="login-button" disabled={!password || !userName } type="submit" onClick={submit}>Log In</button>
           </form>
         </div>
       </div>

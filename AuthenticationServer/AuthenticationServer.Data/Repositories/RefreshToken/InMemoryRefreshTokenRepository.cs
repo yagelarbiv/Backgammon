@@ -26,8 +26,13 @@ namespace AuthenticationServer.Data.Repositories.RefreshToken
         {
             if (user == null)
                 throw new EntityNotFoundException("user not found");
-            context.Update<AppUser>(user);
-            await context.SaveChangesAsync();
+
+            var existingUser = await context.AppUsers.SingleOrDefaultAsync(u => u.UserName == user.UserName);
+            if (existingUser != null)
+            {
+                context.Entry(existingUser).State = EntityState.Modified;
+                await context.SaveChangesAsync();
+            }
         }
     }
 }

@@ -1,8 +1,11 @@
+import React from 'react'
+import useUserStore from '../stores/userStore'
 
 function Modal({list,onListClick}) {
+  const user = useUserStore((state) => state.user);
   return (
     <>
-    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="bi bi-menu-up"></i> </button>
+    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i className="bi bi-menu-up"></i> </button>
     <div className="modal fade" style={{color: "black"}} id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog">
         <div className="modal-content">
@@ -11,8 +14,10 @@ function Modal({list,onListClick}) {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-                {list.map((item,index) => (
-                    <p style={{cursor:"pointer"}} key={index} onClick={() => onListClick(item)} data-bs-dismiss="modal">{item.name} </p>
+                {list.filter(item => item.name !== user.userName).map((item, index) => (
+                    <p style={{cursor:"pointer"}} key={index} onClick={() => onListClick(item)} data-bs-dismiss="modal">
+                      {item.name} 
+                    </p>
                 ))}
             </div>
             <div className="modal-footer">

@@ -5,10 +5,8 @@ import Notification from "./Notification";
 import useUserStore from "../stores/userStore";
 import useAuthStore from "../stores/authStore";
 import useConversationStore from "../stores/conversetionStore";
-import iconoffline from "../assets/images/icon-offline.png";
-import icononline from "../assets/images/icon-online.png";
 
-function ChatList({ type, items, isItemSelected, handleClick, onListClick, list }) {
+function ChatList({ type, items, isItemSelected, handleClick, onListClick, list,deleteChat, setConversations }) {
     const [socket, setSocket] = useState(null);
     const [OpenGameInvitedModal, setOpenGameInvitedModal] = useState(false);
     const [otherUser, setOtherUser] = useState(null);
@@ -20,14 +18,12 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
     }
     const user = useUserStore((state) => state.user);
     const accessToken = useAuthStore((state) => state.accessToken);
-    const deleteConversation = useConversationStore((state) => state.deleteConversation);
 
     const sortedItems = useMemo(() => {
         const onlineUsers = items.filter(user => user.online);
         const offlineUsers = items.filter(user => !user.online);
         return [...onlineUsers, ...offlineUsers];
     }, [items]);
-
 
     useEffect(() => {
         const newSocket = socketio('http://localhost:3003', {
@@ -40,13 +36,17 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
 
     const handleDelete = (itemToDelete, event) => {
         event.stopPropagation();
-        deleteConversation(itemToDelete.id);
+        deleteChat(itemToDelete._id)
+        .then(() => {
+            setConversations(prevConversations => prevConversations.filter(conversation => conversation._id !== itemToDelete._id));
+        })
+        .catch(error => console.error('Error deleting chat:', error));
     };
 
-    const sendGameInviting = async (otherUser, e) => {
-        console.log("Invited user:", otherUser);
-        e.stopPropagation();
-        setOtherUser(otherUser);
+    const sendGameInviting = async (selected) => {
+        console.log("Invited user:", selected);
+        setOtherUser(selected);
+        console.log(user.userName);
         if (socket) {
             socket.emit("game-start", user.userName, otherUser);
         }
@@ -58,15 +58,15 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
             console.log("Connected to server");
         });
         socket.emit("set_name", user.userName);
-            socket.on("game-invite", (otherUser) => {
-                setOtherUser(otherUser);
+            socket.on("game-invite", (other) => {
+                setOtherUser(other);
+                console.log("Game invite:", other);
                 setOpenGameInvitedModal(true);
             });
-            socket.on('game_created', (newGame) => {
-                console.log("Game created:", newGame);
-                // newGame._gameOn = true;
+            socket.on('game_created', (User) => {
+                console.log("Game created:", User);
                 window.open(
-                    `http://localhost:5174/game/${user.userName}&${otherUser}?token=${accessToken}`
+                    `http://localhost:5174/game/${user.userName}&${User}?token=${accessToken}`
                 );
             });
             socket.on("cancel-invite", () => {
@@ -92,10 +92,9 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
         window.open(
             `http://localhost:5174/game/${user.userName}&${otherUser}?token=${accessToken}`
         );
-        socket.emit("new_game", otherUser, `http://localhost:5174/game/&${otherUser}${user.userName}?token=${accessToken}`);
+        socket.emit("new_game", otherUser,user.userName);
         setOpenGameInvitedModal(false);
-    };
-
+    }
     return (
         <>
             <h2 className="chats-header">{type}</h2>
@@ -105,12 +104,15 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
                 sortedItems.map((item, index) => (
                     <div onClick={toggleUnread} className={`chat-item ${isItemSelected(item) ? 'active' : ''}`} key={item.id || index}>
                         <button className="chat-button" onClick={() => handleClick(item)}>
-                            {type === 'conversations' && item.users && item.users.length > 1 && (
+                            {type === 'conversations' && item.members && item.members.length > 1 && (
                                 <>
-                                    <span>{item.users[1].name}
-                                    <button data-bs-dismiss="chat-button" onClick={(e) => sendGameInviting(item.users[1].name, e)}>Request Game</button>
-                                    <button className="" onClick={(e) => handleDelete(item, e)}><i class="bi bi-person-x-fill"></i></button></span>
-                                    {hasUnreadMessages && <span className="unread-indicator"> </span>} 
+                                    <span>{item.members[0] === user.userName ? item.members[1] : item.members[0]}</span>
+
+                                    <button data-bs-dismiss="chat-button" onClick={(e) => sendGameInviting(item.members[1], e)}>Request Game</button>
+                                    <button className="" onClick={(e) => handleDelete(item, e)}>
+                                        <i className="bi bi-person-x-fill"></i>
+                                    </button>
+                                    {hasUnreadMessages && <span className="unread-indicator"></span>} 
                                 </>
                             )}
                             {type === 'users' && (
@@ -121,6 +123,13 @@ function ChatList({ type, items, isItemSelected, handleClick, onListClick, list 
                                     {/* <img src={item.online ? icononline : iconoffline} alt={item.name} /> */}
                                 </div>
                                 </>
+                            )}
+                            { type === 'game' && (
+                                <div className={`online-status`}>
+                                     {item.online ? <i className="bi bi-person-check"></i> : <i className="bi bi-person-dash"></i>}
+                                     {item.name}
+                                     {/* { <img src={item.online ? icononline : iconoffline} alt={item.name} /> } */}
+                                </div>
                             )}
                         </button>
                     </div>

@@ -6,20 +6,14 @@ function ChatHeader({ currentConversation }) {
   const [secondUserName, setSecondUserName] = useState("");
 
   useEffect(() => {
-    if (!currentConversation) {
-      return;
-    }
-    
-    const normalizedCurrentUserName = userName.toLowerCase();
-    const otherUser = currentConversation.users.find(u => {
-      const otherUserName = (u.userName || u.name)?.toLowerCase();
-      return otherUserName !== normalizedCurrentUserName;
-    });
-
-    if (otherUser) {
-      setSecondUserName(otherUser.userName || otherUser.name);
+    if (!currentConversation) return;
+    if (currentConversation && currentConversation.members.length >= 2) {
+      const otherUser = currentConversation.members.find(member =>
+        member.toLowerCase() !== userName.toLowerCase()
+      );
+      setSecondUserName(otherUser || "Unknown user"); 
     } else {
-      setSecondUserName(userName+"'s chat");
+      setSecondUserName(""); 
     }
   }, [currentConversation, userName]);
 
@@ -28,7 +22,7 @@ function ChatHeader({ currentConversation }) {
       {userName && secondUserName ? (
         `${userName}'s conversation with ${secondUserName}`
       ) : (
-        userName+"'s chat"
+        userName + "'s chat"
       )}
     </header>
   );

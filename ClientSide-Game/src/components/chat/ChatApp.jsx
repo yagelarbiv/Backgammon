@@ -7,33 +7,59 @@ import ChatWindow from "./ChatWindow";
 import useUserStore from "../../stores/userStore";
 import useConversetionStore from "../../stores/conversetionStore";
 import useAllUsersStore from "../../stores/allUsersStore";
-import { v4 as uuiv4 } from "uuid";
-import { fetchMessages } from '../../services/chatService'
-
+import { unreadMessages } from "../../services/chatService";
+import { notificationChatSound } from "../Notification";
+import {
+  getMessagesByConversation,
+  fetchConversationsWithUser,
+  addConversation,
+  addMessageToConversation,
+  deleteChat,
+} from "../../services/apiService";
+import { updateConversation } from "../../utils/UpdateConversation";
 
 function ChatApp() {
   const chatUrl = import.meta.env.VITE_APP_CHAT_URL;
-  
   const user = useUserStore((state) => state.user);
-  const allUsers = useAllUsersStore((state) => state.allUsers);
-  const allConversations = useConversetionStore((state) => state.conversetions);
-  const getConversationWithUser = useConversetionStore(
-    (state) => state.getConversationWithUser
-  );
-  const addConversation = useConversetionStore(
-    (state) => state.addConversation
-  );
-  const addMessageToConversation = useConversetionStore(
-    (state) => state.addMessageToConversation
-  );
+
   const { hasUnreadMessages, sethasUnreadMessages } = useConversetionStore();
-  const [currentConversationId, setCurrentConversationId] = useState();
+  const [ currentConversationId, setCurrentConversationId ] = useState();
+  const [ currentConversation, setCurrentConversation ] = useState();
+  const [ messages, setMessages] = useState([]);
+  const [ conversations, setConversations] = useState([]);
+  const [ socket, setSocket] = useState(null);
+  const [ name, setName] = useState("");
+  const [ currentMessage, setCurrentMessage] = useState("");
+  const allUsers = useAllUsersStore((state) => state.allUsers);
 
-  const [messages, setMessages] = useState([]);
-  const [socket, setSocket] = useState(null);
-  const [name, setName] = useState("");
-  const [currentMessage, setCurrentMessage] = useState("");
+  useEffect(() => {
+    const fetchConversations = async () => {
+      if (!user ) return;
+      try {
+        const allConversations = await fetchConversationsWithUser(user.userName);
+        setConversations(allConversations);
+      } catch (error) {
+        console.error('Failed to fetch conversations:', error);
+        setConversations([]); 
+      }
+    };
 
+    fetchConversations();
+  }, [name, currentConversation]);
+
+  useEffect(() => {
+    const findCurrentConversation = async () => {
+      if (currentConversationId) {
+        conversations.map((conversation) => {
+          if (conversation._id === currentConversationId) {
+            setCurrentConversation(conversation);
+          }
+        });
+      }
+    }
+
+    findCurrentConversation();
+  }, [currentConversationId]);
   useEffect(() => {
     const newSocket = io(chatUrl, { withCredentials: true });
     setSocket(newSocket);
@@ -44,106 +70,124 @@ function ChatApp() {
     return () => newSocket && newSocket.close();
   }, []);
 
+  
+  useEffect(() => {
+    const fetchMessages = async () => {
+      if (currentConversationId) {
+        const messages = await getMessagesByConversation(currentConversationId);
+        console.log("fetch messages", messages);
+        setMessages(messages);
+      } else {
+        setCurrentConversationId([]);
+      }
+    };
+    fetchMessages();
+  }, [currentConversationId]);
+
+
   useEffect(() => {
     if (!socket || !user) return;
 
     setName(user.userName);
     socket.emit("set_name", user.userName);
 
-    const messageHandler = (message) => {
-      addMessageToConversation(message.conversationId, message);
-    }
-    const messageBroadcastHandler = (msg) => {
-      setMessages((prevMessages) => [...prevMessages, msg]);
+    const messageHandler = async (message) => {
+      if (message.conversationId !== currentConversationId) return
+      setMessages((prevMessages) =>  [...prevMessages, message]);
     };
 
-    socket.on('conversation_created', (newConversation) => {
-      addConversation(newConversation);
+    const deleteConversationHandler = async (conversationId) => {
+      updateConversation('delete', { conversationId }, setConversations);
+    }
+
+    const addConversationHandler = (newConversation) => {
+      updateConversation('add', newConversation, setConversations);
+    }
+
+
+    socket.on('delete-conversation', deleteConversationHandler);
+    socket.on("add-conversation", addConversationHandler);
+
+    socket.on("conversation_created", (newConversation) => {
+      setConversations((prevConversations) => [
+        ...prevConversations,
+        newConversation,
+      ]);
     });
 
     socket.on("message", messageHandler);
-    socket.on("message-broadcast", messageBroadcastHandler);
 
     return () => {
+      socket.off("delete-conversation", deleteConversationHandler);
+      socket.off("add-conversation", addConversationHandler);
       socket.off("message", messageHandler);
-      socket.off("message-broadcast", messageBroadcastHandler);
-      socket.off('conversation_created');
-
+      socket.off("conversation_created");
     };
-  }, [socket, currentConversationId, user, addMessageToConversation,addConversation]);
+  }, [
+    socket,
+    currentConversationId,
+    user,
+    addMessageToConversation,
+    addConversation,
+    setConversations,
+  ]);
 
-  const currentConversation = useMemo(
-    () => allConversations.find((c) => c.id === currentConversationId),
-    [currentConversationId, allConversations]
-  );
+const handleSendMessage = async () => {
+  if (!socket || currentMessage.trim() === "") return;
 
-  const handleSendMessage = () => {
-    if (socket && currentMessage.trim() !== "") {
-      let recipientName = currentConversation.users.find(u => u.name !== user.name).name;
-      if (recipientName === name) {
-        currentConversation.users.map((u) => {
-          if (u.userName !== recipientName && u.userName !== undefined) {
-            recipientName = u.userName;
-          }
-      })}
-      const messageData = {
-        senderName: name,
-        recipientName: recipientName,
-        text: currentMessage,
-        conversationId: currentConversationId,
-      };
-      socket.emit("message", messageData);
-      setCurrentMessage("");
-    }
+  const messageData = {
+    senderName: user.userName,
+    recipientName: currentConversation.members.find(m => m !== user.userName),
+    text: currentMessage,
+    conversationId: currentConversationId,
   };
+  
+  socket.emit("message", messageData);
+  setCurrentMessage("")
+};
 
-  
-  
   const isConversationSelected = async (conversation) => {
-    if (user) {
+    
+    if (user ) {
       try {
-        const messages = await fetchMessages(user.userName); 
+        const messages = await unreadMessages(name);
         for (const message of messages) {
-          // console.log("The messages are:", message._id);
-          if(message.readStatus === false ) {
+          if (
+            messages.length === 0 ||
+            messages === undefined ||
+            messages === null
+          ) {
+            return currentConversationId === conversation._id;
+          } else { 
+            // await new Audio(notificationChatSound).play();
             await socket.emit("mark-message-as-read", message._id);
-            sethasUnreadMessages(true);
-            // if (message.conversationId === conversation.id ) {
-            //   console.log(message.conversationId+ "===" + conversation.id);
-            //   sethasUnreadMessages(false);
-            // }else{
-            //   sethasUnreadMessages(true);
-            // }
+            if (message.conversationId === currentConversationId) {
+              return currentConversationId === conversation._id;
+            } else {
+              sethasUnreadMessages(true);
+            }
           }
         }
       } catch (error) {
         console.error("Failed to fetch messages:", error);
       }
-      return currentConversationId === conversation.id;
+      return currentConversationId === conversation._id;
     }
   };
 
-const onListClick = (selectedUser) => {
-  let conversation = getConversationWithUser(selectedUser.name);
+  const updateMessages = async (conversationId) => {
+    const messages = await getMessagesByConversation(conversationId);
+    setMessages(messages);
+  };
 
-  if (!conversation) {
-    conversation = {
-      id: uuiv4(),
-      users: [user, selectedUser],
-      messages: [],
-    };
-  
-    addConversation(conversation);
-    setCurrentConversationId(conversation.id);
-  
-    socket.emit('new_conversation', { conversation, otherUserId: selectedUser.name });
+  const onListClick = async (user) => {
+    if (!user) return;
 
-  } else {
-    setCurrentConversationId(conversation.id);
-    console.log(conversation);
-  }
-
-};
+    const conversation = await addConversation([user.name,name]);
+    if (conversation) {
+      setCurrentConversationId(conversation._id);
+    }
+  };
   return (
     <>
       <div className="chat-app">
@@ -152,20 +196,22 @@ const onListClick = (selectedUser) => {
             sethasUnreadMessages={sethasUnreadMessages}
             hasUnreadMessages={hasUnreadMessages}
             type={"conversations"}
-            items={allConversations}
+            items={conversations}
             isItemSelected={isConversationSelected}
             handleClick={(conversation) =>
-              setCurrentConversationId(conversation.id)
+              setCurrentConversationId(conversation._id)
             }
             list={allUsers}
             onListClick={onListClick}
+            deleteChat={deleteChat}
+            setConversations={setConversations}
           />
         </aside>
-        <ChatWindow
-          messages={currentConversation?.messages || []}
+        <ChatWindow 
+          messages={messages || []}
           currentMessage={currentMessage}
           CurrentConversationId={currentConversationId}
-          allConversations={allConversations}
+          allConversations={conversations}
           addMessageToConversation={addMessageToConversation}
           setCurrentMessage={setCurrentMessage}
           handleSendMessage={handleSendMessage}
