@@ -17,6 +17,7 @@ appsettings.*.json
 *.azurePubxml.user
 .idea/
 .vs/
+.BackGammon-Desktop/BackGammon-Desktop-win32-x64/BackGammon-Desktop.exe/
 
 # Express
 node_modules/
