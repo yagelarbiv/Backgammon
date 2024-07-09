@@ -42,8 +42,6 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || "An unknown error occurred!" });
 });
 
-let sockets = [];
-let users = [];
 const socketServer = http.createServer(app);
 export const io = new Server(socketServer, {
   cors: {
