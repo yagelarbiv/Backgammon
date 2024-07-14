@@ -4,7 +4,7 @@ import http from "http";
 import { Server } from "socket.io";
 import connectDB from './config/db.js';
 import 'dotenv/config';
-import insertMessage from './messageOperators.js';
+import insertMessage from './utils/messageOperators.js';
 import Message from './Message.js'
 import Conversation from "./conversation.js";
 import internal from "stream";
