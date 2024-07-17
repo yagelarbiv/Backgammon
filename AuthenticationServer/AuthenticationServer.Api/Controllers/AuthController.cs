@@ -16,7 +16,7 @@ namespace AuthenticationServer.Api.Controllers
     [ApiController]
     [EnableCors("AllowSpecificOrigin")]
     public class AuthController(IAuthenticationService service,
-        RefreshTokenValidators validators) : ControllerBase
+        IRefreshTokenValidators validators) : ControllerBase
     {
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
@@ -32,18 +32,18 @@ namespace AuthenticationServer.Api.Controllers
                 var tokens = await service.Register(request.UserName, request.Password);
 
 
-                Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
-                {
-                    HttpOnly = true,
-                    Expires = DateTime.UtcNow.AddHours(1) 
-                });
+                //Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
+                //{
+                //    HttpOnly = true,
+                //    Expires = DateTime.UtcNow.AddHours(1)
+                //});
 
-                // Set the refresh token in a cookie
-                Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
-                {
-                    HttpOnly = true,
-                    Expires = DateTime.UtcNow.AddDays(7) 
-                });
+                //// Set the refresh token in a cookie
+                //Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
+                //{
+                //    HttpOnly = true,
+                //    Expires = DateTime.UtcNow.AddDays(7)
+                //});
 
                 return Ok(new AuthenticatedUserResponse
                 {
@@ -67,17 +67,17 @@ namespace AuthenticationServer.Api.Controllers
             {
                 var tokens = await service.Login(request.UserName, request.Password);
 
-                Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
-                {
-                    HttpOnly = true,
-                    Expires = DateTime.UtcNow.AddHours(1) 
-                });
+                //Response.Cookies.Append("AccessToken", tokens[0], new CookieOptions
+                //{
+                //    HttpOnly = true,
+                //    Expires = DateTime.UtcNow.AddHours(1) 
+                //});
 
-                Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
-                {
-                    HttpOnly = true,
-                    Expires = DateTime.UtcNow.AddDays(7)
-                });
+                //Response.Cookies.Append("RefreshToken", tokens[1], new CookieOptions
+                //{
+                //    HttpOnly = true,
+                //    Expires = DateTime.UtcNow.AddDays(7)
+                //});
 
                 return Ok(new AuthenticatedUserResponse
                 {

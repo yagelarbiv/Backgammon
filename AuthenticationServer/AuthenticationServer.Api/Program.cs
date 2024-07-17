@@ -29,7 +29,7 @@ public class Program
         var authenticationConfiguratio = new AuthenticationConfiguration();
         builder.Configuration.Bind("Authentication", authenticationConfiguratio);
         builder.Services.AddSingleton(authenticationConfiguratio);
-        builder.Services.AddSingleton<RefreshTokenValidators>();
+        builder.Services.AddSingleton<IRefreshTokenValidators>();
 
         builder.Services.AddTransient<IAccessTokenGenerator, AccessTokenGenerator>();
         builder.Services.AddTransient<IRefreshTokenGenerator, RefreshTokenGenerator>();
