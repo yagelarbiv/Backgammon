@@ -8,7 +8,7 @@ import jwt from "jsonwebtoken";
 import "dotenv/config";
 
 const app = express();
-const PORT = 5777; 
+const PORT = 5888; 
 let allUsers = [];
 let AccessToken;
 
