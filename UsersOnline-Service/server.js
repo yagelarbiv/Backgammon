@@ -1,5 +1,5 @@
 import {express, cors, http, Server, dotenv, PORT, FRONTEND_URL,
-   corsOptions, setupSocketAuth, setupSocketHandlers, fetchAllUsers} from './import.js';
+  corsOptions, setupSocketAuth, setupSocketHandlers, fetchAllUsers} from './import.js';
 
 dotenv.config();
 
