@@ -32,7 +32,7 @@ export const LogingIn = async (userName, password) => {
       axios.defaults.withCredentials = true;
       const response = await axios.post(authUrl + "/login", {
         Headers: {
-          withCredentials: true // Only set this if you need to send credentials
+          withCredentials: true 
         },
         UserName: userName,
         Password: password,
